@@ -64,17 +64,30 @@
         <h1 class="rise" style="--i:1">Know <span class="mark">before</span> you are charged.</h1>
         <p class="lede rise" style="--i:2">RenewRadar keeps every subscription and free trial on one screen and taps you on the shoulder a few days before each charge.</p>
         <div class="cta rise" style="--i:3">
-          <span class="status"><i></i>Coming soon to Google Play</span>
+          <div class="avail">
+            <span class="beacon" aria-hidden="true"><i></i></span>
+            <div>
+              <p class="avail-label">Availability</p>
+              <p class="avail-main">Coming soon to Google Play</p>
+            </div>
+            <span class="avail-os">Android</span>
+          </div>
           <a class="text-link" href="privacy.html">Read the privacy policy</a>
         </div>
-        <aside class="reminder rise" style="--i:4" aria-label="Example reminder">
-          <span class="initial" aria-hidden="true">V</span>
-          <div>
-            <p class="r-meta">RenewRadar &middot; 9:00</p>
-            <p class="r-title">Video streaming renews tomorrow</p>
-            <p class="r-body">$15.99 will be charged on Oct 29.</p>
-          </div>
-        </aside>
+        <div class="notif rise" style="--i:4" role="group" aria-label="Example reminder">
+          <div class="n-back n-back-2" aria-hidden="true"></div>
+          <div class="n-back n-back-1" aria-hidden="true"></div>
+          <aside class="n-front">
+            <div class="n-top"><img src="icon.png" alt="" width="20" height="20"><span>RenewRadar</span><span class="n-when">9:00</span></div>
+            <div class="n-main">
+              <span class="n-av" aria-hidden="true">V</span>
+              <div>
+                <p class="n-title">Video streaming renews tomorrow</p>
+                <p class="n-body">$15.99 will be charged on Oct 29.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
 
       <figure class="radar rise" style="--i:2">
@@ -257,26 +270,37 @@
   </main>
 
   <footer class="foot">
-    <div class="wrap">
-      <a class="lockup" href="./" aria-label="RenewRadar by Pixel DevCode, home">
-        <img src="icon.png" alt="" width="52" height="52">
-        <span class="lockup-text">
-          <span class="lockup-name">RenewRadar</span>
-          <span class="lockup-by">by Pixel DevCode</span>
-        </span>
-      </a>
-      <p class="foot-tag">Know before you are charged.</p>
-      <nav class="foot-links" aria-label="Footer">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="lockup" href="./" aria-label="RenewRadar by Pixel DevCode, home">
+          <img src="icon.png" alt="" width="42" height="42">
+          <span class="lockup-text">
+            <span class="lockup-name">RenewRadar</span>
+            <span class="lockup-by">by Pixel DevCode</span>
+          </span>
+        </a>
+        <p>A private subscription and free-trial tracker for Android. Your list stays on your phone.</p>
+        <span class="foot-status"><i></i>Coming soon to Google Play</span>
+      </div>
+      <nav aria-label="Explore">
+        <p class="foot-h">Explore</p>
         <a href="#how">How it works</a>
         <a href="#private">Private by design</a>
         <a href="#pricing">Pricing</a>
-        <a href="privacy.html">Privacy policy</a>
-        <a href="mailto:renewradar@pixeldevcode.com">Contact</a>
       </nav>
+      <nav aria-label="Company">
+        <p class="foot-h">Company</p>
+        <a href="https://pixeldevcode.com">Pixel DevCode</a>
+        <a href="privacy.html">Privacy policy</a>
+      </nav>
+      <a class="foot-card" href="mailto:renewradar@pixeldevcode.com">
+        <span class="fc-label">Questions or feedback?</span>
+        <span class="fc-mail">renewradar@pixeldevcode.com</span>
+        <span class="fc-go">Send an email &rarr;</span>
+      </a>
     </div>
     <div class="wrap foot-base">
       <span class="copy">&copy; 2026 <a href="https://pixeldevcode.com">Pixel DevCode</a></span>
-      <span class="copy">renewradar@pixeldevcode.com</span>
       <span class="copy">RenewRadar for Android</span>
     </div>
   </footer>
