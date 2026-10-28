@@ -2,6 +2,5 @@ The fonts in this folder are free and open source, licensed under the SIL Open F
 
 Bricolage Grotesque (Mathieu Triay)
 Inter (Rasmus Andersson)
-IBM Plex Mono (IBM Corp.)
 
 License text: https://openfontlicense.org
