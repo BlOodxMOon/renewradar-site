@@ -1507,35 +1507,229 @@ section h2 {
 }
 
 /* Privacy policy page */
-.doc {
-  max-width: 760px;
-  padding-top: 56px;
-  padding-bottom: 24px;
+.doc-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 72px 0 60px;
+  border-bottom: 1px solid var(--rule);
+  background:
+    radial-gradient(560px 320px at 92% 0%, rgba(245, 178, 42, 0.22), transparent 70%),
+    linear-gradient(135deg, var(--hero-a), var(--hero-b));
 }
 
-.doc h1 {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  margin-bottom: 12px;
+.doc-hero::before {
+  content: '';
+  position: absolute;
+  right: -160px;
+  top: 50%;
+  z-index: -1;
+  width: 640px;
+  height: 640px;
+  margin-top: -320px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 56px, var(--rule) 56px 57px);
+  pointer-events: none;
 }
 
-.doc .meta {
+.doc-hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  margin: 0 0 14px;
+}
+
+.doc-hero .meta {
   font-family: var(--mono);
   font-size: 13px;
   color: var(--ink-2);
   margin: 0 0 30px;
 }
 
-.doc h2 {
+.doc-hero .note {
+  max-width: 760px;
+  padding: 20px 24px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--blip);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+
+.doc-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+  padding-top: 56px;
+  padding-bottom: 24px;
+}
+
+/* Contents: a sticky card with a numbered rail that fills as you read. */
+.toc {
+  position: sticky;
+  top: 96px;
+  padding: 24px 22px 18px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.toc-h {
+  margin: 0 0 4px;
   font-family: var(--display);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.015em;
+}
+
+.toc-sub {
+  margin: 0 0 18px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.4px;
+  color: var(--ink-2);
+}
+
+.toc ol {
+  --p: 0px;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+}
+
+.toc ol::before,
+.toc ol::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 16px;
+  width: 2px;
+  border-radius: 2px;
+}
+
+.toc ol::before {
+  bottom: 16px;
+  background: var(--rule-strong);
+  opacity: 0.55;
+}
+
+.toc ol::after {
+  height: var(--p);
+  max-height: calc(100% - 32px);
+  background: linear-gradient(180deg, var(--brand), var(--blip));
+  transition: height 0.35s ease;
+}
+
+.toc li {
+  position: relative;
+  counter-increment: toc;
+  padding-left: 40px;
+}
+
+.toc li::before {
+  content: counter(toc);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--rule-strong);
+  border-radius: 50%;
+  background: var(--card);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  line-height: 1;
+  color: var(--ink-2);
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.toc a {
+  display: block;
+  padding: 8px 0;
+  font-size: 14.5px;
+  line-height: 1.35;
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.toc li:hover::before {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.toc a:hover,
+.toc a:focus-visible {
+  color: var(--ink);
+}
+
+.toc li.is-active::before {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-ink);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 22%, transparent);
+}
+
+.toc li.is-active a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.doc {
+  max-width: 720px;
+}
+
+.doc section {
+  padding: 34px 0;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 92px;
+}
+
+.doc section:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.doc h2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.55rem;
   letter-spacing: -0.02em;
-  margin: 40px 0 10px;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.sn {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .doc p,
 .doc li {
   color: var(--ink-2);
+}
+
+.doc p {
+  margin: 0 0 14px;
 }
 
 .doc p strong,
@@ -1544,16 +1738,38 @@ section h2 {
 }
 
 .doc ul {
-  padding-left: 22px;
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
 }
 
 .doc li {
-  margin: 8px 0;
+  position: relative;
+  margin: 10px 0;
+  padding: 14px 18px 14px 44px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+}
+
+.doc li::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 23px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--brand);
 }
 
 .doc a {
   text-decoration-color: var(--rule-strong);
   text-underline-offset: 3px;
+}
+
+.doc a:hover {
+  text-decoration-color: var(--blip);
 }
 
 .doc code {
@@ -1564,13 +1780,52 @@ section h2 {
   border-radius: 5px;
 }
 
-.doc .note {
-  background: var(--paper-2);
-  border-left: 3px solid var(--blip);
-  border-radius: 0 10px 10px 0;
-  padding: 18px 22px;
-  margin: 0 0 8px;
-  color: var(--ink);
+@media (max-width: 900px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 36px;
+  }
+
+  .toc {
+    position: static;
+  }
+
+  .toc ol {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+  }
+
+  .toc ol::before,
+  .toc ol::after {
+    display: none;
+  }
+
+  .doc-hero {
+    padding: 48px 0 44px;
+  }
+}
+
+@media (max-width: 560px) {
+  .toc ol {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .doc h2 {
+    font-size: 1.35rem;
+  }
+
+  .doc li {
+    padding: 13px 14px 13px 38px;
+  }
+
+  .doc li::before {
+    left: 14px;
+    top: 22px;
+  }
 }
 
 /* Motion */
