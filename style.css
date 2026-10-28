@@ -33,19 +33,24 @@
 /* Light theme is the default. Dark follows the system unless the visitor picks a theme. */
 :root {
   color-scheme: light;
-  --paper: #fbf8f1;
-  --paper-2: #f1ece0;
+  --paper: #f7f6ff;
+  --paper-2: #ecebff;
   --card: #ffffff;
-  --ink: #17163a;
-  --ink-2: #55536f;
-  --rule: rgba(23, 22, 58, 0.12);
-  --rule-strong: rgba(23, 22, 58, 0.3);
-  --blip: #e07b0a;
-  --band: #17163a;
-  --band-ink: #f6f2e8;
-  --band-muted: #bcb9d4;
-  --grain: 0.05;
-  --shadow: 0 1px 2px rgba(23, 22, 58, 0.06), 0 18px 40px -24px rgba(23, 22, 58, 0.35);
+  --ink: #1b1860;
+  --ink-2: #57558f;
+  --rule: rgba(27, 24, 96, 0.12);
+  --rule-strong: rgba(27, 24, 96, 0.3);
+  --brand: #5546e0;
+  --brand-ink: #ffffff;
+  --blip: #f0a410;
+  --hero-a: #e9e7ff;
+  --hero-b: #d3cfff;
+  --band-a: #5a4be6;
+  --band-b: #2c2299;
+  --band-ink: #ffffff;
+  --band-muted: #d6d3ff;
+  --grain: 0.04;
+  --shadow: 0 1px 2px rgba(27, 24, 96, 0.06), 0 18px 40px -24px rgba(45, 34, 153, 0.4);
 
   --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
   --sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
@@ -54,36 +59,46 @@
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --paper: #0d0c20;
-  --paper-2: #181745;
-  --card: #15143a;
-  --ink: #f1ece0;
-  --ink-2: #b0adca;
-  --rule: rgba(241, 236, 224, 0.13);
-  --rule-strong: rgba(241, 236, 224, 0.34);
-  --blip: #f2a03a;
-  --band: #1b1a4a;
-  --band-ink: #f1ece0;
-  --band-muted: #b6b3d0;
-  --grain: 0.04;
+  --paper: #0c0a2e;
+  --paper-2: #17144f;
+  --card: #151264;
+  --ink: #f2f0ff;
+  --ink-2: #b9b6e6;
+  --rule: rgba(242, 240, 255, 0.14);
+  --rule-strong: rgba(242, 240, 255, 0.36);
+  --brand: #8f84ff;
+  --brand-ink: #14105a;
+  --blip: #f5b22a;
+  --hero-a: #241f8f;
+  --hero-b: #130f5e;
+  --band-a: #4a3cd6;
+  --band-b: #1c1573;
+  --band-ink: #ffffff;
+  --band-muted: #d0cdfc;
+  --grain: 0.03;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 18px 40px -24px rgba(0, 0, 0, 0.7);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
-    --paper: #0d0c20;
-    --paper-2: #181745;
-    --card: #15143a;
-    --ink: #f1ece0;
-    --ink-2: #b0adca;
-    --rule: rgba(241, 236, 224, 0.13);
-    --rule-strong: rgba(241, 236, 224, 0.34);
-    --blip: #f2a03a;
-    --band: #1b1a4a;
-    --band-ink: #f1ece0;
-    --band-muted: #b6b3d0;
-    --grain: 0.04;
+    --paper: #0c0a2e;
+    --paper-2: #17144f;
+    --card: #151264;
+    --ink: #f2f0ff;
+    --ink-2: #b9b6e6;
+    --rule: rgba(242, 240, 255, 0.14);
+    --rule-strong: rgba(242, 240, 255, 0.36);
+    --brand: #8f84ff;
+    --brand-ink: #14105a;
+    --blip: #f5b22a;
+    --hero-a: #241f8f;
+    --hero-b: #130f5e;
+    --band-a: #4a3cd6;
+    --band-b: #1c1573;
+    --band-ink: #ffffff;
+    --band-muted: #d0cdfc;
+    --grain: 0.03;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 18px 40px -24px rgba(0, 0, 0, 0.7);
   }
 }
@@ -285,12 +300,38 @@ img {
 
 /* Hero */
 .hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: 56px;
   align-items: center;
-  padding-top: 72px;
-  padding-bottom: 88px;
+  width: calc(100% - 32px);
+  max-width: 1176px;
+  margin: 28px auto 88px;
+  padding: 64px 52px;
+  border-radius: 36px;
+  overflow: hidden;
+  background:
+    radial-gradient(520px 340px at 92% 8%, rgba(245, 178, 42, 0.22), transparent 70%),
+    linear-gradient(135deg, var(--hero-a), var(--hero-b));
+  border: 1px solid var(--rule);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  left: -140px;
+  bottom: -220px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 46px, var(--rule) 46px 47px);
+  pointer-events: none;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .eyebrow {
@@ -342,12 +383,13 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--brand);
+  color: var(--brand-ink);
   font-weight: 600;
   font-size: 15px;
   padding: 14px 24px;
   border-radius: 999px;
+  box-shadow: 0 12px 24px -12px var(--brand);
 }
 
 .soon i {
@@ -595,7 +637,7 @@ section h2 {
   font-family: var(--mono);
   font-size: 13px;
   letter-spacing: 1px;
-  color: var(--blip);
+  color: var(--brand);
   font-weight: 500;
 }
 
@@ -645,7 +687,9 @@ section h2 {
 /* Privacy band */
 .band {
   position: relative;
-  background: var(--band);
+  background:
+    radial-gradient(640px 420px at 100% 0%, rgba(245, 178, 42, 0.2), transparent 70%),
+    linear-gradient(160deg, var(--band-a), var(--band-b));
   color: var(--band-ink);
   overflow: hidden;
   padding: 88px 0;
@@ -675,30 +719,74 @@ section h2 {
   color: var(--band-muted);
 }
 
+.band-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 56px;
+  align-items: center;
+}
+
 .band h2 {
   max-width: 14ch;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .nos {
   list-style: none;
-  margin: 0 0 40px;
+  margin: 0;
   padding: 0;
-  max-width: 620px;
+  display: grid;
+  gap: 14px;
 }
 
 .nos li {
-  font-family: var(--display);
-  font-weight: 650;
-  font-size: clamp(1.45rem, 3vw, 2.1rem);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  padding: 16px 0;
-  border-top: 1px solid rgba(243, 238, 227, 0.22);
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 22px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
-.nos li:last-child {
-  border-bottom: 1px solid rgba(243, 238, 227, 0.22);
+.nos .ico {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--blip);
+  color: #2a1c00;
+}
+
+.nos .ico svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nos strong {
+  display: block;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.nos span {
+  display: block;
+  color: var(--band-muted);
+  font-size: 15.5px;
+  line-height: 1.5;
 }
 
 .band p {
@@ -1012,7 +1100,14 @@ main,
   .hero {
     grid-template-columns: 1fr;
     gap: 44px;
-    padding-top: 44px;
+    padding: 40px 28px;
+    border-radius: 28px;
+    margin-bottom: 64px;
+  }
+
+  .band-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
   }
 
   .lede {
@@ -1074,6 +1169,10 @@ main,
 
   .lede {
     font-size: 18px;
+  }
+
+  .hero {
+    padding: 32px 18px;
   }
 
   .reminder {
