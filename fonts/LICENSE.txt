@@ -1,0 +1,7 @@
+The fonts in this folder are free and open source, licensed under the SIL Open Font License 1.1.
+
+Young Serif (Bastien Sozeau)
+Schibsted Grotesk (Schibsted Media Group and Bakken & Baeck)
+IBM Plex Mono (IBM Corp.)
+
+License text: https://openfontlicense.org
