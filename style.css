@@ -895,3 +895,14 @@ section h2 {
     font-size: 12.5px;
   }
 }
+
+.copy a {
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.copy a:hover,
+.copy a:focus-visible {
+  text-decoration-color: var(--blip);
+}
