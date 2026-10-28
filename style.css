@@ -906,3 +906,89 @@ section h2 {
 .copy a:focus-visible {
   text-decoration-color: var(--blip);
 }
+
+/* Background: slow sonar ripples and the odd blip. Decorative only, behind all content. */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.top,
+main,
+.foot {
+  position: relative;
+  z-index: 1;
+}
+
+.bg .ping {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 240vmax;
+  height: 240vmax;
+  margin: -120vmax -120vmax 0 0;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.02);
+  will-change: transform, opacity;
+  animation: ripple 18s linear infinite;
+  animation-delay: calc(var(--d) * 1s);
+}
+
+.bg .ping:nth-child(even) {
+  border-style: dashed;
+}
+
+.bg .blip {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: var(--blip);
+  opacity: 0;
+  animation: blip 12s ease-in-out infinite;
+  animation-delay: calc(var(--d) * 1s);
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.02);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.22;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes blip {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  10% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  28% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+}
+
+@media print {
+  .bg {
+    display: none;
+  }
+}
