@@ -409,11 +409,27 @@ img {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: 64px;
   align-items: center;
-  padding-top: 76px;
-  padding-bottom: 96px;
+  padding-top: 72px;
+  padding-bottom: 80px;
+}
+
+.hero .cta {
+  margin-bottom: 0;
+}
+
+.hero .radar {
+  width: 100%;
+  max-width: 520px;
+  justify-self: end;
+  padding: 26px 26px 22px;
+}
+
+.n-av-trial {
+  background: linear-gradient(145deg, #f7c04a, #e69a12);
+  color: #2a1c00;
 }
 
 .eyebrow {
@@ -552,6 +568,9 @@ h1 {
 .text-link:hover {
   text-decoration-color: var(--blip);
 }
+
+
+
 
 .notif {
   position: relative;
@@ -832,8 +851,35 @@ section h2 {
 }
 
 .how-head {
-  max-width: 640px;
-  margin-bottom: 56px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.how-head h2 {
+  max-width: 16ch;
+}
+
+.notif-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.notif-stack .notif {
+  position: relative;
+  width: 100%;
+  max-width: none;
+}
+
+.notif-stack .notif-left {
+  transform: translateX(-18px) rotate(-1deg);
+}
+
+.notif-stack .notif-right {
+  transform: translateX(18px) rotate(1deg);
 }
 
 .how-sub {
@@ -2024,6 +2070,28 @@ section h2 {
 }
 
 @media (max-width: 880px) {
+  .how-head {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-bottom: 44px;
+  }
+
+  .notif-stack {
+    max-width: 440px;
+  }
+
+  .notif-stack .notif-left,
+  .notif-stack .notif-right {
+    transform: none;
+  }
+
+  .hero .radar {
+    justify-self: stretch;
+    max-width: 520px;
+  }
+
+
+
   .hero {
     grid-template-columns: 1fr;
     gap: 44px;

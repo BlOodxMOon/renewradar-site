@@ -28,7 +28,7 @@
   <link rel="preload" href="fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
   <script>try{var t=localStorage.getItem("rr-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-  <link rel="stylesheet" href="style.css?v=b35a2463">
+  <link rel="stylesheet" href="style.css?v=fe1d2bb5">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -59,7 +59,7 @@
     <div class="banner">
       <div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <section class="hero wrap">
-      <div>
+      <div class="hero-copy">
         <p class="eyebrow rise" style="--i:0">Subscription and free-trial tracker for Android</p>
         <h1 class="rise" style="--i:1">Know <span class="mark">before</span> you are charged.</h1>
         <p class="lede rise" style="--i:2">RenewRadar keeps every subscription and free trial on one screen and taps you on the shoulder a few days before each charge.</p>
@@ -74,22 +74,7 @@
           </div>
           <a class="policy-link" href="privacy.html"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="pl-text"><b>Read the privacy policy</b><small>Your data stays on your phone</small></span><svg class="pl-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="notif rise" style="--i:4" role="group" aria-label="Example reminder">
-          <div class="n-back n-back-2" aria-hidden="true"></div>
-          <div class="n-back n-back-1" aria-hidden="true"></div>
-          <aside class="n-front">
-            <div class="n-top"><img src="icon.png" alt="" width="20" height="20"><span>RenewRadar</span><span class="n-when">9:00</span></div>
-            <div class="n-main">
-              <span class="n-av" aria-hidden="true">V</span>
-              <div>
-                <p class="n-title">Video streaming renews tomorrow</p>
-                <p class="n-body">$15.99 will be charged on Oct 29.</p>
-              </div>
-            </div>
-          </aside>
-        </div>
       </div>
-
       <figure class="radar rise" style="--i:2">
         <svg viewBox="0 0 440 440" role="img" aria-label="A radar diagram with five example subscriptions. The closer a subscription sits to the centre, the sooner it is charged.">
           <defs>
@@ -150,9 +135,41 @@
     <section id="how" class="how">
       <div class="wrap">
         <div class="how-head">
+          <div class="how-copy">
           <p class="kicker">How it works</p>
           <h2>Four small steps, then it watches for you.</h2>
           <p class="how-sub">Set it up once. RenewRadar does the remembering.</p>
+        </div>
+          <div class="notif-stack">
+            <div class="notif notif-left rise" style="--i:4" role="group" aria-label="Example reminder">
+          <div class="n-back n-back-2" aria-hidden="true"></div>
+          <div class="n-back n-back-1" aria-hidden="true"></div>
+          <aside class="n-front">
+            <div class="n-top"><img src="icon.png" alt="" width="20" height="20"><span>RenewRadar</span><span class="n-when">9:00</span></div>
+            <div class="n-main">
+              <span class="n-av" aria-hidden="true">V</span>
+              <div>
+                <p class="n-title">Video streaming renews tomorrow</p>
+                <p class="n-body">$15.99 will be charged on Oct 29.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+            <div class="notif notif-right rise" style="--i:5" role="group" aria-label="Example reminder">
+          <div class="n-back n-back-2" aria-hidden="true"></div>
+          <div class="n-back n-back-1" aria-hidden="true"></div>
+          <aside class="n-front">
+            <div class="n-top"><img src="icon.png" alt="" width="20" height="20"><span>RenewRadar</span><span class="n-when">9:00</span></div>
+            <div class="n-main">
+              <span class="n-av n-av-trial" aria-hidden="true">M</span>
+              <div>
+                <p class="n-title">Music free trial ends in 2 days</p>
+                <p class="n-body">You will be charged $9.99 on Oct 31 unless you cancel.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+          </div>
         </div>
         <ol class="stepper">
           <li>
