@@ -138,6 +138,7 @@ body {
   font-size: 17px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -1833,7 +1834,7 @@ section h2 {
 
 @media (max-width: 900px) {
   .doc-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px;
     padding-top: 36px;
   }
@@ -1860,7 +1861,7 @@ section h2 {
 
 @media (max-width: 560px) {
   .toc ol {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -2071,7 +2072,7 @@ section h2 {
 
 @media (max-width: 880px) {
   .how-head {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 36px;
     margin-bottom: 44px;
   }
@@ -2093,7 +2094,7 @@ section h2 {
 
 
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 44px;
     padding-top: 48px;
     padding-bottom: 64px;
@@ -2108,7 +2109,7 @@ section h2 {
   }
 
   .facts {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding-top: 64px;
   }
 
@@ -2125,7 +2126,7 @@ section h2 {
   }
 
   .band-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 36px;
   }
 
@@ -2134,7 +2135,7 @@ section h2 {
   }
 
   .plans {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .chip-soon {
@@ -2142,7 +2143,7 @@ section h2 {
   }
 
   .foot-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .foot-brand,
@@ -2152,8 +2153,24 @@ section h2 {
 }
 
 @media (max-width: 760px) {
+  .lockup {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .bar-end {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .menu {
+    grid-row: 2;
+    min-width: 0;
+  }
+
   .bar {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     min-height: 0;
     padding-top: 12px;
     gap: 0 12px;
@@ -2197,7 +2214,8 @@ section h2 {
   }
 
   .wrap {
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .lockup-name {
@@ -2225,7 +2243,7 @@ section h2 {
   }
 
   .stepper {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 36px;
   }
 
@@ -2238,6 +2256,22 @@ section h2 {
     padding: 28px 22px 30px;
   }
 
+}
+
+@media (max-width: 360px) {
+  .menu {
+    gap: 0;
+  }
+
+  .menu a {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+
+  .menu a::after {
+    left: 8px;
+    right: 8px;
+  }
 }
 
 @media print {
