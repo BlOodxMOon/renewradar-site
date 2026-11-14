@@ -1,6 +1,6 @@
 The fonts in this folder are free and open source, licensed under the SIL Open Font License 1.1.
 
-Bricolage Grotesque (Mathieu Triay)
-Inter (Rasmus Andersson)
+Unbounded (NaN)
+Instrument Sans (Rodrigo Fuenzalida, Jordan Egstad)
 
 License text: https://openfontlicense.org
