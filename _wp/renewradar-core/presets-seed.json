@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-28",
+  "items": [
+    { "id": "netflix", "name": "Netflix", "category": "streaming", "defaultCycle": "monthly", "color": "#E50914" },
+    { "id": "spotify", "name": "Spotify", "category": "music", "aliases": ["spotify premium"], "defaultCycle": "monthly", "trialDays": 30, "color": "#1DB954" },
+    { "id": "icloud", "name": "iCloud+", "category": "storage", "aliases": ["apple storage"], "defaultCycle": "monthly", "color": "#3693F3" },
+    { "id": "chatgpt", "name": "ChatGPT Plus", "category": "software", "aliases": ["openai"], "defaultCycle": "monthly", "color": "#10A37F" }
+  ]
+}
