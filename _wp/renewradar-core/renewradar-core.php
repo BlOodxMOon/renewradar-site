@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RenewRadar Core
  * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, and the first-run content import.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4
@@ -326,6 +326,30 @@ add_filter( 'page_link', function ( $link, $post_id ) {
 add_filter( 'wp_sitemaps_add_provider', function ( $provider, $name ) {
 	return 'users' === $name ? false : $provider;
 }, 10, 2 );
+
+// Do not expose WordPress usernames: the REST users list is for signed-in users only,
+// and feeds and embeds name the publisher instead of the account.
+add_filter( 'rest_endpoints', function ( $endpoints ) {
+	if ( is_user_logged_in() ) {
+		return $endpoints;
+	}
+	foreach ( array_keys( $endpoints ) as $route ) {
+		if ( 0 === strpos( $route, '/wp/v2/users' ) ) {
+			unset( $endpoints[ $route ] );
+		}
+	}
+	return $endpoints;
+} );
+
+add_filter( 'the_author', function ( $name ) {
+	return is_feed() ? 'Pixel DevCode' : $name;
+} );
+
+add_filter( 'oembed_response_data', function ( $data ) {
+	$data['author_name'] = 'Pixel DevCode';
+	$data['author_url']  = home_url( '/' );
+	return $data;
+} );
 
 /* ------------------------------------------------------------------ */
 /* First-run setup                                                     */
