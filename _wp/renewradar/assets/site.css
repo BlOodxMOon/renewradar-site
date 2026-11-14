@@ -1843,6 +1843,25 @@ html {
   }
 }
 
+/* Hero label on phones: badge on top, text underneath, no arrow. */
+@media (max-width: 640px) {
+  .eyebrow {
+    flex-direction: column;
+    gap: 8px;
+    max-width: 300px;
+    padding: 8px 18px 12px;
+    border-radius: 20px;
+    font-size: 13.5px;
+    line-height: 1.35;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .eyebrow svg {
+    display: none;
+  }
+}
+
 /* Responsive */
 
 @media (max-width: 1040px) {
