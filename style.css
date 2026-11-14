@@ -535,6 +535,19 @@ a.chip-soon,
   text-decoration: none;
 }
 
+.gp {
+  flex: none;
+  width: 15px;
+  height: 15px;
+}
+
+.beacon .gp {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin-left: 2px;
+}
+
 a.avail:hover .avail-main,
 a.chip-soon:hover,
 .foot-brand a.foot-status:hover {
