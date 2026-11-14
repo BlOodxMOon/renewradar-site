@@ -11,7 +11,7 @@ $rr_tick = function ( $b, $t ) {
 	return '<li><b>' . esc_html( $b ) . '</b> ' . esc_html( $t ) . '</li>';
 };
 ?>
-<section class="hero">
+<section class="hero" id="top">
 	<?php echo file_get_contents( get_template_directory() . '/inc/winter.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput,WordPress.WP.AlternativeFunctions -- static SVG shipped with the theme. ?>
 	<div class="wrap">
 		<a class="eyebrow rise" style="--i:0" href="<?php echo esc_url( RR_PLAY ); ?>"><span class="badge">Now on Google Play</span>Subscription and free trial tracker for Android<?php echo rr_icon( 'arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
@@ -43,7 +43,7 @@ $rr_tick = function ( $b, $t ) {
 	</div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt" id="features">
 	<div class="wrap">
 		<div class="split reveal">
 			<div>
@@ -81,7 +81,7 @@ $rr_tick = function ( $b, $t ) {
 	</div>
 </section>
 
-<section class="section">
+<section class="section" id="private">
 	<div class="wrap">
 		<div class="privacy reveal">
 			<div>
@@ -144,6 +144,22 @@ $rr_tick = function ( $b, $t ) {
 		<?php echo rr_faq_html( rr_home_faq() ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 	</div>
 </section>
+
+<nav class="dots" aria-label="Page sections">
+	<?php
+	$rr_dots = array(
+		'top'      => 'Top',
+		'how'      => 'How it works',
+		'features' => 'Features',
+		'private'  => 'Privacy',
+		'pricing'  => 'Pricing',
+		'faq'      => 'Questions',
+	);
+	foreach ( $rr_dots as $rr_dot_id => $rr_dot_label ) {
+		printf( '<a href="#%1$s" aria-label="%2$s"><span>%2$s</span></a>', esc_attr( $rr_dot_id ), esc_html( $rr_dot_label ) );
+	}
+	?>
+</nav>
 
 <?php
 echo rr_cta_band(); // phpcs:ignore WordPress.Security.EscapeOutput

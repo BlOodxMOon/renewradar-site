@@ -162,37 +162,46 @@
     });
   }
 
-  // Table of contents highlight
-  var tocLinks = [].slice.call(document.querySelectorAll('.toc a'));
-  if (tocLinks.length) {
-    var targets = tocLinks
-      .map(function (a) {
-        return document.getElementById(a.getAttribute('href').slice(1));
-      })
-      .filter(Boolean);
+  // Highlight the link for the section being read: the guide table of contents and the home page dots.
+  function highlight(selector, offset) {
+    var links = [].slice.call(document.querySelectorAll(selector));
+    if (!links.length) return;
+    var targets = links.map(function (a) {
+      return document.getElementById(a.getAttribute('href').slice(1));
+    });
     var ticking = false;
     var update = function () {
       ticking = false;
-      var active = -1;
+      var line = offset();
+      var active = 0;
       for (var i = 0; i < targets.length; i++) {
-        if (targets[i].getBoundingClientRect().top <= 140) active = i;
+        if (targets[i] && targets[i].getBoundingClientRect().top <= line) active = i;
       }
-      tocLinks.forEach(function (a, i) {
+      // At the very bottom, the last section is the one being read.
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) active = targets.length - 1;
+      links.forEach(function (a, i) {
         a.classList.toggle('on', i === active);
+        if (i === active) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
       });
     };
-    window.addEventListener(
-      'scroll',
-      function () {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(update);
-        }
-      },
-      { passive: true }
-    );
+    var onScroll = function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
     update();
   }
+
+  highlight('.toc a', function () {
+    return 140;
+  });
+  highlight('.dots a', function () {
+    return window.innerHeight * 0.45;
+  });
 
   paint();
 })();

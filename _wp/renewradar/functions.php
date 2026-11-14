@@ -49,6 +49,48 @@ function rr_default_mode() {
 }
 
 /* ------------------------------------------------------------------ */
+/* Cookieless analytics (Cloudflare Web Analytics)                     */
+/* ------------------------------------------------------------------ */
+
+// Token from Cloudflare (Web Analytics, manual JS snippet). The Customizer field overrides it.
+const RR_CF_TOKEN = '';
+
+add_action( 'customize_register', function ( $wp_customize ) {
+	$wp_customize->add_section( 'rr_analytics', array(
+		'title'    => 'Analytics',
+		'priority' => 31,
+	) );
+	$wp_customize->add_setting( 'rr_cf_token', array(
+		'default'           => '',
+		'sanitize_callback' => function ( $value ) {
+			return preg_replace( '/[^a-zA-Z0-9]/', '', (string) $value );
+		},
+	) );
+	$wp_customize->add_control( 'rr_cf_token', array(
+		'section'     => 'rr_analytics',
+		'label'       => 'Cloudflare Web Analytics token',
+		'description' => 'Cookieless page views. Leave empty to turn analytics off. Mention any change in the privacy policy.',
+		'type'        => 'text',
+	) );
+} );
+
+function rr_cf_token() {
+	$token = get_theme_mod( 'rr_cf_token', '' );
+	return $token ? $token : RR_CF_TOKEN;
+}
+
+add_action( 'wp_footer', function () {
+	$token = rr_cf_token();
+	if ( ! $token || is_user_logged_in() ) {
+		return; // Your own visits while logged in are not counted.
+	}
+	printf(
+		'<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'%s\'></script>' . "\n",
+		esc_attr( wp_json_encode( array( 'token' => $token ) ) )
+	);
+}, 99 );
+
+/* ------------------------------------------------------------------ */
 /* Assets                                                              */
 /* ------------------------------------------------------------------ */
 
@@ -159,8 +201,11 @@ add_action( 'wp_head', function () {
 	<meta name="twitter:title" content="<?php echo esc_attr( $title ); ?>">
 	<meta name="twitter:description" content="<?php echo esc_attr( $desc ); ?>">
 	<meta name="twitter:image" content="<?php echo esc_url( $image ); ?>">
-	<link rel="icon" href="<?php echo esc_url( rr_asset( 'img/icon.png' ) ); ?>">
-	<link rel="apple-touch-icon" href="<?php echo esc_url( rr_asset( 'img/icon.png' ) ); ?>">
+	<link rel="icon" href="<?php echo esc_url( home_url( '/favicon.ico' ) ); ?>" sizes="48x48">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( rr_asset( 'img/favicon-32.png' ) ); ?>">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url( rr_asset( 'img/favicon-16.png' ) ); ?>">
+	<link rel="icon" type="image/png" sizes="192x192" href="<?php echo esc_url( rr_asset( 'img/favicon-192.png' ) ); ?>">
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( rr_asset( 'img/apple-touch-icon.png' ) ); ?>">
 	<link rel="preload" href="<?php echo esc_url( rr_asset( 'fonts/plus-jakarta-sans.woff2' ) ); ?>" as="font" type="font/woff2" crossorigin>
 	<script>document.documentElement.className="js";try{var t=localStorage.getItem("rr-theme");}catch(e){}if(t!=="light"&&t!=="dark"&&t!=="festive")t=<?php echo wp_json_encode( 'system' === $mode ? '' : $mode ); ?>;if(t)document.documentElement.setAttribute("data-theme",t)</script>
 	<?php
