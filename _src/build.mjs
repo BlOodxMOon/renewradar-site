@@ -37,5 +37,5 @@ ${indexed.map((p) => `  <url><loc>${SITE}${p.path}</loc><lastmod>${p.updated}</l
 </urlset>
 `;
 writeFileSync(join(root, 'sitemap.xml'), sitemap);
-writeFileSync(join(root, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+writeFileSync(join(root, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /_src/\n\nSitemap: ${SITE}/sitemap.xml\n`);
 console.log(`sitemap: ${indexed.length} pages`);
