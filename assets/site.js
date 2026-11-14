@@ -112,7 +112,9 @@
 
     function tick() {
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+      ctx.strokeStyle = 'rgba(110, 150, 200, 0.45)';
+      ctx.lineWidth = 0.8;
       for (var i = 0; i < flakes.length; i++) {
         var f = flakes[i];
         f.y += f.s;
@@ -125,6 +127,7 @@
         ctx.beginPath();
         ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
         ctx.fill();
+        ctx.stroke();
       }
       raf = requestAnimationFrame(tick);
     }

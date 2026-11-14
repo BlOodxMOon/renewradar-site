@@ -1,6 +1,5 @@
 The fonts in this folder are free and open source, licensed under the SIL Open Font License 1.1.
 
-Unbounded (NaN)
-Instrument Sans (Rodrigo Fuenzalida, Jordan Egstad)
+Plus Jakarta Sans (Tokotype)
 
 License text: https://openfontlicense.org

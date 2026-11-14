@@ -4,6 +4,9 @@ export const SITE = 'https://renewradar.pixeldevcode.com';
 export const PLAY = 'https://play.google.com/store/apps/details?id=com.pixeldevcode.renewradar';
 export const EMAIL = 'renewradar@pixeldevcode.com';
 
+// Color mode for visitors who have not picked one: 'festive', 'light', 'dark', or '' to follow the system.
+const DEFAULT_MODE = 'festive';
+
 const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -219,8 +222,11 @@ export function layout(page, assets) {
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(page.description)}">
   ${page.noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
-  <meta name="theme-color" content="#f6f4ee" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0c0b1d" media="(prefers-color-scheme: dark)">
+${
+    DEFAULT_MODE === 'festive'
+      ? '  <meta name="theme-color" content="#13284b">'
+      : '  <meta name="theme-color" content="#f7f7fb" media="(prefers-color-scheme: light)">\n  <meta name="theme-color" content="#0d0c20" media="(prefers-color-scheme: dark)">'
+  }
   <meta property="og:type" content="${page.ogType || 'website'}">
   <meta property="og:site_name" content="RenewRadar">
   <meta property="og:locale" content="en_US">
@@ -237,9 +243,8 @@ export function layout(page, assets) {
   <meta name="twitter:image" content="${SITE}/og-banner.png">
   <link rel="icon" href="/assets/img/icon.png">
   <link rel="apple-touch-icon" href="/assets/img/icon.png">
-  <link rel="preload" href="/assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <script>document.documentElement.className="js";try{var t=localStorage.getItem("rr-theme");if(t==="light"||t==="dark"||t==="festive")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="preload" href="/assets/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <script>document.documentElement.className="js";try{var t=localStorage.getItem("rr-theme");}catch(e){}if(t!=="light"&&t!=="dark"&&t!=="festive")t="${DEFAULT_MODE}";if(t)document.documentElement.setAttribute("data-theme",t)</script>
   <link rel="stylesheet" href="/assets/site.css?v=${assets.css}">
 ${schema.map((s) => `  <script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n')}
 </head>
