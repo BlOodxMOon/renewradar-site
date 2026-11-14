@@ -527,6 +527,20 @@ h1 {
   user-select: none;
 }
 
+a.avail,
+a.chip-soon,
+.foot-brand a.foot-status {
+  cursor: pointer;
+  user-select: auto;
+  text-decoration: none;
+}
+
+a.avail:hover .avail-main,
+a.chip-soon:hover,
+.foot-brand a.foot-status:hover {
+  color: var(--brand);
+}
+
 .beacon {
   position: relative;
   flex: none;
