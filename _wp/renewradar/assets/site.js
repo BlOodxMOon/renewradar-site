@@ -204,4 +204,18 @@
   });
 
   paint();
+
+  // Preloader: shown once per visit, kept up briefly so the animation does not flash.
+  function loaded() {
+    var wait = Math.max(0, 700 - (window.performance ? performance.now() : 0));
+    setTimeout(function () {
+      root.classList.add('loaded');
+      try {
+        sessionStorage.setItem('rr-seen', '1');
+      } catch (e) {}
+    }, wait);
+  }
+
+  if (document.readyState === 'complete') loaded();
+  else window.addEventListener('load', loaded);
 })();

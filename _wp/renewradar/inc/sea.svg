@@ -1,0 +1,80 @@
+<svg class="sea" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="sea-beam" x1="0" x2="1" y1="0" y2="0">
+      <stop class="s-beam-stop" offset="0" stop-opacity="0"/>
+      <stop class="s-beam-stop" offset="1" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+
+  <g class="s-gulls">
+    <path class="s-gull" d="M1150 70 q9 -9 18 0 q9 -9 18 0"/>
+    <path class="s-gull s-gull-2" d="M1196 96 q7 -7 14 0 q7 -7 14 0"/>
+    <path class="s-gull" d="M262 54 q8 -8 16 0 q8 -8 16 0"/>
+  </g>
+
+  <path class="s-far" d="M0 244 Q360 234 720 244 T1440 244 V360 H0 Z"/>
+
+  <g transform="translate(1250 0)">
+    <g transform="translate(0 103)"><polygon class="s-beam" points="0,0 -360,-40 -360,40" fill="url(#sea-beam)"/></g>
+    <path class="s-rock" d="M-74 262 Q-64 234 -38 238 Q-22 220 0 228 Q24 218 42 234 Q66 236 78 262 Z"/>
+    <polygon class="s-tower" points="-20,236 20,236 13,118 -13,118"/>
+    <polygon class="s-stripe" points="-17.9,200 17.9,200 18.8,216 -18.8,216"/>
+    <polygon class="s-stripe" points="-15.5,160 15.5,160 16.4,176 -16.4,176"/>
+    <rect class="s-dark" x="-19" y="112" width="38" height="6" rx="2"/>
+    <rect class="s-light" x="-10" y="94" width="20" height="18" rx="3"/>
+    <path class="s-dark" d="M-15 95 L0 80 L15 95 Z"/>
+  </g>
+
+  <g class="s-drift"><path class="s-mid" d="M0 272 Q60 265 120 272 T240 272 T360 272 T480 272 T600 272 T720 272 T840 272 T960 272 T1080 272 T1200 272 T1320 272 T1440 272 T1560 272 T1680 272 T1800 272 T1920 272 T2040 272 T2160 272 T2280 272 T2400 272 T2520 272 T2640 272 T2760 272 T2880 272 V360 H0 Z"/></g>
+
+  <g transform="translate(455 286)"><g class="s-bob s-bob-a">
+    <path class="s-pole" d="M0 -38 V-60"/>
+    <g class="s-tag" transform="translate(-98 -104)">
+      <rect class="s-card" width="196" height="46" rx="14"/>
+      <circle cx="23" cy="23" r="12" fill="#0ea5a4"/>
+      <text class="s-ini" x="23" y="27.5" text-anchor="middle">S</text>
+      <text class="s-t1" x="43" y="20">Trial ends in 2 days</text>
+      <text class="s-t2" x="43" y="35">then $11.99 a month</text>
+    </g>
+    <path class="s-buoy" d="M-13 2 L-8 -30 H8 L13 2 Z"/>
+    <rect class="s-band" x="-10.5" y="-19" width="21" height="7"/>
+    <circle class="s-lamp" cx="0" cy="-35" r="4.5"/>
+  </g></g>
+
+  <g transform="translate(1000 290)"><g class="s-bob s-bob-b">
+    <path class="s-pole" d="M0 -38 V-60"/>
+    <g class="s-tag" transform="translate(-98 -104)">
+      <rect class="s-card" width="196" height="46" rx="14"/>
+      <circle cx="23" cy="23" r="12" fill="#f2a516"/>
+      <text class="s-ini" x="23" y="27.5" text-anchor="middle">C</text>
+      <text class="s-t1" x="43" y="20">Renews in 3 days</text>
+      <text class="s-t2" x="43" y="35">$9.99, reminder set</text>
+    </g>
+    <path class="s-buoy" d="M-13 2 L-8 -30 H8 L13 2 Z"/>
+    <rect class="s-band" x="-10.5" y="-19" width="21" height="7"/>
+    <circle class="s-lamp" cx="0" cy="-35" r="4.5"/>
+  </g></g>
+
+  <g transform="translate(250 288)"><g class="s-bob s-boat">
+    <path class="s-mast" d="M-1 -12 V-152"/>
+    <path class="s-sail" d="M-4 -146 V-16 H-66 Q-44 -82 -4 -146 Z"/>
+    <path class="s-sail s-sail-2" d="M3 -136 Q40 -72 66 -14 H3 Z"/>
+    <circle class="s-ping" cx="-1" cy="-158" r="7"/>
+    <circle class="s-ping s-ping-2" cx="-1" cy="-158" r="7"/>
+    <circle class="s-lamp" cx="-1" cy="-158" r="5.5"/>
+    <g transform="translate(80 -10)">
+      <path class="s-legs" d="M-4 0 V-14 M4 0 V-14"/>
+      <rect class="s-shirt" x="-7" y="-30" width="14" height="18" rx="5"/>
+      <path class="s-stripes" d="M-6 -24 H6 M-6 -19 H6"/>
+      <circle class="s-skin" cx="0" cy="-37" r="6.5"/>
+      <path class="s-cap" d="M-7 -40 Q0 -50 7 -40 Z"/>
+      <rect class="s-capband" x="-8" y="-41.5" width="16" height="3" rx="1.5"/>
+      <path class="s-arm" d="M4 -26 L13 -36"/>
+      <rect class="s-glass" x="9" y="-44" width="16" height="5" rx="2" transform="rotate(-24 9 -41)"/>
+    </g>
+    <path class="s-hull" d="M-92 -10 H104 Q92 14 66 20 H-70 Q-88 12 -92 -10 Z"/>
+    <path class="s-hullline" d="M-86 0 H98"/>
+  </g></g>
+
+  <g class="s-drift s-drift-back"><path class="s-front" d="M0 306 Q90 297 180 306 T360 306 T540 306 T720 306 T900 306 T1080 306 T1260 306 T1440 306 T1620 306 T1800 306 T1980 306 T2160 306 T2340 306 T2520 306 T2700 306 T2880 306 V360 H0 Z"/></g>
+</svg>

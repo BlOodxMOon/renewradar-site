@@ -26,6 +26,20 @@ $rr_modes = array(
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<div class="loader" aria-hidden="true">
+	<div class="loader-brand">
+		<span class="loader-mark"><span class="loader-ping"></span><span class="loader-ping"></span><img src="<?php echo esc_url( rr_asset( 'img/icon.png' ) ); ?>" alt="" width="56" height="56"></span>
+		<b>RenewRadar</b>
+		<span class="loader-tagline">Know before you are charged.</span>
+		<span class="loader-dots"><span></span><span></span><span></span></span>
+	</div>
+	<div class="loader-sea">
+		<span class="loader-wave"></span>
+		<?php echo rr_boat_svg(); // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG. ?>
+		<span class="loader-wave"></span>
+		<span class="loader-wave"></span>
+	</div>
+</div>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap bar">
 	<a class="lockup" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="RenewRadar, home"><span class="logo-ic"><img src="<?php echo esc_url( rr_asset( 'img/icon.png' ) ); ?>" alt="" width="38" height="38"></span><span><b>RenewRadar</b><small>by Pixel DevCode</small></span></a>

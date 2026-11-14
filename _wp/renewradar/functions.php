@@ -180,11 +180,14 @@ add_action( 'wp_head', function () {
 	$image = rr_asset( 'img/og-banner.png' );
 	?>
 	<meta name="description" content="<?php echo esc_attr( $desc ); ?>">
+	<?php if ( is_home() && ! is_front_page() ) : // WordPress adds canonicals to single views only. ?>
+	<link rel="canonical" href="<?php echo esc_url( get_pagenum_link( max( 1, (int) get_query_var( 'paged' ) ) ) ); ?>">
+	<?php endif; ?>
 	<meta name="google-site-verification" content="j1CO1LTKK34j4kRKD7CKyY3hLCw61mzQaFAs1GppANA" />
 	<?php if ( 'festive' === $mode ) : ?>
 	<meta name="theme-color" content="#13284b">
 	<?php else : ?>
-	<meta name="theme-color" content="#f7f7fb" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#f6f8fc" media="(prefers-color-scheme: light)">
 	<meta name="theme-color" content="#0d0c20" media="(prefers-color-scheme: dark)">
 	<?php endif; ?>
 	<meta property="og:type" content="<?php echo is_single() ? 'article' : 'website'; ?>">
@@ -207,7 +210,7 @@ add_action( 'wp_head', function () {
 	<link rel="icon" type="image/png" sizes="192x192" href="<?php echo esc_url( rr_asset( 'img/favicon-192.png' ) ); ?>">
 	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( rr_asset( 'img/apple-touch-icon.png' ) ); ?>">
 	<link rel="preload" href="<?php echo esc_url( rr_asset( 'fonts/plus-jakarta-sans.woff2' ) ); ?>" as="font" type="font/woff2" crossorigin>
-	<script>document.documentElement.className="js";try{var t=localStorage.getItem("rr-theme");}catch(e){}if(t!=="light"&&t!=="dark"&&t!=="festive")t=<?php echo wp_json_encode( 'system' === $mode ? '' : $mode ); ?>;if(t)document.documentElement.setAttribute("data-theme",t)</script>
+	<script>document.documentElement.className="js";try{if(sessionStorage.getItem("rr-seen"))document.documentElement.className+=" seen";var t=localStorage.getItem("rr-theme");}catch(e){}if(t!=="light"&&t!=="dark"&&t!=="festive")t=<?php echo wp_json_encode( 'system' === $mode ? '' : $mode ); ?>;if(t)document.documentElement.setAttribute("data-theme",t)</script>
 	<?php
 	foreach ( rr_schema() as $schema ) {
 		echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
@@ -215,6 +218,26 @@ add_action( 'wp_head', function () {
 }, 1 );
 
 add_filter( 'site_icon_meta_tags', '__return_empty_array' );
+
+/* Archives that only duplicate the Guides page: keep them out of search, and do not expose author names. */
+add_filter( 'wp_robots', function ( $robots ) {
+	if ( is_category() || is_tag() || is_date() ) {
+		$robots['noindex'] = true;
+		$robots['follow']  = true;
+	}
+	return $robots;
+} );
+
+add_filter( 'wp_sitemaps_add_provider', function ( $provider, $name ) {
+	return 'taxonomies' === $name ? false : $provider;
+}, 10, 2 );
+
+add_action( 'template_redirect', function () {
+	if ( is_author() ) {
+		wp_safe_redirect( home_url( '/guides/' ), 301 );
+		exit;
+	}
+}, 1 );
 
 /* ------------------------------------------------------------------ */
 /* Structured data                                                     */
@@ -475,7 +498,19 @@ function rr_page_hero( $args ) {
 	if ( $args['meta'] ) {
 		echo '<p class="meta">' . wp_kses_post( $args['meta'] ) . '</p>';
 	}
-	echo '</div></header>';
+	echo '</div>' . rr_boat_svg() . '<span class="ph-waves" aria-hidden="true"></span></header>'; // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG.
+}
+
+/** The radar sailboat from the home hero, for the page hero. */
+function rr_boat_svg() {
+	return '<svg class="ph-boat" viewBox="-100 -180 210 205" aria-hidden="true" focusable="false"><g class="s-bob s-boat">'
+		. '<path class="s-mast" d="M-1 -12 V-152"/>'
+		. '<path class="s-sail" d="M-4 -146 V-16 H-66 Q-44 -82 -4 -146 Z"/>'
+		. '<path class="s-sail s-sail-2" d="M3 -136 Q40 -72 66 -14 H3 Z"/>'
+		. '<circle class="s-ping" cx="-1" cy="-158" r="7"/><circle class="s-ping s-ping-2" cx="-1" cy="-158" r="7"/><circle class="s-lamp" cx="-1" cy="-158" r="5.5"/>'
+		. '<g transform="translate(80 -10)"><path class="s-legs" d="M-4 0 V-14 M4 0 V-14"/><rect class="s-shirt" x="-7" y="-30" width="14" height="18" rx="5"/><path class="s-stripes" d="M-6 -24 H6 M-6 -19 H6"/><circle class="s-skin" cx="0" cy="-37" r="6.5"/><path class="s-cap" d="M-7 -40 Q0 -50 7 -40 Z"/><rect class="s-capband" x="-8" y="-41.5" width="16" height="3" rx="1.5"/><path class="s-arm" d="M4 -26 L13 -36"/><rect class="s-glass" x="9" y="-44" width="16" height="5" rx="2" transform="rotate(-24 9 -41)"/></g>'
+		. '<path class="s-hull" d="M-92 -10 H104 Q92 14 66 20 H-70 Q-88 12 -92 -10 Z"/><path class="s-hullline" d="M-86 0 H98"/>'
+		. '</g></svg>';
 }
 
 /** Shared body for pages and posts: optional table of contents, content, related links. */

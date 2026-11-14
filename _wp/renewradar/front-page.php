@@ -13,18 +13,25 @@ $rr_tick = function ( $b, $t ) {
 ?>
 <section class="hero" id="top">
 	<?php echo file_get_contents( get_template_directory() . '/inc/winter.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput,WordPress.WP.AlternativeFunctions -- static SVG shipped with the theme. ?>
+	<?php echo file_get_contents( get_template_directory() . '/inc/sea.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput,WordPress.WP.AlternativeFunctions -- static SVG shipped with the theme. ?>
+	<div class="flyby-lane">
+		<a class="flyby" href="<?php echo esc_url( RR_PLAY ); ?>">
+			<span class="flyby-banner"><span class="badge">Now on Google Play</span>Subscription and free trial tracker for Android</span>
+			<span class="flyby-rope" aria-hidden="true"></span>
+			<svg class="flyby-plane" viewBox="0 0 96 48" aria-hidden="true" focusable="false"><path class="p-tail" d="M6 10 L18 10 L26 22 L10 24 Z"/><path class="p-body" d="M8 22 Q8 18 14 18 L70 18 Q86 18 90 26 Q86 32 70 32 L16 32 Q8 32 8 26 Z"/><path class="p-wing" d="M36 25 L58 25 L48 42 L40 42 Z"/><path class="p-wing-top" d="M40 19 L54 19 L48 8 L43 8 Z"/><circle class="p-window" cx="64" cy="23" r="3.2"/><circle class="p-window" cx="55" cy="23" r="3.2"/><circle class="p-window" cx="46" cy="23" r="3.2"/><rect class="p-prop" x="89" y="14" width="3" height="24" rx="1.5"/></svg>
+		</a>
+	</div>
 	<div class="wrap">
-		<a class="eyebrow rise" style="--i:0" href="<?php echo esc_url( RR_PLAY ); ?>"><span class="badge">Now on Google Play</span>Subscription and free trial tracker for Android<?php echo rr_icon( 'arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
-		<h1 class="rise" style="--i:1">Know <span class="mark">before</span> you are charged.</h1>
-		<p class="lede rise" style="--i:2">Every subscription and free trial on one screen, with a reminder before each charge. No bank login, no account, and your list never leaves your phone.</p>
-		<div class="hero-cta rise" style="--i:3"><?php echo rr_play(); // phpcs:ignore WordPress.Security.EscapeOutput ?><a class="btn btn-primary" href="#how">How it works</a></div>
-		<ul class="facts rise" style="--i:4">
+		<h1 class="rise" style="--i:0">Know <span class="mark">before</span> you are charged.</h1>
+		<p class="lede rise" style="--i:1">Every subscription and free trial on one screen, with a reminder before each charge. No bank login, no account, and your list never leaves your phone.</p>
+		<div class="hero-cta rise" style="--i:2"><?php echo rr_play(); // phpcs:ignore WordPress.Security.EscapeOutput ?><a class="btn btn-primary" href="#how">How it works</a></div>
+		<ul class="facts rise" style="--i:3">
 			<li><?php echo rr_icon( 'check' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>Free for 5 subscriptions</li>
 			<li><?php echo rr_icon( 'check' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>One-time Pro, no subscription</li>
 			<li><?php echo rr_icon( 'check' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>Works offline</li>
 		</ul>
-		<div class="rise-phone rise" style="--i:3">
-			<div class="frame"><div><img src="<?php echo esc_url( rr_asset( 'img/app-home.jpg' ) ); ?>" alt="RenewRadar home screen with monthly and yearly totals, a Spotify trial with 2 days left and subscriptions sorted by renewal date" width="922" height="2048" fetchpriority="high"></div></div>
+		<div class="rise-phone rise" style="--i:4">
+			<div class="frame"><span class="notif" aria-hidden="true"><img src="<?php echo esc_url( rr_asset( 'img/icon.png' ) ); ?>" alt="" width="32" height="32"><span><b>Spotify trial ends in 2 days</b>Then $11.99 a month. Keep it or cancel in time.</span><small>now</small></span><div><img src="<?php echo esc_url( rr_asset( 'img/app-home.jpg' ) ); ?>" alt="RenewRadar home screen with monthly and yearly totals, a Spotify trial with 2 days left and subscriptions sorted by renewal date" width="922" height="2048" fetchpriority="high"></div></div>
 		</div>
 	</div>
 </section>
