@@ -36,6 +36,8 @@ $rr_tick = function ( $b, $t ) {
 	</div>
 </section>
 
+<?php echo rr_video_section(); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside. ?>
+
 <section class="section" id="how">
 	<div class="wrap">
 		<div class="section-head reveal">
@@ -127,6 +129,7 @@ $rr_tick = function ( $b, $t ) {
 				</ul>
 			</div>
 			<div class="plan plan-pro">
+				<span class="plan-badge">Best value. Pay once</span>
 				<h3>Pro</h3>
 				<p class="fine">Everything in Free, without the limit.</p>
 				<p class="price">US$9.99 <small>one time</small></p>
@@ -162,6 +165,9 @@ $rr_tick = function ( $b, $t ) {
 		'pricing'  => 'Pricing',
 		'faq'      => 'Questions',
 	);
+	if ( get_theme_mod( 'rr_video_id', '' ) ) {
+		$rr_dots = array_slice( $rr_dots, 0, 1, true ) + array( 'video' => 'Video' ) + array_slice( $rr_dots, 1, null, true );
+	}
 	foreach ( $rr_dots as $rr_dot_id => $rr_dot_label ) {
 		printf( '<a href="#%1$s" aria-label="%2$s"><span>%2$s</span></a>', esc_attr( $rr_dot_id ), esc_html( $rr_dot_label ) );
 	}

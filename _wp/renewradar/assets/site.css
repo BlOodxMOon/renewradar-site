@@ -3607,3 +3607,291 @@ tbody tr:hover {
     white-space: normal;
   }
 }
+
+/* Pricing: the Pro plan is a filled, lifted card with a badge. */
+
+:root {
+  --pro-1: #5b52f0;
+  --pro-2: #2e2790;
+  --pro-glow: rgba(79, 70, 229, 0.55);
+}
+
+:root[data-theme='dark'] {
+  --pro-1: #6a62ff;
+  --pro-2: #2a2386;
+  --pro-glow: rgba(142, 136, 255, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --pro-1: #6a62ff;
+    --pro-2: #2a2386;
+    --pro-glow: rgba(142, 136, 255, 0.45);
+  }
+}
+
+:root[data-theme='festive'] {
+  --pro-1: #e0404c;
+  --pro-2: #8f1b25;
+  --pro-glow: rgba(212, 47, 60, 0.5);
+}
+
+.plans {
+  align-items: center;
+}
+
+.plan-pro {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 32px;
+  color: #fff;
+  background: radial-gradient(120% 80% at 100% 0%, rgba(255, 255, 255, 0.22), transparent 55%),
+    linear-gradient(150deg, var(--pro-1), var(--pro-2));
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14) inset, 0 30px 60px -24px var(--pro-glow), 0 0 0 6px color-mix(in srgb, var(--pro-1) 16%, transparent);
+  transform: translateY(-6px) scale(1.03);
+}
+
+.plan-pro:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.plan-pro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transform: skewX(-18deg);
+  animation: pro-sheen 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.plan-pro > * {
+  position: relative;
+}
+
+.plan-pro h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.plan-pro .fine,
+.plan-pro .price small {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.plan-pro .price {
+  font-size: 2.7rem;
+}
+
+.plan-badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #3a2a00;
+  background: #ffd35a;
+  box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.35);
+}
+
+.plan-pro .ticks li::before {
+  background: rgba(255, 255, 255, 0.2)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E")
+    center / 14px no-repeat;
+}
+
+@keyframes pro-sheen {
+  0%,
+  60% {
+    left: -60%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+@media (max-width: 760px) {
+  .plan-pro,
+  .plan-pro:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan-pro::before {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Santa hat on the logo, Christmas mode only. */
+
+.logo-hat {
+  display: none;
+}
+
+:root[data-theme='festive'] .logo-hat {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: -50%;
+  right: -16%;
+  width: 78%;
+  height: auto;
+  transform: rotate(16deg);
+  transform-origin: 20% 90%;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+:root[data-theme='festive'] .lockup:hover .logo-hat,
+:root[data-theme='festive'] .lockup:focus-visible .logo-hat {
+  transform: rotate(4deg) translate(-4px, -2px);
+}
+
+:root[data-theme='festive'] .logo-hat-pom {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hat-pom 2.4s ease-in-out infinite;
+}
+
+:root[data-theme='festive'] .loader-mark .logo-hat {
+  animation: loader-pop 0.7s 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes hat-pom {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme='festive'] .logo-hat-pom {
+    animation: none;
+  }
+}
+
+/* Promo video: a poster button that swaps in the YouTube player on click. */
+
+.section-video {
+  padding-bottom: 24px;
+}
+
+.video {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0d0b2e;
+  box-shadow: 0 0 0 1px var(--line), 0 40px 80px -40px rgba(21, 19, 58, 0.55);
+}
+
+.video-play {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.video-poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.video-poster-festive {
+  display: none;
+}
+
+:root[data-theme='festive'] .video-poster {
+  display: none;
+}
+
+:root[data-theme='festive'] .video-poster-festive {
+  display: block;
+}
+
+.video-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  margin: -46px 0 0 -46px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 10px color-mix(in srgb, var(--brand) 25%, transparent), 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.video-btn svg {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  fill: #fff;
+}
+
+.video-play:hover .video-btn,
+.video-play:focus-visible .video-btn {
+  transform: scale(1.1);
+}
+
+.video-play:hover .video-poster {
+  transform: scale(1.03);
+}
+
+.video-play:focus-visible {
+  outline: 3px solid var(--blip);
+  outline-offset: -3px;
+}
+
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-note {
+  margin-top: 14px;
+}
+
+@media (max-width: 760px) {
+  .video {
+    border-radius: 16px;
+  }
+
+  .video-btn {
+    width: 68px;
+    height: 68px;
+    margin: -34px 0 0 -34px;
+  }
+
+  .video-btn svg {
+    width: 30px;
+    height: 30px;
+  }
+}

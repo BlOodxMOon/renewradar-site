@@ -49,6 +49,62 @@ function rr_default_mode() {
 }
 
 /* ------------------------------------------------------------------ */
+/* Promo video (YouTube, loaded only when the visitor presses play)    */
+/* ------------------------------------------------------------------ */
+
+add_action( 'customize_register', function ( $wp_customize ) {
+	$wp_customize->add_section( 'rr_video', array(
+		'title'       => 'Promo video',
+		'priority'    => 32,
+		'description' => 'YouTube video IDs (the 11 characters after watch?v=). The home page video section only shows when the first field is set. Nothing loads from YouTube until a visitor presses play.',
+	) );
+	$sanitize = function ( $value ) {
+		$value = trim( (string) $value );
+		if ( preg_match( '#(?:v=|youtu\.be/|embed/|shorts/)([A-Za-z0-9_-]{11})#', $value, $m ) ) {
+			return $m[1];
+		}
+		return preg_match( '/^[A-Za-z0-9_-]{11}$/', $value ) ? $value : '';
+	};
+	$fields = array(
+		'rr_video_id'         => 'Video ID (standard)',
+		'rr_video_id_festive' => 'Video ID for Christmas mode (optional)',
+	);
+	foreach ( $fields as $id => $label ) {
+		$wp_customize->add_setting( $id, array( 'default' => '', 'sanitize_callback' => $sanitize ) );
+		$wp_customize->add_control( $id, array( 'section' => 'rr_video', 'label' => $label, 'type' => 'text' ) );
+	}
+} );
+
+/** Home page video section, or an empty string when no video ID is set. */
+function rr_video_section() {
+	$id = get_theme_mod( 'rr_video_id', '' );
+	if ( ! $id ) {
+		return '';
+	}
+	$festive = get_theme_mod( 'rr_video_id_festive', '' );
+	ob_start();
+	?>
+<section class="section section-video" id="video">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<p class="tag">Watch</p>
+			<h2>RenewRadar in 25 seconds.</h2>
+		</div>
+		<div class="video reveal" data-yt="<?php echo esc_attr( $id ); ?>" data-yt-festive="<?php echo esc_attr( $festive ? $festive : $id ); ?>">
+			<button type="button" class="video-play" aria-label="Play the RenewRadar video (loads YouTube)">
+				<img class="video-poster" src="<?php echo esc_url( rr_asset( 'img/promo-poster.jpg' ) ); ?>" alt="" width="1280" height="720" loading="lazy">
+				<img class="video-poster video-poster-festive" src="<?php echo esc_url( rr_asset( 'img/promo-poster-christmas.jpg' ) ); ?>" alt="" width="1280" height="720" loading="lazy">
+				<span class="video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+			</button>
+		</div>
+		<p class="fine center video-note">Plays from YouTube. Nothing is loaded from YouTube until you press play.</p>
+	</div>
+</section>
+	<?php
+	return ob_get_clean();
+}
+
+/* ------------------------------------------------------------------ */
 /* Cookieless analytics (Cloudflare Web Analytics)                     */
 /* ------------------------------------------------------------------ */
 
@@ -499,6 +555,18 @@ function rr_page_hero( $args ) {
 		echo '<p class="meta">' . wp_kses_post( $args['meta'] ) . '</p>';
 	}
 	echo '</div>' . rr_boat_svg() . '<span class="ph-waves" aria-hidden="true"></span></header>'; // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG.
+}
+
+/** A small Santa hat for the logo, shown only in Christmas mode (see .logo-hat in site.css). */
+function rr_hat_svg() {
+	return '<svg class="logo-hat" viewBox="0 0 64 56" aria-hidden="true" focusable="false">'
+		. '<path d="M8 42 C12 20 26 6 44 8 C54 9 58 18 56 28 C52 22 46 20 42 24 C38 30 38 38 38 44 Z" fill="#e23b48"/>'
+		. '<path d="M44 8 C54 9 58 18 56 28 C52 22 46 20 42 24 C44 16 46 12 44 8 Z" fill="#b8222f"/>'
+		. '<path d="M16 30 C20 20 28 13 36 12" fill="none" stroke="#ff8a93" stroke-width="3" stroke-linecap="round" opacity=".7"/>'
+		. '<path d="M4 44 C4 37 9 36 13 37 C16 33 22 34 24 37 C27 33 33 33 36 37 C39 34 45 35 45 41 C47 44 45 50 40 50 L9 50 C4 50 2 47 4 44 Z" fill="#fff" stroke="#e7e2f0" stroke-width="1.5"/>'
+		. '<circle class="logo-hat-pom" cx="56" cy="30" r="7" fill="#fff" stroke="#e7e2f0" stroke-width="1.5"/>'
+		. '<circle cx="54" cy="28" r="2.2" fill="#f4f1fa"/>'
+		. '</svg>';
 }
 
 /** The radar sailboat from the home hero, for the page hero. */

@@ -218,4 +218,21 @@
 
   if (document.readyState === 'complete') loaded();
   else window.addEventListener('load', loaded);
+
+  // Promo video: YouTube (privacy-enhanced domain) loads only after the visitor presses play.
+  [].slice.call(document.querySelectorAll('.video[data-yt]')).forEach(function (box) {
+    var button = box.querySelector('.video-play');
+    if (!button) return;
+    button.addEventListener('click', function () {
+      var id = current() === 'festive' ? box.getAttribute('data-yt-festive') : box.getAttribute('data-yt');
+      if (!/^[A-Za-z0-9_-]{11}$/.test(id || '')) return;
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      frame.title = 'RenewRadar video';
+      frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      frame.allowFullscreen = true;
+      box.replaceChild(frame, button);
+      frame.focus();
+    });
+  });
 })();
