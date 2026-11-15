@@ -1,0 +1,62 @@
+# Deploys the WordPress theme and plugin to Hostinger over SSH when they change on main.
+# Setup and the manual fallback are described in _wp/DEPLOY.md.
+name: Deploy WordPress
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '_wp/renewradar/**'
+      - '_wp/renewradar-core/**'
+      - '.github/workflows/deploy-wp.yml'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'List the changes without uploading'
+        type: boolean
+        default: true
+
+concurrency:
+  group: deploy-wp
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Skipped until the Hostinger variables are set.
+    if: vars.HOSTINGER_HOST != ''
+    runs-on: ubuntu-latest
+    env:
+      HOST: ${{ vars.HOSTINGER_HOST }}
+      PORT: ${{ vars.HOSTINGER_PORT }}
+      SSH_USER: ${{ vars.HOSTINGER_USER }}
+      WP_PATH: ${{ vars.HOSTINGER_WP_PATH }}
+      DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '--dry-run' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check PHP syntax
+        run: find _wp/renewradar _wp/renewradar-core -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: Set up SSH
+        env:
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          KNOWN_HOSTS: ${{ vars.HOSTINGER_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Upload theme
+        run: >
+          rsync -rlptvz --delete --chmod=D755,F644 $DRY -e "ssh -p $PORT"
+          _wp/renewradar/ "$SSH_USER@$HOST:$WP_PATH/wp-content/themes/renewradar/"
+
+      - name: Upload plugin
+        run: >
+          rsync -rlptvz --delete --chmod=D755,F644 $DRY -e "ssh -p $PORT"
+          _wp/renewradar-core/ "$SSH_USER@$HOST:$WP_PATH/wp-content/plugins/renewradar-core/"
+
+      - name: Clear the page cache
+        if: env.DRY == ''
+        run: ssh -p "$PORT" "$SSH_USER@$HOST" "cd '$WP_PATH' && (wp litespeed-purge all || wp cache flush)" || echo "Cache not cleared; purge it in wp-admin if pages look stale."
