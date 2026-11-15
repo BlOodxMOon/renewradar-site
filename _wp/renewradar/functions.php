@@ -240,6 +240,7 @@ add_action( 'wp_head', function () {
 	<link rel="canonical" href="<?php echo esc_url( get_pagenum_link( max( 1, (int) get_query_var( 'paged' ) ) ) ); ?>">
 	<?php endif; ?>
 	<meta name="google-site-verification" content="j1CO1LTKK34j4kRKD7CKyY3hLCw61mzQaFAs1GppANA" />
+	<meta name="p:domain_verify" content="b068f9104d1014fda2aec741d7b00072" />
 	<?php if ( 'festive' === $mode ) : ?>
 	<meta name="theme-color" content="#13284b">
 	<?php else : ?>
