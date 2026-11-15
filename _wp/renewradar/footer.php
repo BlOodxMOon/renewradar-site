@@ -39,6 +39,7 @@ $rr_cols = array(
 			<a class="lockup" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="RenewRadar, home"><span class="logo-ic"><img src="<?php echo esc_url( rr_asset( 'img/icon.png' ) ); ?>" alt="" width="38" height="38"><?php echo rr_hat_svg(); // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG. ?></span><span><b>RenewRadar</b><small>by Pixel DevCode</small></span></a>
 			<p>A private subscription and free trial tracker for Android. Your list stays on your phone.</p>
 			<?php echo rr_play(); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+			<?php echo rr_socials(); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside. ?>
 		</div>
 		<?php foreach ( $rr_cols as $title => $links ) : ?>
 			<div><h2><?php echo esc_html( $title ); ?></h2><ul>

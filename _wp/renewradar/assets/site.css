@@ -3895,3 +3895,43 @@ tbody tr:hover {
     height: 30px;
   }
 }
+
+/* Footer links to the social accounts */
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink-2);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  color: var(--on-brand);
+  background: var(--brand);
+  transform: translateY(-2px);
+}
+
+.socials svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socials a:hover,
+  .socials a:focus-visible {
+    transform: none;
+  }
+}

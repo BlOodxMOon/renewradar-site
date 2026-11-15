@@ -7,6 +7,12 @@ defined( 'ABSPATH' ) || exit;
 
 const RR_PLAY  = 'https://play.google.com/store/apps/details?id=com.pixeldevcode.renewradar';
 const RR_EMAIL = 'renewradar@pixeldevcode.com';
+const RR_SOCIAL = array(
+	'instagram' => array( 'Instagram', 'https://www.instagram.com/renewradar/' ),
+	'facebook'  => array( 'Facebook', 'https://www.facebook.com/profile.php?id=61596347801381' ),
+	'pinterest' => array( 'Pinterest', 'https://www.pinterest.com/renewradar/' ),
+	'youtube'   => array( 'YouTube', 'https://www.youtube.com/@RenewRadar' ),
+);
 
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'title-tag' );
@@ -316,6 +322,7 @@ function rr_schema() {
 			'image'               => rr_asset( 'img/icon.png' ),
 			'offers'              => array( '@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD' ),
 			'publisher'           => array( '@type' => 'Organization', 'name' => 'Pixel DevCode', 'url' => 'https://pixeldevcode.com' ),
+			'sameAs'              => array_values( wp_list_pluck( RR_SOCIAL, 1 ) ),
 		);
 		$out[] = array(
 			'@context'  => 'https://schema.org',
@@ -396,6 +403,27 @@ function rr_icon( $name ) {
 		'arrow' => '<path d="M5 12h14M13 6l6 6-6 6"/>',
 	);
 	return '<svg viewBox="0 0 24 24" aria-hidden="true">' . ( isset( $icons[ $name ] ) ? $icons[ $name ] : '' ) . '</svg>';
+}
+
+/** Footer links to the RenewRadar social accounts. */
+function rr_socials() {
+	$icons = array(
+		'instagram' => '<rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/>',
+		'facebook'  => '<path fill="currentColor" d="M13.6 21v-7.4h2.5l.4-3h-2.9V8.8c0-.9.3-1.5 1.5-1.5h1.5V4.6c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.3H8.2v3h2.5V21z"/>',
+		'pinterest' => '<path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-3.5 18.3c-.1-.8-.2-2 0-2.8l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.5 1.9-2.5.9 0 1.3.7 1.3 1.5 0 .9-.6 2.2-.9 3.5-.2 1 .5 1.9 1.6 1.9 1.9 0 3.3-2 3.3-4.9 0-2.6-1.8-4.4-4.5-4.4-3 0-4.8 2.3-4.8 4.6 0 .9.4 1.9.8 2.4.1.1.1.2.1.3l-.3 1.2c0 .2-.2.2-.4.1-1.3-.6-2.2-2.5-2.2-4.1 0-3.3 2.4-6.4 7-6.4 3.7 0 6.5 2.6 6.5 6.1 0 3.6-2.3 6.6-5.5 6.6-1.1 0-2.1-.6-2.4-1.2l-.7 2.5c-.2.9-.9 2.1-1.3 2.8A9.5 9.5 0 1 0 12 2.5z"/>',
+		'youtube'   => '<path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/>',
+	);
+	$out = '';
+	foreach ( RR_SOCIAL as $key => $item ) {
+		$out .= sprintf(
+			'<a href="%s" rel="me noopener" aria-label="RenewRadar on %s" title="%s"><svg viewBox="0 0 24 24" aria-hidden="true">%s</svg></a>',
+			esc_url( $item[1] ),
+			esc_attr( $item[0] ),
+			esc_attr( $item[0] ),
+			$icons[ $key ]
+		);
+	}
+	return '<div class="socials">' . $out . '</div>';
 }
 
 function rr_play_icon() {
