@@ -13,7 +13,7 @@
   "a": { "type": "stat", "value": "11 months", "label": "How long you need to keep using it", "note": "If a yearly plan costs about 11 months of the monthly price, you break even only if you keep it that long." },
   "b": { "type": "timeline", "heading": "The renewal that catches people next year", "alert": 3, "items": [["Nov 30", "Buy the yearly deal"], ["Next Nov 16", "Reminder: 14 days left"], ["Next Nov 27", "Reminder: 3 days left"], ["Next Nov 30", "Renews at full price"]] }
  },
- "related": ["monthly-vs-yearly-billing", "black-friday-free-trials", "subscription-price-increases"]
+ "related": ["/renewal-reminder-app/", "monthly-vs-yearly-billing", "black-friday-free-trials"]
 }
 ---
 Cyber Monday is the day many software, streaming and app companies offer their biggest discounts on yearly plans. Thirty, forty or even fifty percent off the first year is common.
@@ -46,7 +46,7 @@ With a deep Cyber Monday discount, the break-even point can drop to five or six 
 
 The biggest cost of a Cyber Monday plan is often not the first payment. It is the second one, a year later, at full price, when you have forgotten why you bought it.
 
-Yearly renewals are easy to miss because they happen once. There is no monthly charge to remind you the subscription exists.
+Yearly renewals are easy to miss because they happen once, which is why a [renewal reminder](/renewal-reminder-app/) matters more for them than for anything else. There is no monthly charge to remind you the subscription exists.
 
 ![The timeline of a yearly renewal](fig:b)
 

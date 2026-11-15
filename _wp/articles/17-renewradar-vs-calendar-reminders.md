@@ -13,7 +13,7 @@
   "a": { "type": "compare", "heading": "Calendar events and RenewRadar compared", "columns": ["RenewRadar", "Calendar"], "rows": [["Reminder before the date", "yes", "yes"], ["Shows the price", "yes", "If you type it"], ["Knows the billing cycle", "yes", "Repeat rule"], ["Updates after a price change", "One edit", "Every event"], ["Monthly and yearly totals", "yes", "no"], ["Mixed with meetings", "no", "yes"]] },
   "b": { "type": "notify", "heading": "A reminder that carries the details", "items": [{ "title": "iCloud+ renews in 3 days", "body": "$2.99 will be charged on Dec 9.", "time": "9:00" }, { "title": "Figma renews tomorrow", "body": "$15.00 will be charged on Dec 7.", "time": "9:00" }] }
  },
- "related": ["renewradar-vs-spreadsheet", "subscription-reminder-timing", "google-play-subscriptions-list-vs-tracker"]
+ "related": ["/subscription-reminder-app/", "renewradar-vs-spreadsheet", "subscription-reminder-timing"]
 }
 ---
 A popular tip for avoiding surprise subscription charges is to put a reminder in your calendar the day you sign up. It works, up to a point. Many people who try it end up with a calendar full of repeating events and still no clear picture of what they pay.

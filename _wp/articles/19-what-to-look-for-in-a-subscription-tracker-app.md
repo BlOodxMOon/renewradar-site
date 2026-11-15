@@ -13,7 +13,7 @@
   "a": { "type": "checklist", "heading": "A good subscription tracker app has", "items": ["Reminders before charges", "Timing per subscription", "Free trial countdowns", "Real monthly and yearly totals", "Multi-currency support", "No bank login required", "Clear privacy policy", "Fair, transparent price"] },
   "b": { "type": "compare", "heading": "How RenewRadar answers the nine questions", "columns": ["RenewRadar"], "rows": [["Reminders before charges", "yes"], ["Per-subscription timing", "14, 7, 3, 1 day or on the day"], ["Free trials", "Own section, countdown"], ["Totals", "Monthly, yearly, by category"], ["Currencies", "Any, totals per currency"], ["Bank login", "Never"], ["Account", "None"], ["Price", "Free for 5, Pro one-time"], ["Developer", "Pixel DevCode, active site"]] }
  },
- "related": ["manual-vs-bank-linked-subscription-trackers", "reasons-to-install-renewradar", "renewradar-faq"]
+ "related": ["/subscription-tracker/", "manual-vs-bank-linked-subscription-trackers", "renewradar-faq"]
 }
 ---
 Subscription tracker apps range from simple lists to full budgeting tools. Some have nearly identical names. Before you trust one with reminders for money leaving your account, it is worth checking a few things.

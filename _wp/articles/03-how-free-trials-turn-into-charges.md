@@ -52,7 +52,7 @@ Starting two or three trials around the same time makes it harder still. Each ha
 
 ## Where RenewRadar fits
 
-RenewRadar is a subscription reminder app built around this exact problem. When you add a subscription, switch on **Free trial** and enter the trial end date and the price after the trial. The trial then appears at the top of the Home screen with a countdown, such as "2 days left", next to the price that starts afterwards.
+RenewRadar is a [free trial reminder app](/free-trial-reminder/) built around this exact problem. When you add a subscription, switch on **Free trial** and enter the trial end date and the price after the trial. The trial then appears at the top of the Home screen with a countdown, such as "2 days left", next to the price that starts afterwards.
 
 Reminders are scheduled on your phone for the days you choose: 14, 7, 3 or 1 day before, or on the day. They arrive even if you do not open the app and even without an internet connection.
 

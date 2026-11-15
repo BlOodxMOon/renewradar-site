@@ -13,7 +13,7 @@
   "a": { "type": "compare", "heading": "Monthly and yearly billing at a glance", "columns": ["Monthly", "Yearly"], "rows": [["Price per month", "Higher", "Lower"], ["Commitment", "1 month", "12 months"], ["Easy to cancel early", "yes", "no"], ["Easy to forget", "no", "yes"], ["Best for", "Trying, seasonal use", "Daily use"]] },
   "b": { "type": "bars", "heading": "The same plans as a monthly cost", "prefix": "$", "items": [["Weekly $2.99", 12.96], ["Monthly $9.99", 9.99], ["Quarterly $24.99", 8.33], ["Yearly $89.99", 7.5]], "note": "Weekly x 52 / 12, quarterly / 3, yearly / 12. Example prices." }
  },
- "related": ["cyber-monday-annual-plans", "weekly-subscriptions-cost", "how-much-do-you-spend-on-subscriptions"]
+ "related": ["cyber-monday-annual-plans", "/renewal-reminder-app/", "weekly-subscriptions-cost"]
 }
 ---
 Most subscriptions offer a choice: pay every month, or pay for a year up front at a lower average price. The yearly option usually saves between 15 and 40 percent. Whether it saves you money depends on one thing: how long you keep using the service.

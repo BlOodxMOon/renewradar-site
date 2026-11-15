@@ -221,7 +221,7 @@ function rr_current_id() {
 
 function rr_description() {
 	if ( is_front_page() ) {
-		return 'Track every subscription and free trial on one screen and get reminded before each charge. No bank login, no account. Free for five subscriptions on Android.';
+		return 'RenewRadar is a subscription tracker and free trial reminder app for Android. Reminders before every charge, no bank login, free for 5.';
 	}
 	$id = rr_current_id();
 	if ( $id ) {

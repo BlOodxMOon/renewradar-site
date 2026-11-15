@@ -13,12 +13,12 @@
   "a": { "type": "compare", "heading": "Suggested reminder timing by type", "columns": ["Remind me", "Why"], "rows": [["Yearly plan", "14 and 3 days before", "Time to compare and decide"], ["Monthly plan", "3 and 1 day before", "Enough time to cancel"], ["Weekly plan", "1 day before", "Short cycle"], ["Free trial", "3 days and 1 day before", "Decide before day one"]] },
   "b": { "type": "notify", "heading": "Two reminders, two chances to act", "items": [{ "title": "Design software renews in 14 days", "body": "$239.88 will be charged on Nov 24.", "time": "Nov 10" }, { "title": "Design software renews in 3 days", "body": "$239.88 will be charged on Nov 24.", "time": "Nov 21" }] }
  },
- "related": ["set-up-renewradar-in-5-minutes", "monthly-vs-yearly-billing", "subscription-reminders-android-battery"]
+ "related": ["/subscription-reminder-app/", "monthly-vs-yearly-billing", "subscription-reminders-android-battery"]
 }
 ---
 Many reminder tools give you a single alert, usually one day before. That works for some subscriptions and fails for others. A yearly software plan that costs hundreds deserves more notice than a weekly app.
 
-RenewRadar, the subscription reminder app for Android, lets you set the timing for each subscription separately.
+RenewRadar, the [subscription reminder app](/subscription-reminder-app/) for Android, lets you set the timing for each subscription separately.
 
 ## Why timing matters
 

@@ -38,7 +38,7 @@ Countdowns also make trials sort naturally. The one ending soonest is the one to
 
 ## How RenewRadar shows free trials
 
-In RenewRadar, the subscription tracker app for Android, a subscription marked as a free trial goes to a separate **Trials** section at the top of Home. Each trial shows:
+In RenewRadar, the [free trial tracker](/free-trial-reminder/) and subscription tracker app for Android, a subscription marked as a free trial goes to a separate **Trials** section at the top of Home. Each trial shows:
 
 - The number of days left, such as "2 days left".
 - The end date.

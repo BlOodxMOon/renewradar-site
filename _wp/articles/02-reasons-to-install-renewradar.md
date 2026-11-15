@@ -13,7 +13,7 @@
   "a": { "type": "checklist", "heading": "Seven reasons in one picture", "items": ["Reminders before every charge", "Free trial countdowns", "Monthly and yearly totals", "No bank login", "No account", "Works offline", "One-time Pro price"] },
   "b": { "type": "notify", "heading": "What a RenewRadar reminder looks like", "items": [{ "title": "Spotify free trial ends in 2 days", "body": "You will be charged $11.99 on Oct 30 unless you cancel.", "time": "9:00" }, { "title": "Amazon Prime renews in 7 days", "body": "$139.00 will be charged on Oct 25.", "time": "9:00" }] }
  },
- "related": ["why-you-need-a-subscription-tracker-app", "set-up-renewradar-in-5-minutes", "renewradar-free-vs-pro"]
+ "related": ["set-up-renewradar-in-5-minutes", "/subscription-reminder-app/", "renewradar-free-vs-pro"]
 }
 ---
 There are many ways to keep track of subscriptions: a note on your phone, a spreadsheet, calendar events, or an app that reads your bank account. RenewRadar takes a different route. You add each subscription yourself, the app keeps everything on your phone, and it reminds you before you are charged.

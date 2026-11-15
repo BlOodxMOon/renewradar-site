@@ -13,12 +13,12 @@
   "a": { "type": "timeline", "heading": "How a forgotten subscription turns into a charge", "alert": 3, "items": [["Day 1", "You sign up for a free trial"], ["Day 2", "You stop thinking about it"], ["Day 6", "The trial quietly ends soon"], ["Day 7", "Your card is charged"]] },
   "b": { "type": "phone", "screen": "home", "heading": "What a subscription tracker app shows you", "points": ["Every subscription on one screen", "Monthly and yearly totals", "Free trials with days left", "A reminder before each charge"] }
  },
- "related": ["reasons-to-install-renewradar", "how-free-trials-turn-into-charges", "/guides/subscription-audit/"]
+ "related": ["reasons-to-install-renewradar", "/subscription-tracker/", "/guides/subscription-audit/"]
 }
 ---
 Subscriptions are built around one simple idea: once you have said yes, you should not have to think about it again. That is convenient when you use the service every week. It is expensive when you stopped using it months ago, or when a free trial turned into a paid plan without you noticing.
 
-A subscription tracker app fixes this by doing the remembering for you. It keeps a list of what you pay for, when each charge happens and how much it adds up to, and it reminds you before money leaves your account. RenewRadar is a subscription tracker and reminder app for Android that does exactly that, without a bank login or an account.
+A subscription tracker app fixes this by doing the remembering for you. It keeps a list of what you pay for, when each charge happens and how much it adds up to, and it reminds you before money leaves your account. RenewRadar is a [subscription tracker](/subscription-tracker/) and [subscription reminder app](/subscription-reminder-app/) for Android that does exactly that, without a bank login or an account.
 
 ## Small numbers, big totals
 

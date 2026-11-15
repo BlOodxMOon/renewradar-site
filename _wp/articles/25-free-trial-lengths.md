@@ -13,7 +13,7 @@
   "a": { "type": "compare", "heading": "Suggested reminders by trial length", "columns": ["Remind me"], "rows": [["3-day trial", "3 days (sign-up day) and 1 day before"], ["7-day trial", "3 days and 1 day before"], ["14-day trial", "7 days and 1 day before"], ["30-day trial", "7 days and 1 day before"], ["Trial into a yearly plan", "14 days and 3 days before"]] },
   "b": { "type": "steps", "heading": "Finding the exact end date", "items": ["Check the confirmation email", "Look in Google Play Subscriptions", "Check the account page on the website", "When unsure, assume one day earlier"] }
  },
- "related": ["free-trial-countdown", "how-free-trials-turn-into-charges", "charged-after-free-trial"]
+ "related": ["/free-trial-reminder/", "free-trial-countdown", "charged-after-free-trial"]
 }
 ---
 Some apps offer a three-day trial. Streaming services often give a week. Software tools like 14 days, and some services offer a month or more, especially around holidays. The length affects how much time you have to decide and how easy it is to forget.

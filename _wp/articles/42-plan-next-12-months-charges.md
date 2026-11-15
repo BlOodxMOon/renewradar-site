@@ -59,7 +59,7 @@ When a big renewal is a month away, check whether you still use it, whether ther
 
 ## Combining it with reminders
 
-The 12-month view is for planning. Reminders are for acting. Together they mean nothing in the next year arrives unannounced.
+The 12-month view is for planning. [Renewal reminders](/renewal-reminder-app/) are for acting. Together they mean nothing in the next year arrives unannounced.
 
 ## Getting the report
 

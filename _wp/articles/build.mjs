@@ -13,6 +13,9 @@ mkdirSync(join(outDir, 'img'), { recursive: true });
 // Existing pages and guides that articles can link to as related reading.
 const PAGES = {
   '/free-trial-reminder/': ['Free trial reminders', 'Countdowns and reminders before a free trial turns into a charge.'],
+  '/subscription-tracker/': ['Subscription tracker app', 'Every subscription on one screen, sorted by what is charged next.'],
+  '/subscription-reminder-app/': ['Subscription reminder app', 'A notification before every subscription charge, at the timing you choose.'],
+  '/renewal-reminder-app/': ['Renewal reminders', 'Early warnings for yearly plans and renewals that are easy to forget.'],
   '/private-subscription-tracker/': ['Private by design', 'Why your subscription list never leaves your phone.'],
   '/multi-currency-subscription-tracker/': ['Multi-currency tracking', 'Subscriptions in several currencies, with honest totals.'],
   '/subscription-cost-calculator/': ['Subscription cost calculator', 'See what your subscriptions cost per month, per year and over five years.'],

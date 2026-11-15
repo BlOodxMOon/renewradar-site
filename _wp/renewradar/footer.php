@@ -9,6 +9,8 @@ $rr_cols = array(
 	'Product'          => array(
 		array( '/subscription-tracker/', 'Subscription tracker' ),
 		array( '/free-trial-reminder/', 'Free trial reminders' ),
+		array( '/subscription-reminder-app/', 'Subscription reminders' ),
+		array( '/renewal-reminder-app/', 'Renewal reminders' ),
 		array( '/multi-currency-subscription-tracker/', 'Multi-currency tracking' ),
 		array( '/private-subscription-tracker/', 'Private by design' ),
 		array( '/#pricing', 'Pricing' ),

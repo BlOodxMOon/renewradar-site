@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RenewRadar Core
  * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, the first-run content import and the scheduled articles.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4
@@ -377,9 +377,39 @@ add_action( 'init', 'rr_migrate', 20 );
 
 function rr_migrate() {
 	$done = (int) get_option( 'rr_migration', 0 );
-	if ( $done >= 2 ) {
+	if ( $done >= 3 ) {
 		return;
 	}
+	if ( $done < 2 ) {
+		rr_migrate_2();
+	}
+	rr_migrate_3();
+	update_option( 'rr_migration', 3 );
+}
+
+// 3: keyword landing pages for subscription and renewal reminders, and retuned titles for two pages.
+function rr_migrate_3() {
+	$data   = json_decode( (string) file_get_contents( plugin_dir_path( __FILE__ ) . 'content.json' ), true );
+	$cat    = get_category_by_slug( 'guides' );
+	$assets = content_url( '/themes/renewradar/assets' );
+	update_option( 'blogdescription', 'Subscription tracker and reminder app for Android' );
+	kses_remove_filters();
+	foreach ( (array) $data as $item ) {
+		if ( in_array( $item['slug'], array( 'subscription-reminder-app', 'renewal-reminder-app' ), true ) ) {
+			rr_import_item( $item, $assets, $cat ? $cat->term_id : 0 );
+		}
+		if ( in_array( $item['slug'], array( 'subscription-tracker', 'free-trial-reminder' ), true ) ) {
+			$page = get_page_by_path( $item['slug'], OBJECT, 'page' );
+			if ( $page ) {
+				update_post_meta( $page->ID, 'rr_seo_title', $item['seoTitle'] );
+				wp_update_post( array( 'ID' => $page->ID, 'post_excerpt' => $item['description'] ) );
+			}
+		}
+	}
+	kses_init();
+}
+
+function rr_migrate_2() {
 	// 2: hosting moved from GitHub Pages to Hostinger, and the home page gained a click-to-play YouTube video.
 	// Add the Cloudflare Web Analytics paragraph in a later step, together with the token.
 	$privacy = get_page_by_path( 'privacy', OBJECT, 'page' );
@@ -400,7 +430,6 @@ function rr_migrate() {
 			wp_update_post( array( 'ID' => $privacy->ID, 'post_content' => wp_slash( $content ) ) );
 		}
 	}
-	update_option( 'rr_migration', 2 );
 }
 
 /* ------------------------------------------------------------------ */
@@ -500,12 +529,48 @@ add_action( 'init', function () {
 	}
 }, 40 );
 
+/** Creates one page or guide from content.json unless it already exists. */
+function rr_import_item( $item, $assets, $guides_cat_id ) {
+	$content = str_replace( '{{assets}}', $assets, $item['content'] );
+	$args    = array(
+		'post_type'    => $item['type'],
+		'post_status'  => 'publish',
+		'post_title'   => $item['title'],
+		'post_name'    => $item['slug'],
+		'post_content' => $content,
+		'post_excerpt' => $item['description'],
+	);
+	$existing = get_page_by_path( $item['slug'], OBJECT, $item['type'] );
+	if ( $existing ) {
+		return;
+	}
+	if ( 'post' === $item['type'] ) {
+		$args['post_category'] = array( $guides_cat_id );
+	}
+	$id = wp_insert_post( wp_slash( $args ) );
+	if ( ! $id || is_wp_error( $id ) ) {
+		return;
+	}
+	update_post_meta( $id, 'rr_tag', $item['tag'] );
+	update_post_meta( $id, 'rr_lede', $item['lede'] );
+	update_post_meta( $id, 'rr_seo_title', $item['seoTitle'] );
+	if ( ! empty( $item['legal'] ) ) {
+		update_post_meta( $id, 'rr_legal', 1 );
+	}
+	if ( ! empty( $item['related'] ) ) {
+		update_post_meta( $id, 'rr_related', wp_slash( $item['related'] ) );
+	}
+	if ( ! empty( $item['template'] ) ) {
+		update_post_meta( $id, '_wp_page_template', $item['template'] );
+	}
+}
+
 function rr_seed() {
 	$assets = content_url( '/themes/renewradar/assets' );
 	$data   = json_decode( (string) file_get_contents( plugin_dir_path( __FILE__ ) . 'content.json' ), true );
 
 	update_option( 'blogname', 'RenewRadar' );
-	update_option( 'blogdescription', 'Subscription and free trial tracker for Android' );
+	update_option( 'blogdescription', 'Subscription tracker and reminder app for Android' );
 	update_option( 'default_comment_status', 'closed' );
 	update_option( 'default_ping_status', 'closed' );
 	// Through $wp_rewrite so the flush in rr_activate() uses the new structure.
@@ -538,38 +603,7 @@ function rr_seed() {
 	update_option( 'page_for_posts', $guides );
 
 	foreach ( (array) $data as $item ) {
-		$content = str_replace( '{{assets}}', $assets, $item['content'] );
-		$args    = array(
-			'post_type'    => $item['type'],
-			'post_status'  => 'publish',
-			'post_title'   => $item['title'],
-			'post_name'    => $item['slug'],
-			'post_content' => $content,
-			'post_excerpt' => $item['description'],
-		);
-		$existing = get_page_by_path( $item['slug'], OBJECT, $item['type'] );
-		if ( $existing ) {
-			continue;
-		}
-		if ( 'post' === $item['type'] ) {
-			$args['post_category'] = array( $guides_cat_id );
-		}
-		$id = wp_insert_post( wp_slash( $args ) );
-		if ( ! $id || is_wp_error( $id ) ) {
-			continue;
-		}
-		update_post_meta( $id, 'rr_tag', $item['tag'] );
-		update_post_meta( $id, 'rr_lede', $item['lede'] );
-		update_post_meta( $id, 'rr_seo_title', $item['seoTitle'] );
-		if ( ! empty( $item['legal'] ) ) {
-			update_post_meta( $id, 'rr_legal', 1 );
-		}
-		if ( ! empty( $item['related'] ) ) {
-			update_post_meta( $id, 'rr_related', wp_slash( $item['related'] ) );
-		}
-		if ( ! empty( $item['template'] ) ) {
-			update_post_meta( $id, '_wp_page_template', $item['template'] );
-		}
+		rr_import_item( $item, $assets, $guides_cat_id );
 	}
 
 	// Import the current app catalog, one version above it so phones accept the WordPress list.
