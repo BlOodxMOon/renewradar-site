@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: RenewRadar Core
- * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, and the first-run content import.
- * Version: 1.0.4
+ * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, the first-run content import and the scheduled articles.
+ * Version: 1.1.0
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4
@@ -402,6 +402,103 @@ function rr_migrate() {
 	}
 	update_option( 'rr_migration', 2 );
 }
+
+/* ------------------------------------------------------------------ */
+/* Scheduled articles                                                  */
+/* ------------------------------------------------------------------ */
+
+// articles/articles.json is built from _wp/articles/*.md in the site repo. Each entry becomes a guide,
+// scheduled for 08:00 on its date. Only scheduled posts are updated later; published, edited or deleted
+// ones are left alone.
+
+add_action( 'init', 'rr_articles_sync', 30 );
+
+function rr_articles_sync() {
+	$file = plugin_dir_path( __FILE__ ) . 'articles/articles.json';
+	if ( ! file_exists( $file ) ) {
+		return;
+	}
+	$stamp = filemtime( $file ) . '-' . filesize( $file );
+	if ( get_option( 'rr_articles_stamp' ) === $stamp || get_transient( 'rr_articles_lock' ) ) {
+		return;
+	}
+	set_transient( 'rr_articles_lock', 1, 5 * MINUTE_IN_SECONDS );
+
+	$items = json_decode( (string) file_get_contents( $file ), true );
+	$done  = (array) get_option( 'rr_articles_done', array() );
+	$cat   = get_category_by_slug( 'guides' );
+	$base  = plugins_url( 'articles', __FILE__ );
+	// The content is trusted HTML from this plugin; keep KSES from stripping figures on visitor requests.
+	kses_remove_filters();
+	foreach ( (array) $items as $a ) {
+		$existing = get_page_by_path( $a['slug'], OBJECT, 'post' );
+		if ( $existing && 'future' !== $existing->post_status ) {
+			continue;
+		}
+		if ( ! $existing && in_array( $a['slug'], $done, true ) ) {
+			continue;
+		}
+		$local = $a['date'] . ' 08:00:00';
+		$gmt   = get_gmt_from_date( $local );
+		$args  = array(
+			'post_type'     => 'post',
+			'post_title'    => $a['title'],
+			'post_name'     => $a['slug'],
+			'post_content'  => str_replace( '{{articles}}', $base, $a['content'] ),
+			'post_excerpt'  => $a['description'],
+			'post_date'     => $local,
+			'post_date_gmt' => $gmt,
+			'edit_date'     => true,
+			'post_status'   => strtotime( $gmt . ' UTC' ) > time() ? 'future' : 'publish',
+			'post_category' => $cat ? array( $cat->term_id ) : array(),
+		);
+		if ( $existing ) {
+			$args['ID'] = $existing->ID;
+			$id         = wp_update_post( wp_slash( $args ) );
+		} else {
+			$id = wp_insert_post( wp_slash( $args ) );
+		}
+		if ( ! $id || is_wp_error( $id ) ) {
+			continue;
+		}
+		update_post_meta( $id, 'rr_tag', $a['tag'] );
+		update_post_meta( $id, 'rr_lede', $a['lede'] );
+		update_post_meta( $id, 'rr_seo_title', $a['seoTitle'] );
+		update_post_meta( $id, 'rr_cover', 'img/' . $a['slug'] . '-cover.jpg' );
+		update_post_meta( $id, 'rr_related', wp_slash( $a['related'] ) );
+		$done[] = $a['slug'];
+	}
+	kses_init();
+	update_option( 'rr_articles_done', array_values( array_unique( $done ) ), false );
+	update_option( 'rr_articles_stamp', $stamp, false );
+	delete_transient( 'rr_articles_lock' );
+}
+
+/** Cover image URL of an article (1200x630), or an empty string. */
+function rr_article_cover( $post_id ) {
+	$path = get_post_meta( $post_id, 'rr_cover', true );
+	return $path ? plugins_url( 'articles/' . $path, __FILE__ ) : '';
+}
+
+// WP-Cron only runs on visits and can miss a scheduled time; publish anything overdue.
+add_action( 'init', function () {
+	if ( get_transient( 'rr_future_check' ) ) {
+		return;
+	}
+	set_transient( 'rr_future_check', 1, 10 * MINUTE_IN_SECONDS );
+	$due = get_posts(
+		array(
+			'post_type'   => 'post',
+			'post_status' => 'future',
+			'numberposts' => 10,
+			'fields'      => 'ids',
+			'date_query'  => array( array( 'column' => 'post_date_gmt', 'before' => gmdate( 'Y-m-d H:i:s' ) ) ),
+		)
+	);
+	foreach ( $due as $id ) {
+		wp_publish_post( $id );
+	}
+}, 40 );
 
 function rr_seed() {
 	$assets = content_url( '/themes/renewradar/assets' );

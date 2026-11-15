@@ -23,7 +23,8 @@ rr_page_hero(
 		while ( have_posts() ) :
 			the_post();
 			?>
-			<a class="card" href="<?php the_permalink(); ?>"><div class="ic"><?php echo rr_icon( 'book' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div><p class="card-meta"><?php echo esc_html( rr_reading_minutes( get_the_ID() ) ); ?> minute read</p><h3><?php the_title(); ?></h3><p><?php echo esc_html( get_the_excerpt() ); ?></p><span class="go">Read &rarr;</span></a>
+			<?php $rr_cover = rr_cover_url( get_the_ID() ); ?>
+			<a class="card<?php echo $rr_cover ? ' card-cover' : ''; ?>" href="<?php the_permalink(); ?>"><?php if ( $rr_cover ) : ?><img class="card-img" src="<?php echo esc_url( $rr_cover ); ?>" alt="" width="1200" height="630" loading="lazy" decoding="async"><?php else : ?><div class="ic"><?php echo rr_icon( 'book' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div><?php endif; ?><p class="card-meta"><?php echo esc_html( rr_reading_minutes( get_the_ID() ) ); ?> minute read</p><h3><?php the_title(); ?></h3><p><?php echo esc_html( get_the_excerpt() ); ?></p><span class="go">Read &rarr;</span></a>
 			<?php
 		endwhile;
 		?>

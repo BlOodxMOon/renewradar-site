@@ -1,0 +1,2951 @@
+[
+ {
+  "id": "why-you-need-a-subscription-tracker-app-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "timeline",
+    "heading": "How a forgotten subscription turns into a charge",
+    "alert": 3,
+    "items": [
+     [
+      "Day 1",
+      "You sign up for a free trial"
+     ],
+     [
+      "Day 2",
+      "You stop thinking about it"
+     ],
+     [
+      "Day 6",
+      "The trial quietly ends soon"
+     ],
+     [
+      "Day 7",
+      "Your card is charged"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "why-you-need-a-subscription-tracker-app-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "phone",
+    "screen": "home",
+    "heading": "What a subscription tracker app shows you",
+    "points": [
+     "Every subscription on one screen",
+     "Monthly and yearly totals",
+     "Free trials with days left",
+     "A reminder before each charge"
+    ]
+   }
+  }
+ },
+ {
+  "id": "why-you-need-a-subscription-tracker-app-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Why you need a subscription tracker app",
+    "kicker": "Subscription tracker app",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "reasons-to-install-renewradar-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Seven reasons in one picture",
+    "items": [
+     "Reminders before every charge",
+     "Free trial countdowns",
+     "Monthly and yearly totals",
+     "No bank login",
+     "No account",
+     "Works offline",
+     "One-time Pro price"
+    ]
+   }
+  }
+ },
+ {
+  "id": "reasons-to-install-renewradar-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "notify",
+    "heading": "What a RenewRadar reminder looks like",
+    "items": [
+     {
+      "title": "Spotify free trial ends in 2 days",
+      "body": "You will be charged $11.99 on Oct 30 unless you cancel.",
+      "time": "9:00"
+     },
+     {
+      "title": "Amazon Prime renews in 7 days",
+      "body": "$139.00 will be charged on Oct 25.",
+      "time": "9:00"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "id": "reasons-to-install-renewradar-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "7 reasons to install RenewRadar",
+    "kicker": "Why RenewRadar",
+    "screen": "trial"
+   }
+  }
+ },
+ {
+  "id": "how-free-trials-turn-into-charges-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "What happens behind a typical free trial",
+    "items": [
+     "You add a card or a Google Play payment method",
+     "The trial starts and you get full access",
+     "The end date passes without any action from you",
+     "The plan renews and your payment method is charged"
+    ]
+   }
+  }
+ },
+ {
+  "id": "how-free-trials-turn-into-charges-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "timeline",
+    "heading": "With a reminder, you decide before day 7",
+    "alert": 2,
+    "items": [
+     [
+      "Day 1",
+      "Trial starts, added to RenewRadar"
+     ],
+     [
+      "Day 4",
+      "Reminder: 3 days left"
+     ],
+     [
+      "Day 6",
+      "Reminder: ends tomorrow"
+     ],
+     [
+      "Day 7",
+      "Trial ends. You already decided"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "how-free-trials-turn-into-charges-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "How free trials turn into charges",
+    "kicker": "Free trials",
+    "screen": "trial"
+   }
+  }
+ },
+ {
+  "id": "subscription-tracker-without-bank-login-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "What a bank connection means for your data",
+    "columns": [
+     "RenewRadar",
+     "Bank-linked app"
+    ],
+    "rows": [
+     [
+      "Needs your bank login",
+      "no",
+      "yes"
+     ],
+     [
+      "Sees all transactions",
+      "no",
+      "yes"
+     ],
+     [
+      "Needs an account",
+      "no",
+      "yes"
+     ],
+     [
+      "Works with any bank",
+      "yes",
+      "Supported banks"
+     ],
+     [
+      "Works offline",
+      "yes",
+      "no"
+     ]
+    ],
+    "note": "Bank-linked apps differ; check each app's privacy policy."
+   }
+  }
+ },
+ {
+  "id": "subscription-tracker-without-bank-login-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "What RenewRadar stores, and where",
+    "items": [
+     "Only what you type in",
+     "In the app's storage on your phone",
+     "No account, no email address",
+     "No ads and no trackers"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-tracker-without-bank-login-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Why RenewRadar never asks for your bank login",
+    "kicker": "Private by design",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "manual-vs-bank-linked-subscription-trackers-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Manual and bank-linked trackers side by side",
+    "columns": [
+     "Manual (RenewRadar)",
+     "Bank-linked"
+    ],
+    "rows": [
+     [
+      "Finds subscriptions for you",
+      "no",
+      "yes"
+     ],
+     [
+      "Bank login needed",
+      "no",
+      "yes"
+     ],
+     [
+      "Works in any country",
+      "yes",
+      "Limited"
+     ],
+     [
+      "Free trials before first charge",
+      "yes",
+      "Often missed"
+     ],
+     [
+      "Any currency",
+      "yes",
+      "Varies"
+     ],
+     [
+      "Setup time",
+      "1 min each",
+      "A few minutes"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "manual-vs-bank-linked-subscription-trackers-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "How to choose in four questions",
+    "items": [
+     "Am I comfortable sharing my bank transactions?",
+     "Is my bank supported by the app?",
+     "Do I start free trials often?",
+     "Do I pay in more than one currency?"
+    ]
+   }
+  }
+ },
+ {
+  "id": "manual-vs-bank-linked-subscription-trackers-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Manual vs bank-linked subscription trackers",
+    "kicker": "Compare",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "how-much-do-you-spend-on-subscriptions-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "bars",
+    "heading": "Example: one person's subscriptions per month",
+    "prefix": "$",
+    "items": [
+     [
+      "Streaming",
+      31.98
+     ],
+     [
+      "Software",
+      20
+     ],
+     [
+      "Music",
+      11.99
+     ],
+     [
+      "Storage",
+      2.99
+     ],
+     [
+      "Fitness",
+      9.99
+     ]
+    ],
+    "note": "Example figures for illustration only."
+   }
+  }
+ },
+ {
+  "id": "how-much-do-you-spend-on-subscriptions-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "stat",
+    "value": "$923",
+    "label": "a year for $76.95 a month",
+    "note": "Small monthly charges become a large yearly number."
+   }
+  }
+ },
+ {
+  "id": "how-much-do-you-spend-on-subscriptions-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "How much do you really spend on subscriptions?",
+    "kicker": "Money",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "set-up-renewradar-in-5-minutes-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Your first five minutes with RenewRadar",
+    "items": [
+     "Install RenewRadar from Google Play",
+     "Allow notifications",
+     "Set your default currency and reminders",
+     "Add your subscriptions and trials",
+     "Check the totals on Home"
+    ]
+   }
+  }
+ },
+ {
+  "id": "set-up-renewradar-in-5-minutes-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "phone",
+    "screen": "trial",
+    "heading": "Adding a free trial",
+    "points": [
+     "Switch on Free trial",
+     "Enter the trial end date",
+     "Add the price after the trial",
+     "Pick when to be reminded"
+    ]
+   }
+  }
+ },
+ {
+  "id": "set-up-renewradar-in-5-minutes-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Set up RenewRadar in 5 minutes",
+    "kicker": "Getting started",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "black-friday-free-trials-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Read the offer before you accept it",
+    "columns": [
+     "Ask",
+     "Why it matters"
+    ],
+    "rows": [
+     [
+      "When does it end?",
+      "The date you must decide by"
+     ],
+     [
+      "What is the price after?",
+      "Often higher than the ad"
+     ],
+     [
+      "Monthly or yearly after?",
+      "A yearly charge is bigger"
+     ],
+     [
+      "Where do I cancel?",
+      "Play, App Store or website"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "black-friday-free-trials-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "notify",
+    "heading": "Several deals, several end dates",
+    "items": [
+     {
+      "title": "Music app free trial ends in 3 days",
+      "body": "You will be charged $11.99 on Feb 26 unless you cancel.",
+      "time": "9:00"
+     },
+     {
+      "title": "Video app free trial ends tomorrow",
+      "body": "You will be charged $99.99 on Feb 24 unless you cancel.",
+      "time": "9:00"
+     },
+     {
+      "title": "Cloud storage renews in 7 days",
+      "body": "$2.99 will be charged on Mar 2.",
+      "time": "9:00"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "id": "black-friday-free-trials-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Black Friday free trials without the year of charges",
+    "kicker": "Black Friday",
+    "screen": "trial"
+   }
+  }
+ },
+ {
+  "id": "subscription-reminder-timing-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Suggested reminder timing by type",
+    "columns": [
+     "Remind me",
+     "Why"
+    ],
+    "rows": [
+     [
+      "Yearly plan",
+      "14 and 3 days before",
+      "Time to compare and decide"
+     ],
+     [
+      "Monthly plan",
+      "3 and 1 day before",
+      "Enough time to cancel"
+     ],
+     [
+      "Weekly plan",
+      "1 day before",
+      "Short cycle"
+     ],
+     [
+      "Free trial",
+      "3 days and 1 day before",
+      "Decide before day one"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-reminder-timing-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "notify",
+    "heading": "Two reminders, two chances to act",
+    "items": [
+     {
+      "title": "Design software renews in 14 days",
+      "body": "$239.88 will be charged on Nov 24.",
+      "time": "Nov 10"
+     },
+     {
+      "title": "Design software renews in 3 days",
+      "body": "$239.88 will be charged on Nov 24.",
+      "time": "Nov 21"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-reminder-timing-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Why one reminder is not enough",
+    "kicker": "Subscription reminders",
+    "screen": "trial"
+   }
+  }
+ },
+ {
+  "id": "free-trial-countdown-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "phone",
+    "screen": "home",
+    "heading": "Trials sit at the top of Home",
+    "points": [
+     "Sorted by end date",
+     "Days left on every trial",
+     "The price that starts afterwards",
+     "Ended trials stay visible"
+    ]
+   }
+  }
+ },
+ {
+  "id": "free-trial-countdown-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "stat",
+    "value": "2 days left",
+    "label": "is easier to act on than a date",
+    "note": "A countdown tells you how urgent it is at a glance."
+   }
+  }
+ },
+ {
+  "id": "free-trial-countdown-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Why free trials deserve their own countdown",
+    "kicker": "Free trial tracker",
+    "screen": "trial"
+   }
+  }
+ },
+ {
+  "id": "one-time-price-subscription-tracker-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "bars",
+    "heading": "Cost over three years (example)",
+    "prefix": "$",
+    "items": [
+     [
+      "RenewRadar Pro",
+      9.99
+     ],
+     [
+      "$3 a month app",
+      108
+     ],
+     [
+      "$6 a month app",
+      216
+     ]
+    ],
+    "note": "Illustrative prices. RenewRadar Pro is US$9.99 once; local prices on Google Play vary."
+   }
+  }
+ },
+ {
+  "id": "one-time-price-subscription-tracker-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "What you get on each plan",
+    "columns": [
+     "Free",
+     "Pro"
+    ],
+    "rows": [
+     [
+      "Active subscriptions and trials",
+      "Up to 5",
+      "Unlimited"
+     ],
+     [
+      "Reminders and trial countdowns",
+      "yes",
+      "yes"
+     ],
+     [
+      "Monthly and yearly totals",
+      "yes",
+      "yes"
+     ],
+     [
+      "Next 12 months report",
+      "no",
+      "yes"
+     ],
+     [
+      "CSV export",
+      "no",
+      "yes"
+     ],
+     [
+      "Renews",
+      "Never",
+      "Never"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "one-time-price-subscription-tracker-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "A subscription tracker should not be a subscription",
+    "kicker": "Fair pricing",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "renewradar-free-vs-pro-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Included in the free version",
+    "items": [
+     "Up to 5 active subscriptions and trials",
+     "Reminders before every charge",
+     "Free trial countdowns",
+     "Monthly and yearly totals",
+     "Spending by category",
+     "Unlimited cancelled items"
+    ]
+   }
+  }
+ },
+ {
+  "id": "renewradar-free-vs-pro-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "What Pro adds, for one payment",
+    "items": [
+     "Unlimited subscriptions and trials",
+     "The next 12 months of charges",
+     "Detailed spending reports",
+     "CSV export of your full list"
+    ]
+   }
+  }
+ },
+ {
+  "id": "renewradar-free-vs-pro-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "RenewRadar Free vs Pro",
+    "kicker": "Free and Pro",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "cyber-monday-annual-plans-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "stat",
+    "value": "11 months",
+    "label": "How long you need to keep using it",
+    "note": "If a yearly plan costs about 11 months of the monthly price, you break even only if you keep it that long."
+   }
+  }
+ },
+ {
+  "id": "cyber-monday-annual-plans-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "timeline",
+    "heading": "The renewal that catches people next year",
+    "alert": 3,
+    "items": [
+     [
+      "Nov 30",
+      "Buy the yearly deal"
+     ],
+     [
+      "Next Nov 16",
+      "Reminder: 14 days left"
+     ],
+     [
+      "Next Nov 27",
+      "Reminder: 3 days left"
+     ],
+     [
+      "Next Nov 30",
+      "Renews at full price"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "cyber-monday-annual-plans-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Cyber Monday annual plans: worth it?",
+    "kicker": "Cyber Monday",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "monthly-vs-yearly-billing-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Monthly and yearly billing at a glance",
+    "columns": [
+     "Monthly",
+     "Yearly"
+    ],
+    "rows": [
+     [
+      "Price per month",
+      "Higher",
+      "Lower"
+     ],
+     [
+      "Commitment",
+      "1 month",
+      "12 months"
+     ],
+     [
+      "Easy to cancel early",
+      "yes",
+      "no"
+     ],
+     [
+      "Easy to forget",
+      "no",
+      "yes"
+     ],
+     [
+      "Best for",
+      "Trying, seasonal use",
+      "Daily use"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "monthly-vs-yearly-billing-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "bars",
+    "heading": "The same plans as a monthly cost",
+    "prefix": "$",
+    "items": [
+     [
+      "Weekly $2.99",
+      12.96
+     ],
+     [
+      "Monthly $9.99",
+      9.99
+     ],
+     [
+      "Quarterly $24.99",
+      8.33
+     ],
+     [
+      "Yearly $89.99",
+      7.5
+     ]
+    ],
+    "note": "Weekly x 52 / 12, quarterly / 3, yearly / 12. Example prices."
+   }
+  }
+ },
+ {
+  "id": "monthly-vs-yearly-billing-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Monthly vs yearly subscriptions",
+    "kicker": "Money",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "subscription-reminders-android-battery-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "The general fix on most Android phones",
+    "items": [
+     "Long-press the RenewRadar icon, tap App info",
+     "Open Battery or Battery usage",
+     "Choose Unrestricted or No restrictions",
+     "Check that Notifications are allowed"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-reminders-android-battery-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Where to find the setting",
+    "columns": [
+     "Battery setting"
+    ],
+    "rows": [
+     [
+      "Xiaomi, Redmi, POCO",
+      "App info, Battery saver, No restrictions"
+     ],
+     [
+      "Samsung",
+      "App info, Battery, Unrestricted"
+     ],
+     [
+      "OnePlus, OPPO, realme",
+      "App info, Battery usage, allow background"
+     ],
+     [
+      "Google Pixel",
+      "App info, App battery usage, Unrestricted"
+     ]
+    ],
+    "note": "Menu names vary by phone model and Android version."
+   }
+  }
+ },
+ {
+  "id": "subscription-reminders-android-battery-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Make sure reminders reach you on Android",
+    "kicker": "Android tips",
+    "screen": "trial"
+   }
+  }
+ },
+ {
+  "id": "renewradar-vs-spreadsheet-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Spreadsheet and RenewRadar compared",
+    "columns": [
+     "RenewRadar",
+     "Spreadsheet"
+    ],
+    "rows": [
+     [
+      "Reminds you before charges",
+      "yes",
+      "no"
+     ],
+     [
+      "Rolls dates forward",
+      "yes",
+      "Manual"
+     ],
+     [
+      "Free trial countdowns",
+      "yes",
+      "Formulas"
+     ],
+     [
+      "Totals by cycle",
+      "yes",
+      "Formulas"
+     ],
+     [
+      "Custom columns",
+      "Notes",
+      "yes"
+     ],
+     [
+      "Works offline on phone",
+      "yes",
+      "Depends"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "renewradar-vs-spreadsheet-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Moving from a spreadsheet to RenewRadar",
+    "items": [
+     "Sort your sheet by next charge date",
+     "Add each row in RenewRadar, about a minute each",
+     "Choose reminder timing per item",
+     "Keep the sheet as an archive, or export CSV later"
+    ]
+   }
+  }
+ },
+ {
+  "id": "renewradar-vs-spreadsheet-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Subscription tracker app vs spreadsheet",
+    "kicker": "Compare",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "renewradar-vs-calendar-reminders-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Calendar events and RenewRadar compared",
+    "columns": [
+     "RenewRadar",
+     "Calendar"
+    ],
+    "rows": [
+     [
+      "Reminder before the date",
+      "yes",
+      "yes"
+     ],
+     [
+      "Shows the price",
+      "yes",
+      "If you type it"
+     ],
+     [
+      "Knows the billing cycle",
+      "yes",
+      "Repeat rule"
+     ],
+     [
+      "Updates after a price change",
+      "One edit",
+      "Every event"
+     ],
+     [
+      "Monthly and yearly totals",
+      "yes",
+      "no"
+     ],
+     [
+      "Mixed with meetings",
+      "no",
+      "yes"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "renewradar-vs-calendar-reminders-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "notify",
+    "heading": "A reminder that carries the details",
+    "items": [
+     {
+      "title": "iCloud+ renews in 3 days",
+      "body": "$2.99 will be charged on Dec 9.",
+      "time": "9:00"
+     },
+     {
+      "title": "Figma renews tomorrow",
+      "body": "$15.00 will be charged on Dec 7.",
+      "time": "9:00"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "id": "renewradar-vs-calendar-reminders-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Why calendar reminders are not enough",
+    "kicker": "Compare",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "google-play-subscriptions-list-vs-tracker-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Subscriptions Google Play does not show",
+    "items": [
+     "Services you pay for on their websites",
+     "Subscriptions billed through Apple",
+     "Plans billed by your phone carrier",
+     "Memberships paid by card or PayPal",
+     "Gym, software and news plans",
+     "Family members' plans you pay for"
+    ]
+   }
+  }
+ },
+ {
+  "id": "google-play-subscriptions-list-vs-tracker-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Google Play list and RenewRadar compared",
+    "columns": [
+     "RenewRadar",
+     "Google Play"
+    ],
+    "rows": [
+     [
+      "Play subscriptions",
+      "yes",
+      "yes"
+     ],
+     [
+      "Website and card subscriptions",
+      "yes",
+      "no"
+     ],
+     [
+      "Reminders you choose",
+      "yes",
+      "no"
+     ],
+     [
+      "Totals across everything",
+      "yes",
+      "no"
+     ],
+     [
+      "Cancel from the list",
+      "no",
+      "yes"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "google-play-subscriptions-list-vs-tracker-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Google Play lists my subscriptions. Why a tracker?",
+    "kicker": "Compare",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "what-to-look-for-in-a-subscription-tracker-app-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "A good subscription tracker app has",
+    "items": [
+     "Reminders before charges",
+     "Timing per subscription",
+     "Free trial countdowns",
+     "Real monthly and yearly totals",
+     "Multi-currency support",
+     "No bank login required",
+     "Clear privacy policy",
+     "Fair, transparent price"
+    ]
+   }
+  }
+ },
+ {
+  "id": "what-to-look-for-in-a-subscription-tracker-app-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "How RenewRadar answers the nine questions",
+    "columns": [
+     "RenewRadar"
+    ],
+    "rows": [
+     [
+      "Reminders before charges",
+      "yes"
+     ],
+     [
+      "Per-subscription timing",
+      "14, 7, 3, 1 day or on the day"
+     ],
+     [
+      "Free trials",
+      "Own section, countdown"
+     ],
+     [
+      "Totals",
+      "Monthly, yearly, by category"
+     ],
+     [
+      "Currencies",
+      "Any, totals per currency"
+     ],
+     [
+      "Bank login",
+      "Never"
+     ],
+     [
+      "Account",
+      "None"
+     ],
+     [
+      "Price",
+      "Free for 5, Pro one-time"
+     ],
+     [
+      "Developer",
+      "Pixel DevCode, active site"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "what-to-look-for-in-a-subscription-tracker-app-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "9 things to look for in a subscription tracker app",
+    "kicker": "Buyer's guide",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "subscription-tracker-no-account-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "No account means",
+    "items": [
+     "No email address to give",
+     "No password to remember",
+     "No profile on our servers",
+     "No account database to leak",
+     "No marketing emails",
+     "Start using it in seconds"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-tracker-no-account-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Changing phones without an account",
+    "items": [
+     "Pro: export your list as CSV",
+     "Install RenewRadar on the new phone",
+     "Tap Restore purchase in Settings",
+     "Re-add your subscriptions from the CSV"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-tracker-no-account-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "A subscription tracker with no account",
+    "kicker": "Private by design",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "offline-subscription-tracker-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "What works without internet",
+    "items": [
+     "Adding and editing subscriptions",
+     "Free trial countdowns",
+     "Reminders on time",
+     "Monthly and yearly totals",
+     "Stats by category",
+     "Pro reports and export"
+    ]
+   }
+  }
+ },
+ {
+  "id": "offline-subscription-tracker-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "The only two network requests",
+    "columns": [
+     "What is sent"
+    ],
+    "rows": [
+     [
+      "Weekly service suggestions",
+      "Nothing, a plain file download"
+     ],
+     [
+      "Google Play purchase check",
+      "Anonymous ID and Pro status"
+     ]
+    ],
+    "note": "Your subscription list is never sent anywhere."
+   }
+  }
+ },
+ {
+  "id": "offline-subscription-tracker-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Why your subscription tracker should work offline",
+    "kicker": "Offline-first",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "multi-currency-subscriptions-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Totals kept per currency",
+    "columns": [
+     "Per month",
+     "Per year"
+    ],
+    "rows": [
+     [
+      "USD",
+      "$42.98",
+      "$515.76"
+     ],
+     [
+      "EUR",
+      "€9.99",
+      "€119.88"
+     ],
+     [
+      "PHP",
+      "₱549.00",
+      "₱6,588.00"
+     ]
+    ],
+    "note": "Example totals. RenewRadar shows a separate total for each currency you use."
+   }
+  }
+ },
+ {
+  "id": "multi-currency-subscriptions-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Who pays in several currencies",
+    "items": [
+     "People living abroad",
+     "Remote workers and freelancers",
+     "Families across countries",
+     "Anyone billed in dollars by websites"
+    ]
+   }
+  }
+ },
+ {
+  "id": "multi-currency-subscriptions-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Subscriptions in more than one currency",
+    "kicker": "Multi-currency",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "charged-after-free-trial-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "What to do in the first hour",
+    "items": [
+     "Find out who charged you",
+     "Cancel the subscription right away",
+     "Request a refund where you were billed",
+     "Keep the confirmation emails"
+    ]
+   }
+  }
+ },
+ {
+  "id": "charged-after-free-trial-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "timeline",
+    "heading": "Next time: reminders before the trial ends",
+    "alert": 3,
+    "items": [
+     [
+      "Sign-up",
+      "Add the trial to RenewRadar"
+     ],
+     [
+      "3 days before",
+      "First reminder"
+     ],
+     [
+      "1 day before",
+      "Last reminder"
+     ],
+     [
+      "End date",
+      "Decided in time"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "charged-after-free-trial-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Charged after a free trial? What to do next",
+    "kicker": "Free trials",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "introductory-price-ends-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "bars",
+    "heading": "Example: an intro offer over one year",
+    "prefix": "$",
+    "items": [
+     [
+      "Months 1-3",
+      3
+     ],
+     [
+      "Months 4-12",
+      107.91
+     ],
+     [
+      "Full year",
+      110.91
+     ]
+    ],
+    "note": "$1 a month for 3 months, then $11.99 a month. Example prices."
+   }
+  }
+ },
+ {
+  "id": "introductory-price-ends-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Tracking an intro offer in RenewRadar",
+    "items": [
+     "Add it at the intro price",
+     "Set the next renewal date",
+     "Write the full price in Notes",
+     "Set a reminder before the full price starts",
+     "Update the price when it changes"
+    ]
+   }
+  }
+ },
+ {
+  "id": "introductory-price-ends-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "What happens when the intro price ends",
+    "kicker": "Intro offers",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "free-trial-lengths-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Suggested reminders by trial length",
+    "columns": [
+     "Remind me"
+    ],
+    "rows": [
+     [
+      "3-day trial",
+      "3 days (sign-up day) and 1 day before"
+     ],
+     [
+      "7-day trial",
+      "3 days and 1 day before"
+     ],
+     [
+      "14-day trial",
+      "7 days and 1 day before"
+     ],
+     [
+      "30-day trial",
+      "7 days and 1 day before"
+     ],
+     [
+      "Trial into a yearly plan",
+      "14 days and 3 days before"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "free-trial-lengths-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Finding the exact end date",
+    "items": [
+     "Check the confirmation email",
+     "Look in Google Play Subscriptions",
+     "Check the account page on the website",
+     "When unsure, assume one day earlier"
+    ]
+   }
+  }
+ },
+ {
+  "id": "free-trial-lengths-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Free trial lengths explained",
+    "kicker": "Free trials",
+    "screen": "trial"
+   }
+  }
+ },
+ {
+  "id": "why-we-forget-to-cancel-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Why cancelling slips our minds",
+    "items": [
+     "Doing nothing is the default",
+     "Charges are small and spread out",
+     "The end date is far from sign-up",
+     "Cancelling takes several steps",
+     "We mean to use it again someday"
+    ]
+   }
+  }
+ },
+ {
+  "id": "why-we-forget-to-cancel-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Habits that work better than memory",
+    "items": [
+     "Record every subscription the day you start it",
+     "Get a reminder before every charge",
+     "Review the yearly total once a quarter",
+     "Cancel on the spot when you decide"
+    ]
+   }
+  }
+ },
+ {
+  "id": "why-we-forget-to-cancel-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Why we forget to cancel subscriptions",
+    "kicker": "Good habits",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "subscription-fatigue-signs-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Eight signs of subscription fatigue",
+    "items": [
+     "You cannot name all your subscriptions",
+     "You find charges you do not recognise",
+     "Several services do the same thing",
+     "You pay for apps you have not opened in a month",
+     "You have forgotten a free trial before",
+     "Your yearly total surprises you",
+     "You keep a plan for one show or feature",
+     "You dread checking your statement"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-fatigue-signs-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "A calm reset in one evening",
+    "items": [
+     "List everything you pay for",
+     "Sort by value, not price",
+     "Cancel the clear no's",
+     "Set reminders for the maybes",
+     "Review again in three months"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-fatigue-signs-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "8 signs of subscription fatigue",
+    "kicker": "Good habits",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "cut-subscription-costs-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Ten ways to pay less",
+    "items": [
+     "Cancel what you do not use",
+     "Rotate streaming services",
+     "Use family or duo plans",
+     "Switch to yearly for daily use",
+     "Drop to an ad-supported tier",
+     "Check bundles you already have",
+     "Use student discounts",
+     "Pay in local currency",
+     "Avoid weekly plans",
+     "Get a reminder before every renewal"
+    ]
+   }
+  }
+ },
+ {
+  "id": "cut-subscription-costs-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "bars",
+    "heading": "Example: savings from three changes, per year",
+    "prefix": "$",
+    "items": [
+     [
+      "Rotate 2 streaming",
+      120
+     ],
+     [
+      "Cancel unused app",
+      59.88
+     ],
+     [
+      "Yearly for music",
+      23.88
+     ]
+    ],
+    "note": "Example savings for illustration."
+   }
+  }
+ },
+ {
+  "id": "cut-subscription-costs-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "10 ways to cut subscription costs",
+    "kicker": "Save money",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "subscription-rotation-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "timeline",
+    "heading": "A simple rotation plan",
+    "items": [
+     [
+      "January",
+      "Service A for its new season"
+     ],
+     [
+      "February",
+      "Switch to service B"
+     ],
+     [
+      "March",
+      "Service B, finish the series"
+     ],
+     [
+      "April",
+      "Back to service A"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-rotation-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Rotating with RenewRadar",
+    "items": [
+     "Keep all services in RenewRadar",
+     "Cancel and mark as cancelled when you switch",
+     "Restore from the Cancelled list when you return",
+     "Get a reminder before each renewal"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-rotation-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Subscription rotation: one service at a time",
+    "kicker": "Save money",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "subscription-price-increases-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "stat",
+    "value": "+$2",
+    "label": "a month is +$24 a year",
+    "note": "Small increases across several services add up quickly."
+   }
+  }
+ },
+ {
+  "id": "subscription-price-increases-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "When a price goes up",
+    "items": [
+     "Check the new price and the date it starts",
+     "Update the price in RenewRadar",
+     "Compare cheaper plans or yearly billing",
+     "Decide before the first higher charge"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-price-increases-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "How to notice subscription price increases",
+    "kicker": "Money",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "christmas-streaming-plan-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "A holiday streaming plan",
+    "items": [
+     "List what you want to watch, and where",
+     "Pick one or two services for December",
+     "Start trials only for what you will watch",
+     "Cancel right after signing up, keep access",
+     "Add every trial to RenewRadar"
+    ]
+   }
+  }
+ },
+ {
+  "id": "christmas-streaming-plan-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "notify",
+    "heading": "January, without surprises",
+    "items": [
+     {
+      "title": "Streaming free trial ends in 3 days",
+      "body": "You will be charged $15.49 on Jan 2 unless you cancel.",
+      "time": "9:00"
+     },
+     {
+      "title": "Sports pass renews tomorrow",
+      "body": "$29.99 will be charged on Jan 5.",
+      "time": "9:00"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "id": "christmas-streaming-plan-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Holiday streaming without paying for everything",
+    "kicker": "Holiday season",
+    "screen": "trial"
+   }
+  }
+ },
+ {
+  "id": "gift-subscriptions-end-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Two kinds of gift subscriptions",
+    "columns": [
+     "Prepaid gift",
+     "Gifted plan"
+    ],
+    "rows": [
+     [
+      "Paid by",
+      "The giver, once",
+      "The giver, renewing"
+     ],
+     [
+      "Card needed to redeem",
+      "Sometimes",
+      "No"
+     ],
+     [
+      "What happens at the end",
+      "May switch to paid",
+      "Giver keeps paying"
+     ],
+     [
+      "Who should track it",
+      "The receiver",
+      "The giver"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "gift-subscriptions-end-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Received a gift subscription?",
+    "items": [
+     "Check whether you added a card when redeeming",
+     "Find the date the gift period ends",
+     "Add it to RenewRadar as a free trial",
+     "Decide before the gift runs out"
+    ]
+   }
+  }
+ },
+ {
+  "id": "gift-subscriptions-end-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "What happens when a gift subscription ends",
+    "kicker": "Holiday season",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "holiday-free-trials-january-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "timeline",
+    "heading": "How December trials pile up in January",
+    "alert": 3,
+    "items": [
+     [
+      "Dec 20",
+      "Video streaming trial"
+     ],
+     [
+      "Dec 24",
+      "Music trial on a new phone"
+     ],
+     [
+      "Dec 27",
+      "Fitness app for the new year"
+     ],
+     [
+      "Jan 3 to 27",
+      "All three start charging"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "holiday-free-trials-january-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "phone",
+    "screen": "trial",
+    "heading": "All your holiday trials in one place",
+    "points": [
+     "Sorted by end date",
+     "Days left on each",
+     "The price after each trial",
+     "Reminders before every end date"
+    ]
+   }
+  }
+ },
+ {
+  "id": "holiday-free-trials-january-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Holiday free trials end in January",
+    "kicker": "Holiday season",
+    "screen": "trial"
+   }
+  }
+ },
+ {
+  "id": "shared-family-subscriptions-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Common shared-plan mix-ups",
+    "items": [
+     "Two people paying for the same service",
+     "Paying for someone who left the plan",
+     "Not knowing whose card is billed",
+     "A family member's trial on your card"
+    ]
+   }
+  }
+ },
+ {
+  "id": "shared-family-subscriptions-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Tracking a shared plan in RenewRadar",
+    "items": [
+     "Add the plan in the payer's RenewRadar",
+     "Enter the full price you pay",
+     "Note who is on the plan",
+     "Note who pays you back, if anyone",
+     "Set a reminder before renewal"
+    ]
+   }
+  }
+ },
+ {
+  "id": "shared-family-subscriptions-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Shared and family subscriptions: who pays?",
+    "kicker": "Family plans",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "work-and-business-subscriptions-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Personal, Work and Business labels",
+    "columns": [
+     "Example"
+    ],
+    "rows": [
+     [
+      "Personal",
+      "Streaming, music, games"
+     ],
+     [
+      "Work",
+      "Tools for your job, paid by you"
+     ],
+     [
+      "Business",
+      "Hosting, software for your company"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "work-and-business-subscriptions-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "A simple routine for tax time",
+    "items": [
+     "Label every subscription when you add it",
+     "Note the card or account in Notes",
+     "Export your list as CSV with Pro",
+     "Share it with your accountant"
+    ]
+   }
+  }
+ },
+ {
+  "id": "work-and-business-subscriptions-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Separate work and personal subscriptions",
+    "kicker": "Work and business",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "forgotten-subscriptions-where-they-hide-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Nine places to check",
+    "items": [
+     "Google Play Subscriptions",
+     "Apple Subscriptions",
+     "PayPal automatic payments",
+     "Card and bank statements",
+     "Your phone carrier bill",
+     "Old email accounts",
+     "Amazon and other memberships",
+     "Software and domain renewals",
+     "Family members' devices"
+    ]
+   }
+  }
+ },
+ {
+  "id": "forgotten-subscriptions-where-they-hide-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Once you find them",
+    "items": [
+     "Add each one to RenewRadar",
+     "Note where it is billed",
+     "Cancel what you do not need",
+     "Mark cancelled items, keep the record"
+    ]
+   }
+  }
+ },
+ {
+  "id": "forgotten-subscriptions-where-they-hide-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Forgotten subscriptions: 9 places they hide",
+    "kicker": "Find hidden charges",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "weekly-subscriptions-cost-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "stat",
+    "value": "$155",
+    "label": "a year for a $2.99 weekly plan",
+    "note": "$2.99 x 52 weeks = $155.48. That is about $12.96 a month."
+   }
+  }
+ },
+ {
+  "id": "weekly-subscriptions-cost-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "bars",
+    "heading": "The same app, three ways to pay (per year)",
+    "prefix": "$",
+    "items": [
+     [
+      "Weekly $2.99",
+      155.48
+     ],
+     [
+      "Monthly $7.99",
+      95.88
+     ],
+     [
+      "Yearly $39.99",
+      39.99
+     ]
+    ],
+    "note": "Example prices for illustration."
+   }
+  }
+ },
+ {
+  "id": "weekly-subscriptions-cost-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Weekly subscriptions cost more than you think",
+    "kicker": "Money",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "pause-vs-cancel-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Pause and cancel compared",
+    "columns": [
+     "Pause",
+     "Cancel"
+    ],
+    "rows": [
+     [
+      "Charges stop for now",
+      "yes",
+      "yes"
+     ],
+     [
+      "Restarts automatically",
+      "Usually",
+      "no"
+     ],
+     [
+      "Keeps your settings and data",
+      "yes",
+      "Varies"
+     ],
+     [
+      "Best when",
+      "Short break",
+      "Not coming back soon"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "pause-vs-cancel-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Pause and cancel in RenewRadar",
+    "columns": [
+     "Paused",
+     "Cancelled"
+    ],
+    "rows": [
+     [
+      "Shown on Home",
+      "Yes, dimmed",
+      "Cancelled list"
+     ],
+     [
+      "Reminders",
+      "None",
+      "None"
+     ],
+     [
+      "Counted in totals",
+      "no",
+      "no"
+     ],
+     [
+      "Counts toward free limit",
+      "yes",
+      "no"
+     ],
+     [
+      "Back to active",
+      "Resume",
+      "Restore"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "pause-vs-cancel-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Pause or cancel a subscription?",
+    "kicker": "How to",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "subscription-year-in-review-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Your 15-minute review",
+    "items": [
+     "Look at your yearly total",
+     "Check spending by category",
+     "Mark what you actually used",
+     "List renewals due in January",
+     "Pick one change for next year"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-year-in-review-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "bars",
+    "heading": "Example: a year by category",
+    "prefix": "$",
+    "items": [
+     [
+      "Streaming",
+      383.76
+     ],
+     [
+      "Software",
+      240
+     ],
+     [
+      "Music",
+      143.88
+     ],
+     [
+      "Fitness",
+      119.88
+     ],
+     [
+      "Storage",
+      35.88
+     ]
+    ],
+    "note": "Example figures for illustration."
+   }
+  }
+ },
+ {
+  "id": "subscription-year-in-review-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Your subscription year in review",
+    "kicker": "Year in review",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "is-renewradar-safe-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "What RenewRadar does and does not do",
+    "columns": [
+     "RenewRadar"
+    ],
+    "rows": [
+     [
+      "Asks for bank or card details",
+      "Never"
+     ],
+     [
+      "Requires an account",
+      "No"
+     ],
+     [
+      "Stores your list on a server",
+      "No, only on your phone"
+     ],
+     [
+      "Shows ads or uses trackers",
+      "No"
+     ],
+     [
+      "Sells or shares your data",
+      "No"
+     ],
+     [
+      "Works offline",
+      "Yes"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "is-renewradar-safe-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "What RenewRadar asks your phone for",
+    "columns": [
+     "Asked for"
+    ],
+    "rows": [
+     [
+      "Notifications, to show reminders",
+      "yes"
+     ],
+     [
+      "Location",
+      "no"
+     ],
+     [
+      "Contacts",
+      "no"
+     ],
+     [
+      "Camera or microphone",
+      "no"
+     ],
+     [
+      "Photos and files",
+      "no"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "is-renewradar-safe-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Is RenewRadar safe?",
+    "kicker": "Privacy and safety",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "export-subscriptions-csv-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Exporting your list",
+    "items": [
+     "Open Settings in RenewRadar",
+     "Tap Export data as CSV",
+     "Choose where to send it in the share sheet",
+     "Open it in any spreadsheet app"
+    ]
+   }
+  }
+ },
+ {
+  "id": "export-subscriptions-csv-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "What the CSV includes",
+    "items": [
+     "Name, status and price",
+     "Currency and billing cycle",
+     "Next renewal date",
+     "Monthly cost",
+     "Category and Used for",
+     "Trial details",
+     "Reminder days",
+     "Notes"
+    ]
+   }
+  }
+ },
+ {
+  "id": "export-subscriptions-csv-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Export your subscriptions to a spreadsheet",
+    "kicker": "RenewRadar Pro",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "plan-next-12-months-charges-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "bars",
+    "heading": "Example: charges by month",
+    "prefix": "$",
+    "items": [
+     [
+      "January",
+      312.86
+     ],
+     [
+      "February",
+      72.97
+     ],
+     [
+      "March",
+      72.97
+     ],
+     [
+      "April",
+      211.97
+     ],
+     [
+      "May",
+      72.97
+     ],
+     [
+      "June",
+      72.97
+     ]
+    ],
+    "note": "Yearly renewals make January and April expensive in this example."
+   }
+  }
+ },
+ {
+  "id": "plan-next-12-months-charges-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Using the 12-month view",
+    "items": [
+     "Spot the expensive months",
+     "Check which yearly plans land there",
+     "Decide early: keep, switch or cancel",
+     "Set aside money before big months"
+    ]
+   }
+  }
+ },
+ {
+  "id": "plan-next-12-months-charges-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Your next 12 months of charges",
+    "kicker": "RenewRadar Pro",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "subscription-categories-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "phone",
+    "screen": "stats",
+    "heading": "Spending by category in RenewRadar",
+    "points": [
+     "Monthly and yearly totals",
+     "Streaming, music, software and more",
+     "Separate totals per currency",
+     "Only active, paid subscriptions"
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-categories-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Categories in RenewRadar",
+    "columns": [
+     "Examples"
+    ],
+    "rows": [
+     [
+      "Streaming",
+      "Video and TV services"
+     ],
+     [
+      "Music",
+      "Music and audiobooks"
+     ],
+     [
+      "Storage",
+      "Cloud storage and backup"
+     ],
+     [
+      "Software",
+      "Apps and productivity tools"
+     ],
+     [
+      "Gaming",
+      "Game passes and online play"
+     ],
+     [
+      "News, Fitness, Utilities, Other",
+      "Everything else"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "subscription-categories-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Subscriptions by category",
+    "kicker": "Money",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "student-subscriptions-budget-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Student subscription checklist",
+    "items": [
+     "Use student discounts",
+     "Check what your school provides",
+     "Share family or duo plans",
+     "Rotate streaming services",
+     "Track every free trial",
+     "Watch for the discount ending"
+    ]
+   }
+  }
+ },
+ {
+  "id": "student-subscriptions-budget-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "stat",
+    "value": "5 free",
+    "label": "subscriptions tracked in RenewRadar at no cost",
+    "note": "Reminders, trial countdowns and totals included."
+   }
+  }
+ },
+ {
+  "id": "student-subscriptions-budget-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Subscriptions on a student budget",
+    "kicker": "Students",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "freelancer-software-subscriptions-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Common freelancer subscriptions",
+    "items": [
+     "Design and editing tools",
+     "Writing and AI tools",
+     "Website hosting and domains",
+     "Cloud storage and backup",
+     "Invoicing and accounting",
+     "Video calls and scheduling"
+    ]
+   }
+  }
+ },
+ {
+  "id": "freelancer-software-subscriptions-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "A freelancer's subscription routine",
+    "items": [
+     "Label each tool Work or Business",
+     "Enter the currency you are billed in",
+     "Remind yourself 14 days before yearly renewals",
+     "Review tools after each big project",
+     "Export a CSV for your bookkeeping"
+    ]
+   }
+  }
+ },
+ {
+  "id": "freelancer-software-subscriptions-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Freelancers: keep software subscriptions under control",
+    "kicker": "Freelancers",
+    "screen": "stats"
+   }
+  }
+ },
+ {
+  "id": "new-year-subscription-reset-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Your new year reset",
+    "items": [
+     "Cancel one thing you did not use in December",
+     "Check every trial started over the holidays",
+     "Set reminders for all yearly plans",
+     "Give new resolution apps a trial date",
+     "Write down your yearly subscription total"
+    ]
+   }
+  }
+ },
+ {
+  "id": "new-year-subscription-reset-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "notify",
+    "heading": "Resolutions with a check-in date",
+    "items": [
+     {
+      "title": "Language app free trial ends in 3 days",
+      "body": "You will be charged $59.99 on Jan 15 unless you cancel.",
+      "time": "9:00"
+     },
+     {
+      "title": "Fitness app renews in 7 days",
+      "body": "$12.99 will be charged on Feb 1.",
+      "time": "9:00"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "id": "new-year-subscription-reset-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "The new year subscription reset",
+    "kicker": "New year",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "app-store-subscriptions-vs-direct-billing-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Three ways to be billed",
+    "columns": [
+     "Google Play",
+     "Apple",
+     "Website"
+    ],
+    "rows": [
+     [
+      "Where to cancel",
+      "Play Store",
+      "iPhone Settings",
+      "Your account online"
+     ],
+     [
+      "Refund requests",
+      "Google Play",
+      "Apple",
+      "The service"
+     ],
+     [
+      "Listed in one place",
+      "yes",
+      "yes",
+      "no"
+     ],
+     [
+      "Price",
+      "Local currency",
+      "Local currency",
+      "Varies"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "app-store-subscriptions-vs-direct-billing-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Record where each subscription is billed",
+    "items": [
+     "Open the subscription in RenewRadar",
+     "Tap Edit",
+     "Write where it is billed in Notes",
+     "Save. Now you know where to cancel"
+    ]
+   }
+  }
+ },
+ {
+  "id": "app-store-subscriptions-vs-direct-billing-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Google Play, Apple or the website?",
+    "kicker": "How to",
+    "theme": "sea"
+   }
+  }
+ },
+ {
+  "id": "switched-from-iphone-to-android-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "steps",
+    "heading": "Before or after you switch",
+    "items": [
+     "List subscriptions in your Apple account",
+     "Decide which to keep on Android",
+     "Cancel the Apple ones you are moving",
+     "Subscribe again on Android or the web",
+     "Add everything to RenewRadar"
+    ]
+   }
+  }
+ },
+ {
+  "id": "switched-from-iphone-to-android-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Easy to miss after switching",
+    "items": [
+     "Apple subscriptions you forgot",
+     "iCloud storage plans",
+     "Trials started on the old phone",
+     "Family Sharing plans you pay for"
+    ]
+   }
+  }
+ },
+ {
+  "id": "switched-from-iphone-to-android-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Switched from iPhone to Android?",
+    "kicker": "New phone",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "cancelled-subscriptions-history-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "Why keep cancelled subscriptions",
+    "items": [
+     "Spot charges that should have stopped",
+     "Remember the price you used to pay",
+     "Rejoin quickly when you rotate back",
+     "See what you have cut"
+    ]
+   }
+  }
+ },
+ {
+  "id": "cancelled-subscriptions-history-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "Cancelled items in RenewRadar",
+    "columns": [
+     "Cancelled"
+    ],
+    "rows": [
+     [
+      "Where they go",
+      "Cancelled list on Home"
+     ],
+     [
+      "Counted in totals",
+      "no"
+     ],
+     [
+      "Count toward free limit",
+      "no"
+     ],
+     [
+      "Reminders",
+      "None"
+     ],
+     [
+      "Bring back",
+      "Restore"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "cancelled-subscriptions-history-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "Keep a record of cancelled subscriptions",
+    "kicker": "Good habits",
+    "screen": "home"
+   }
+  }
+ },
+ {
+  "id": "renewradar-faq-a",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "compare",
+    "heading": "How to recognise the real RenewRadar",
+    "columns": [
+     "RenewRadar"
+    ],
+    "rows": [
+     [
+      "Name",
+      "RenewRadar, one word"
+     ],
+     [
+      "What it is",
+      "Subscription tracker and reminder app"
+     ],
+     [
+      "Platform",
+      "Android, on Google Play"
+     ],
+     [
+      "Google Play title",
+      "RenewRadar: Subscriptions"
+     ],
+     [
+      "Developer",
+      "Pixel DevCode"
+     ],
+     [
+      "App ID",
+      "com.pixeldevcode.renewradar"
+     ],
+     [
+      "Website",
+      "renewradar.pixeldevcode.com"
+     ]
+    ]
+   }
+  }
+ },
+ {
+  "id": "renewradar-faq-b",
+  "kind": "figure",
+  "props": {
+   "figure": {
+    "type": "checklist",
+    "heading": "RenewRadar in short",
+    "items": [
+     "Reminders before every charge",
+     "Free trial countdowns",
+     "Totals in any currency",
+     "No bank login, no account",
+     "Free for 5, Pro one-time",
+     "Works offline"
+    ]
+   }
+  }
+ },
+ {
+  "id": "renewradar-faq-cover",
+  "kind": "cover",
+  "props": {
+   "cover": {
+    "title": "RenewRadar FAQ",
+    "kicker": "Questions and answers",
+    "screen": "home"
+   }
+  }
+ }
+]

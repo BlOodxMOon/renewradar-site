@@ -3935,3 +3935,36 @@ tbody tr:hover {
     transform: none;
   }
 }
+
+/* Article figures and guide cards with a cover image */
+
+.prose .fig {
+  margin: 32px 0;
+}
+
+.prose .fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px var(--line), var(--shadow);
+}
+
+.prose .fig figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.card-cover {
+  overflow: hidden;
+}
+
+.card-cover .card-img {
+  display: block;
+  width: calc(100% + 2 * 26px);
+  max-width: none;
+  height: auto;
+  margin: calc(-1 * 26px) calc(-1 * 26px) 20px;
+}

@@ -189,7 +189,7 @@ remove_action( 'wp_head', 'wp_generator' );
 
 add_filter( 'pre_get_document_title', function ( $title ) {
 	if ( is_front_page() ) {
-		return 'RenewRadar: Subscription and Free Trial Tracker for Android';
+		return 'RenewRadar: Subscription Tracker and Reminder App for Android';
 	}
 	$id = rr_current_id();
 	if ( $id ) {
@@ -240,6 +240,10 @@ add_action( 'wp_head', function () {
 	$title = wp_get_document_title();
 	$url   = is_front_page() ? home_url( '/' ) : ( rr_current_id() ? get_permalink( rr_current_id() ) : home_url( add_query_arg( array() ) ) );
 	$image = rr_asset( 'img/og-banner.png' );
+	$cover = is_single() ? rr_cover_url( get_queried_object_id() ) : '';
+	if ( $cover ) {
+		$image = $cover;
+	}
 	?>
 	<meta name="description" content="<?php echo esc_attr( $desc ); ?>">
 	<?php if ( is_home() && ! is_front_page() ) : // WordPress adds canonicals to single views only. ?>
@@ -254,7 +258,7 @@ add_action( 'wp_head', function () {
 	<meta name="theme-color" content="#0d0c20" media="(prefers-color-scheme: dark)">
 	<?php endif; ?>
 	<meta property="og:type" content="<?php echo is_single() ? 'article' : 'website'; ?>">
-	<meta property="og:site_name" content="RenewRadar">
+	<meta property="og:site_name" content="RenewRadar Subscription Tracker">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:title" content="<?php echo esc_attr( $title ); ?>">
 	<meta property="og:description" content="<?php echo esc_attr( $desc ); ?>">
@@ -262,7 +266,7 @@ add_action( 'wp_head', function () {
 	<meta property="og:image" content="<?php echo esc_url( $image ); ?>">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
-	<meta property="og:image:alt" content="RenewRadar by Pixel DevCode. Know before you are charged.">
+	<meta property="og:image:alt" content="<?php echo esc_attr( $cover ? get_the_title( get_queried_object_id() ) : 'RenewRadar subscription tracker app by Pixel DevCode. Know before you are charged.' ); ?>">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="<?php echo esc_attr( $title ); ?>">
 	<meta name="twitter:description" content="<?php echo esc_attr( $desc ); ?>">
@@ -313,6 +317,8 @@ function rr_schema() {
 			'@context'            => 'https://schema.org',
 			'@type'               => 'MobileApplication',
 			'name'                => 'RenewRadar: Subscriptions',
+			'alternateName'       => array( 'RenewRadar Subscription Tracker', 'RenewRadar Subscription Reminder' ),
+			'identifier'          => 'com.pixeldevcode.renewradar',
 			'operatingSystem'     => 'ANDROID',
 			'applicationCategory' => 'FinanceApplication',
 			'description'         => 'A private subscription and free trial tracker. Add subscriptions by hand, see monthly and yearly totals, and get reminders before every charge.',
@@ -365,7 +371,7 @@ function rr_schema() {
 			'mainEntityOfPage' => get_permalink( $id ),
 			'datePublished'    => get_the_date( 'c', $id ),
 			'dateModified'     => get_the_modified_date( 'c', $id ),
-			'image'            => rr_asset( 'img/og-banner.png' ),
+			'image'            => rr_cover_url( $id ) ? rr_cover_url( $id ) : rr_asset( 'img/og-banner.png' ),
 			'author'           => array( '@type' => 'Organization', 'name' => 'Pixel DevCode', 'url' => 'https://pixeldevcode.com' ),
 			'publisher'        => array(
 				'@type' => 'Organization',
@@ -525,6 +531,11 @@ function rr_toc( $content ) {
 	return array( $html, $toc );
 }
 
+/** Cover image of a scheduled article (set by the RenewRadar Core plugin), or an empty string. */
+function rr_cover_url( $post_id ) {
+	return function_exists( 'rr_article_cover' ) ? rr_article_cover( $post_id ) : '';
+}
+
 function rr_related_html( $post_id ) {
 	$items = get_post_meta( $post_id, 'rr_related', true );
 	if ( ! is_array( $items ) || ! $items ) {
@@ -552,6 +563,7 @@ function rr_home_faq() {
 		array( 'Can RenewRadar cancel a subscription for me?', 'No. It tells you in time, and you cancel with the service itself. Our <a href="' . esc_url( home_url( '/guides/cancel-free-trial-before-charged/' ) ) . '">guide to cancelling a free trial</a> shows where to do it for the most common billing methods.' ),
 		array( 'Will reminders arrive if I do not open the app?', 'Yes. Reminders are scheduled as notifications on your phone, so they work without the app open and without internet. Some Android phones with strict battery saving can delay them; allowing notifications and setting RenewRadar to unrestricted battery use fixes that.' ),
 		array( 'Which currencies does it support?', 'Any currency with a three-letter code. USD, EUR, GBP, CAD, AUD, PHP, INR and JPY are one tap away. When you track more than one currency, totals are shown per currency, because RenewRadar does not guess exchange rates.' ),
+		array( 'Is RenewRadar related to Renew Radar or Renewal Radar?', 'No. RenewRadar, written as one word, is a subscription tracker and reminder app for Android made by Pixel DevCode. On Google Play it is listed as RenewRadar: Subscriptions (app ID com.pixeldevcode.renewradar), and this site is its only website. It is not affiliated with renewradar.com, which is an SSL certificate monitoring service, or with other apps that have similar names.' ),
 		array( 'Is there an iPhone version?', 'Not yet. RenewRadar is available for Android on Google Play first.' ),
 		array( 'What happens to my list if I change phones?', 'Your list stays on the old phone because nothing is synced to a server. Pro users can export a CSV copy at any time. Pro itself is linked to your Google account, so Restore purchase brings it back on a new phone.' ),
 	);
