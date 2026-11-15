@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RenewRadar Core
  * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, and the first-run content import.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4
@@ -368,6 +368,39 @@ function rr_activate() {
 }
 
 register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+
+/* ------------------------------------------------------------------ */
+/* One-time content updates                                            */
+/* ------------------------------------------------------------------ */
+
+add_action( 'init', 'rr_migrate', 20 );
+
+function rr_migrate() {
+	$done = (int) get_option( 'rr_migration', 0 );
+	if ( $done >= 2 ) {
+		return;
+	}
+	// 2: hosting moved from GitHub Pages to Hostinger, and Cloudflare Web Analytics was added.
+	$privacy = get_page_by_path( 'privacy', OBJECT, 'page' );
+	if ( $privacy ) {
+		$content = $privacy->post_content;
+		$content = str_replace(
+			'the server that hosts the file (GitHub Pages) can see your IP address and standard request details.',
+			'the server that hosts the file (Hostinger) can see your IP address and standard request details.',
+			$content
+		);
+		$content = preg_replace(
+			'#<h2><span class="n">9</span>This website</h2>.*?</section>#s',
+			'<h2><span class="n">9</span>This website</h2><p>This website is hosted by Hostinger. It sets no cookies of its own and uses no advertising or tracking tools. To count visits, it uses Cloudflare Web Analytics, which does not use cookies or local storage and does not fingerprint visitors. It records the page you open, the page that sent you here, your browser and device type, and your approximate country based on your IP address. See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare&#8217;s privacy policy</a>.</p><p>The home page can show a short promo video hosted on YouTube. The YouTube player is not loaded until you press play. When you do, the video plays from YouTube&#8217;s privacy-enhanced domain (youtube-nocookie.com), and Google receives your IP address and device details and may store information in your browser, as described in <a href="https://policies.google.com/privacy">Google&#8217;s privacy policy</a>.</p><p>If you pick a color mode, that choice is remembered in your browser&#8217;s local storage on your device. The subscription cost calculator runs entirely in your browser, and nothing you type into it is stored or sent anywhere. Search engines show us which search terms led people to this site as totals, without identifying anyone. Like any web host, Hostinger may log visitors&#8217; IP addresses for security and operations.</p></section>',
+			$content,
+			1
+		);
+		if ( $content !== $privacy->post_content ) {
+			wp_update_post( array( 'ID' => $privacy->ID, 'post_content' => wp_slash( $content ) ) );
+		}
+	}
+	update_option( 'rr_migration', 2 );
+}
 
 function rr_seed() {
 	$assets = content_url( '/themes/renewradar/assets' );
