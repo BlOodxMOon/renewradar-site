@@ -271,7 +271,8 @@ add_filter( 'pre_get_document_title', function ( $title ) {
 	if ( $id ) {
 		$seo = get_post_meta( $id, 'rr_seo_title', true );
 		if ( $seo ) {
-			return $seo;
+			// Search results cut titles at about 60 characters; the brand suffix goes first.
+			return mb_strlen( $seo ) > 60 ? preg_replace( '/ \| RenewRadar$/', '', $seo ) : $seo;
 		}
 	}
 	if ( is_404() ) {
@@ -620,8 +621,14 @@ function rr_related_html( $post_id ) {
 	$cards = '';
 	foreach ( $items as $r ) {
 		$href   = isset( $r['href'] ) ? $r['href'] : '';
+		if ( function_exists( 'rr_guide_unpublished' ) && rr_guide_unpublished( $href ) ) {
+			continue; // Scheduled guide: its address is a 404 until it publishes.
+		}
 		$href   = 0 === strpos( $href, '/' ) ? home_url( $href ) : $href;
 		$cards .= '<a class="card" href="' . esc_url( $href ) . '"><h3>' . wp_kses_post( $r['title'] ) . '</h3><p>' . wp_kses_post( $r['text'] ) . '</p><span class="go">Read more &rarr;</span></a>';
+	}
+	if ( '' === $cards ) {
+		return '';
 	}
 	return '<aside class="related"><h2>Keep reading</h2><div class="grid-2">' . $cards . '</div></aside>';
 }

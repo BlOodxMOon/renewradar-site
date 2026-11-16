@@ -4,7 +4,7 @@
  "date": "2026-12-04",
  "title": "What to Look for in a Subscription Tracker App: 9 Things That Matter",
  "coverTitle": "9 things to look for in a subscription tracker app",
- "seoTitle": "How to Choose a Subscription Tracker App: 9 Things That Matter",
+ "seoTitle": "How to Choose a Subscription Tracker App: 9 Things to Check",
  "description": "Not all subscription tracker apps are equal. Nine questions to ask before you install one, from privacy and reminders to free trials and pricing.",
  "tag": "Compare",
  "lede": "Search for a subscription tracker on Google Play and you will find dozens of apps, some with very similar names. These nine questions help you choose well.",

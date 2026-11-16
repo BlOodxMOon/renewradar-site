@@ -4,7 +4,7 @@
  "date": "2026-11-24",
  "title": "Why One Reminder Is Not Enough: Setting Reminder Timing per Subscription",
  "coverTitle": "Why one reminder is not enough",
- "seoTitle": "Subscription Reminder Timing: How Early Should You Be Reminded?",
+ "seoTitle": "Subscription Reminder Timing: How Early to Be Reminded",
  "description": "How early should a subscription reminder arrive? Why a yearly plan needs a different warning than a weekly one, and how to set timing per subscription.",
  "tag": "Reminders",
  "lede": "A reminder that arrives too late is useless, and one that arrives too early is forgotten. The right timing depends on the subscription.",

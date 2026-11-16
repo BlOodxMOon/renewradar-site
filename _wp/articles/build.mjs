@@ -117,7 +117,7 @@ for (const { file, meta, body } of parsed) {
   }
   if (dates.has(meta.date)) throw new Error(`${file}: two articles on ${meta.date}`);
   dates.add(meta.date);
-  if (meta.seoTitle.length > 70) console.warn(`${file}: seoTitle is ${meta.seoTitle.length} characters`);
+  if (meta.seoTitle.length > 60) console.warn(`${file}: seoTitle is ${meta.seoTitle.length} characters`);
   if (meta.description.length > 160) console.warn(`${file}: description is ${meta.description.length} characters`);
   const figures = Object.fromEntries(Object.entries(meta.figures).map(([k, v]) => [k, { ...v }]));
   const content = markdown(body, meta.slug, figures);

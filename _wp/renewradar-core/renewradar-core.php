@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: RenewRadar Core
- * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, the first-run content import and the scheduled articles.
- * Version: 1.1.6
+ * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, the first-run content import, the scheduled articles, site hardening and the Site views counter.
+ * Version: 1.2.0
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4
@@ -15,6 +15,9 @@ defined( 'ABSPATH' ) || exit;
 const RR_CORE_FILE = __FILE__;
 const RR_VERSION_OPTION = 'rr_presets_version';
 const RR_UPDATED_OPTION = 'rr_presets_updated';
+
+require __DIR__ . '/security.php';
+require __DIR__ . '/views.php';
 
 /** Categories and billing cycles the app understands. Keep in sync with src/lib/cycles.ts in the app. */
 function rr_categories() {
@@ -377,7 +380,7 @@ add_action( 'init', 'rr_migrate', 20 );
 
 function rr_migrate() {
 	$done = (int) get_option( 'rr_migration', 0 );
-	if ( $done >= 4 ) {
+	if ( $done >= 5 ) {
 		return;
 	}
 	if ( $done < 2 ) {
@@ -386,8 +389,76 @@ function rr_migrate() {
 	if ( $done < 3 ) {
 		rr_migrate_3();
 	}
-	rr_migrate_4();
-	update_option( 'rr_migration', 4 );
+	if ( $done < 4 ) {
+		rr_migrate_4();
+	}
+	rr_migrate_5();
+	update_option( 'rr_migration', 5 );
+}
+
+// 5: privacy policy names the Site views counter; shorter titles and descriptions where search results cut them off.
+function rr_migrate_5() {
+	$privacy = get_page_by_path( 'privacy', OBJECT, 'page' );
+	if ( $privacy ) {
+		$content = str_replace(
+			'<p>This website is hosted by Hostinger. It sets no cookies of its own and uses no advertising or tracking tools.</p>',
+			'<p>This website is hosted by Hostinger. It sets no cookies and uses no advertising or third-party tracking tools.</p><p>To see which pages are read, the site counts page views with its own counter, stored on this website&#8217;s server and not shared with anyone. Each view adds one to a daily total for the page, the site or campaign that linked to it, the country (estimated from your browser&#8217;s time zone setting), and the type of device, browser and operating system. No cookies are used and no IP address is stored with these totals; your IP address is used only in hashed form, for up to an hour, to stop one address from flooding the counter.</p>',
+			$privacy->post_content
+		);
+		if ( $content !== $privacy->post_content ) {
+			wp_update_post( array( 'ID' => $privacy->ID, 'post_content' => wp_slash( $content ) ) );
+		}
+	}
+
+	$titles = array(
+		'subscription-audit'           => array( 'post', 'The 20-Minute Subscription Audit: Cut Recurring Charges' ),
+		'subscription-cost-calculator' => array( 'page', 'Subscription Cost Calculator: Monthly, Yearly, 5-Year Cost' ),
+	);
+	foreach ( $titles as $slug => $t ) {
+		$post = get_page_by_path( $slug, OBJECT, $t[0] );
+		if ( $post ) {
+			update_post_meta( $post->ID, 'rr_seo_title', $t[1] );
+		}
+	}
+
+	$descriptions = array(
+		'multi-currency-subscription-tracker' => 'Track subscriptions billed in different currencies. RenewRadar keeps each one in its own currency and shows honest totals per currency, with no guessed rates.',
+		'rocket-money-alternative'            => 'A Rocket Money alternative that works outside the US and never connects to your bank. Meet RenewRadar, a private subscription tracker for Android.',
+		'bobby-alternative-android'           => 'Bobby is a manual subscription tracker for iPhone. RenewRadar brings the same simple, private approach to Android, with trial countdowns and multi-currency.',
+	);
+	foreach ( $descriptions as $slug => $text ) {
+		$page = get_page_by_path( $slug, OBJECT, 'page' );
+		if ( $page ) {
+			wp_update_post( array( 'ID' => $page->ID, 'post_excerpt' => $text ) );
+		}
+	}
+}
+
+/* ------------------------------------------------------------------ */
+/* Links to guides that are not published yet                         */
+/* ------------------------------------------------------------------ */
+
+// Pages and scheduled guides link to guides that publish later. Until then those addresses are 404s for
+// visitors and search engines, so the link is shown as plain text. It becomes a link on the publish date.
+add_filter( 'the_content', function ( $html ) {
+	$pattern = '#<a\s[^>]*href="(?:' . preg_quote( untrailingslashit( home_url() ), '#' ) . ')?(/guides/[a-z0-9-]+/?)"[^>]*>(.*?)</a>#is';
+	return preg_replace_callback( $pattern, function ( $m ) {
+		return rr_guide_unpublished( $m[1] ) ? $m[2] : $m[0];
+	}, $html );
+}, 20 );
+
+/** True for a /guides/slug/ address whose guide is scheduled, draft or missing. */
+function rr_guide_unpublished( $url ) {
+	static $seen = array();
+	$path = (string) wp_parse_url( $url, PHP_URL_PATH );
+	if ( ! preg_match( '#^/guides/([a-z0-9-]+)/?$#', $path, $m ) ) {
+		return false;
+	}
+	if ( ! isset( $seen[ $m[1] ] ) ) {
+		$post          = get_page_by_path( $m[1], OBJECT, 'post' );
+		$seen[ $m[1] ] = ! $post || 'publish' !== $post->post_status;
+	}
+	return $seen[ $m[1] ];
 }
 
 // 4: covers for the original guides, which were imported before articles had covers.
