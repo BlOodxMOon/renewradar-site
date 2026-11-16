@@ -59,4 +59,4 @@ jobs:
 
       - name: Clear the page cache
         if: env.DRY == ''
-        run: ssh -p "$PORT" "$SSH_USER@$HOST" "cd '$WP_PATH' && (wp litespeed-purge all || wp cache flush)" || echo "Cache not cleared; purge it in wp-admin if pages look stale."
+        run: ssh -p "$PORT" "$SSH_USER@$HOST" "cd '$WP_PATH' && wp cache flush" || echo "Cache not cleared; purge it in wp-admin if pages look stale."

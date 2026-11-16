@@ -1,6 +1,6 @@
 # Deploying the WordPress theme and plugin
 
-Pushing to `main` deploys automatically when anything under `_wp/renewradar/` (theme) or `_wp/renewradar-core/` (plugin) changes. The workflow `.github/workflows/deploy-wp.yml` checks PHP syntax, copies both folders to Hostinger over SSH with rsync (only changed files are sent; files removed here are removed on the server), then clears the LiteSpeed page cache. Other pushes (static files, `_src`) do not deploy anything.
+Pushing to `main` deploys automatically when anything under `_wp/renewradar/` (theme) or `_wp/renewradar-core/` (plugin) changes. The workflow `.github/workflows/deploy-wp.yml` checks PHP syntax, copies both folders to Hostinger over SSH with rsync (only changed files are sent; files removed here are removed on the server), then flushes the WordPress object cache. Pages are not cached at the CDN (hcdn reports `DYNAMIC`) and theme files load with a version query, so no page purge is needed. Other pushes (static files, `_src`) do not deploy anything.
 
 The plugin's `rr_migrate` runs on `init`, so a new plugin version takes effect on the next page load without reactivating it. Customizer settings are untouched.
 
