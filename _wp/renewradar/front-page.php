@@ -69,7 +69,7 @@ $rr_tick = function ( $b, $t ) {
 		<?php if ( rr_loud_alarm_live() ) : ?>
 		<div class="card reveal" style="margin-top:18px">
 			<h3 style="margin-top:0">Loud alarm for the charges you must not miss</h3>
-			<p>Edit a subscription and turn on <b>Loud alarm</b> in the Reminders card. Its last reminder then rings at alarm volume, even in silent mode, until you tap or dismiss it, and opens a full-screen view: <b>I cancelled it</b>, <b>Keep it</b> or <b>Remind me in 1 hour</b>. Try it with <b>Send a test loud alarm</b> in Settings. Do Not Disturb still silences it unless you allow RenewRadar in your phone&rsquo;s Do Not Disturb settings. Free for everyone.</p>
+			<p>Edit a subscription and turn on <b>Loud alarm</b> in the Reminders card. Its last reminder then rings at alarm volume, even in silent mode, until you tap or dismiss it, and opens a full-screen view where you choose <b>I cancelled it</b> (moves it to Cancelled), <b>Keep paying for it</b> (stays active) or <b>Remind me in 1 hour</b>. Try it with <b>Send a test loud alarm</b> in Settings. Do Not Disturb still silences it unless you allow RenewRadar in your phone&rsquo;s Do Not Disturb settings. Free for everyone.</p>
 		</div>
 		<?php endif; ?>
 	</div>
