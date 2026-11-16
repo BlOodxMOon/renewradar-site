@@ -114,6 +114,30 @@ function rr_video_section() {
 /* Christmas sale (Pro at the sale price; matches the RevenueCat rule)  */
 /* ------------------------------------------------------------------ */
 
+/* Loud alarm arrived in app 1.2.0. Its home page text stays hidden until this box is ticked */
+/* (Appearance > Customize > App features), so the site never describes a feature not yet on Play. */
+add_action( 'customize_register', function ( $wp_customize ) {
+	$wp_customize->add_section( 'rr_features', array(
+		'title'    => 'App features',
+		'priority' => 33,
+	) );
+	$wp_customize->add_setting( 'rr_loud_alarm_live', array(
+		'default'           => false,
+		'sanitize_callback' => function ( $value ) {
+			return (bool) $value;
+		},
+	) );
+	$wp_customize->add_control( 'rr_loud_alarm_live', array(
+		'section'     => 'rr_features',
+		'label'       => 'App 1.2.0 is live on Google Play (show Loud alarm on the home page)',
+		'type'        => 'checkbox',
+	) );
+} );
+
+function rr_loud_alarm_live() {
+	return (bool) get_theme_mod( 'rr_loud_alarm_live', false );
+}
+
 const RR_SALE_START = '2026-12-01';
 const RR_SALE_END   = '2026-12-31';
 const RR_SALE_PRICE = 'US$5.99';

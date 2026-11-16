@@ -48,7 +48,7 @@ $rr_tick = function ( $b, $t ) {
 		</div>
 		<div class="grid-3 reveal">
 			<div class="card"><div class="dot">1</div><h3>Add it</h3><p>Type a name and pick from suggestions for popular services. Set the price, currency, billing cycle and next charge date.</p></div>
-			<div class="card"><div class="dot">2</div><h3>Choose your reminders</h3><p>14, 7, 3 or 1 day before, or on the day. Every subscription can have its own timing, and a loud alarm for the charges you must not miss.</p></div>
+			<div class="card"><div class="dot">2</div><h3>Choose your reminders</h3><p>14, 7, 3 or 1 day before, or on the day. Every subscription can have its own timing<?php echo rr_loud_alarm_live() ? ', and a loud alarm for the charges you must not miss' : ''; ?>.</p></div>
 			<div class="card"><div class="dot">3</div><h3>Decide in time</h3><p>Keep it, pause it or mark it cancelled. Renewal dates roll forward on their own.</p></div>
 		</div>
 	</div>
@@ -66,10 +66,12 @@ $rr_tick = function ( $b, $t ) {
 			<div class="card"><div class="dot">2</div><h3>Lock your phone</h3><p>The test arrives in about 10 seconds. Leave the app or lock the screen to see it the way real reminders appear, at 9:00 on the days you chose.</p></div>
 			<div class="card"><div class="dot">3</div><h3>Nothing arrived?</h3><p>Turn on notifications for RenewRadar in your phone settings. On Android, also set RenewRadar&rsquo;s battery use to <b>No restrictions</b>, because some phones pause background reminders.</p></div>
 		</div>
+		<?php if ( rr_loud_alarm_live() ) : ?>
 		<div class="card reveal" style="margin-top:18px">
 			<h3 style="margin-top:0">Loud alarm for the charges you must not miss</h3>
 			<p>Edit a subscription and turn on <b>Loud alarm</b> in the Reminders card. Its last reminder then rings at alarm volume, even in silent mode, until you tap or dismiss it, and opens a full-screen view: <b>I cancelled it</b>, <b>Keep it</b> or <b>Remind me in 1 hour</b>. Try it with <b>Send a test loud alarm</b> in Settings. Do Not Disturb still silences it unless you allow RenewRadar in your phone&rsquo;s Do Not Disturb settings. Free for everyone.</p>
 		</div>
+		<?php endif; ?>
 	</div>
 </section>
 
