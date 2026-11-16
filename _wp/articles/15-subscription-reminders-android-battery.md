@@ -54,6 +54,10 @@ Open **Settings** in RenewRadar and tap **Send a test reminder** under Notificat
 
 ![The test buttons in RenewRadar Settings](shot:test-buttons "Settings, Notifications: send a test reminder or a test loud alarm.")
 
+Tap the loud alarm when it rings. It opens a full-screen view where you choose what happens to the subscription: **I cancelled it** moves it to Cancelled and stops its reminders, and **Keep paying for it** (or **Keep it after the trial** for a free trial) keeps it active. Not sure yet? Tap **Remind me in 1 hour**.
+
+![The loud alarm screen with I cancelled it and Keep it after the trial](shot:due "A loud alarm opens this screen. Pick what happens, or get reminded again in an hour.")
+
 For a full check, add a test subscription with a renewal date tomorrow and a reminder **on the day**, leave the app closed, and see whether it arrives at 9:00. Delete the test item afterwards.
 
 ## Do not use "Clear all" on recent apps for RenewRadar

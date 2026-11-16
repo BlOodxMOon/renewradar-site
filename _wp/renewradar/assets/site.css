@@ -4021,7 +4021,7 @@ tbody tr:hover {
 
 .loud-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
   gap: 26px;
   align-items: center;
 }
@@ -4038,4 +4038,15 @@ tbody tr:hover {
   .loud-card {
     grid-template-columns: 1fr;
   }
+}
+
+.loud-shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.loud-shots .step-shot img {
+  aspect-ratio: auto;
 }
