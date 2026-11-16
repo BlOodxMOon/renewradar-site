@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RenewRadar Core
  * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, the first-run content import, the scheduled articles, site hardening and the Site views counter.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4
@@ -380,7 +380,7 @@ add_action( 'init', 'rr_migrate', 20 );
 
 function rr_migrate() {
 	$done = (int) get_option( 'rr_migration', 0 );
-	if ( $done >= 5 ) {
+	if ( $done >= 6 ) {
 		return;
 	}
 	if ( $done < 2 ) {
@@ -392,8 +392,33 @@ function rr_migrate() {
 	if ( $done < 4 ) {
 		rr_migrate_4();
 	}
-	rr_migrate_5();
-	update_option( 'rr_migration', 5 );
+	if ( $done < 5 ) {
+		rr_migrate_5();
+	}
+	rr_migrate_6();
+	update_option( 'rr_migration', 6 );
+}
+
+// 6: privacy policy explains that Android backup can include the app's data in the user's own Google backup.
+function rr_migrate_6() {
+	$privacy = get_page_by_path( 'privacy', OBJECT, 'page' );
+	if ( ! $privacy ) {
+		return;
+	}
+	$content = str_replace(
+		array(
+			'If you want to keep a copy first, use the export feature described below.</p>',
+			'Because your subscription data never leaves your phone, you control it directly: you can edit or delete any item in the app, export it, or remove everything by uninstalling the app.',
+		),
+		array(
+			'If you want to keep a copy first, use the export feature described below.</p><p>If backup is turned on in your phone\'s Android settings, Android may include the app\'s data in your own Google backup, so your list can be restored when you set up a new phone or reinstall the app. That backup is kept in your Google account under Google\'s terms; when your phone has a screen lock, Android encrypts it with that lock, and we have no access to it. To keep the app\'s data out of future backups, turn off backup in your phone\'s settings.</p>',
+			'Because we never receive your subscription data, you control it directly: you can edit or delete any item in the app, export it, or remove everything from the phone by uninstalling the app. A copy in your own Android backup is managed in your phone\'s backup settings.',
+		),
+		$privacy->post_content
+	);
+	if ( $content !== $privacy->post_content ) {
+		wp_update_post( array( 'ID' => $privacy->ID, 'post_content' => wp_slash( $content ) ) );
+	}
 }
 
 // 5: privacy policy names the Site views counter; shorter titles and descriptions where search results cut them off.
