@@ -33,11 +33,17 @@ In **Settings**, set two things:
 - **Default currency:** the currency you pay in most often. You can still choose a different currency for any single subscription.
 - **Default reminders:** when you want to be reminded before a renewal. Choose any combination of 14, 7, 3 or 1 day before, or on the day. Three days and one day before is a good start.
 
+![Default currency and default reminders in Settings](shot:settings-defaults "Settings: your default currency and default reminders.")
+
 New subscriptions use these defaults, so you rarely need to change them per item.
 
 ## 3. Add your first subscription
 
-Tap the add button on Home and start typing the name. Suggestions for popular services appear as you type and fill in the category and usual billing cycle. Then enter:
+Tap the add button on Home and start typing the name. Suggestions for popular services appear as you type and fill in the category and usual billing cycle.
+
+![The Service name box on the New subscription screen](shot:add "Start typing in Service name to see suggestions.")
+
+Then enter:
 
 - **Price**, and the currency if it differs from your default.
 - **Billing cycle:** weekly, monthly, quarterly, yearly, or a custom number of days.
@@ -53,7 +59,11 @@ For a trial, switch on **Free trial**, then enter the trial end date and the pri
 
 ![Adding a free trial in RenewRadar](fig:b)
 
+![The Free trial switch with the trial end date and price after trial](shot:free-trial "Switch on Free trial, then set the end date and the price after the trial.")
+
 ## 5. Check your totals
+
+![Monthly and yearly totals at the top of Home](shot:home-totals "The totals card at the top of Home, one total per currency.")
 
 Once your subscriptions are in, the top of Home shows your monthly and yearly totals. Open **Stats** to see spending by category. This is often the moment people find something to cancel.
 

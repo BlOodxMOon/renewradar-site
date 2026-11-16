@@ -28,6 +28,8 @@ Most people know their biggest single subscription. Fewer know their biggest sub
 
 ![Categories in RenewRadar](fig:b)
 
+![Choosing a category when adding a subscription](shot:categories "Pick the category on the Add or Edit screen.")
+
 When you add a subscription in RenewRadar, the subscription tracker app for Android, suggestions for popular services fill in the category for you. You can always change it.
 
 ## The Stats screen

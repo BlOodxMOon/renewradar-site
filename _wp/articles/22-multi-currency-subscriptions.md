@@ -38,6 +38,8 @@ In RenewRadar, the subscription tracker app for Android, every subscription has 
 - You can type **any other three-letter code**, such as SGD, MXN or BRL.
 - A **default currency** in Settings is filled in for new subscriptions.
 
+![Choosing the currency for a subscription](shot:currency "Each subscription has its own currency. Tap one, or type any three-letter code.")
+
 Prices are stored exactly as you enter them, and reminders show the amount in the original currency, so the notification matches the charge on your statement.
 
 When you use more than one currency, RenewRadar shows a **separate monthly and yearly total for each currency** instead of guessing a rate. Spending by category on the Stats screen works the same way.

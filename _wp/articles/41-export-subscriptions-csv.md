@@ -26,6 +26,8 @@ CSV stands for comma-separated values. It is a plain text format that every spre
 
 ![Steps to export your list](fig:a)
 
+![Export data as CSV in RenewRadar Settings](shot:settings-export "In Settings, Export data as CSV is under RenewRadar Pro.")
+
 The file goes only where you send it. RenewRadar does not upload it anywhere by itself.
 
 ## What is included

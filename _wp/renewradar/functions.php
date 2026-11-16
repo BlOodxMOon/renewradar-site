@@ -221,6 +221,15 @@ add_action( 'wp_footer', function () {
 /* Assets                                                              */
 /* ------------------------------------------------------------------ */
 
+/** A step screenshot (assets/img/steps/NAME.jpg, 640x444) for instruction cards. */
+function rr_step_shot( $name, $alt ) {
+	return sprintf(
+		'<figure class="step-shot"><img src="%s" alt="%s" width="640" height="444" loading="lazy" decoding="async"></figure>',
+		esc_url( rr_asset( 'img/steps/' . $name . '.jpg' ) ),
+		esc_attr( $alt )
+	);
+}
+
 function rr_asset( $path ) {
 	return get_template_directory_uri() . '/assets/' . ltrim( $path, '/' );
 }

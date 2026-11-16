@@ -47,9 +47,9 @@ $rr_tick = function ( $b, $t ) {
 			<h2>Three steps, about a minute per subscription.</h2>
 		</div>
 		<div class="grid-3 reveal">
-			<div class="card"><div class="dot">1</div><h3>Add it</h3><p>Type a name and pick from suggestions for popular services. Set the price, currency, billing cycle and next charge date.</p></div>
-			<div class="card"><div class="dot">2</div><h3>Choose your reminders</h3><p>14, 7, 3 or 1 day before, or on the day. Every subscription can have its own timing<?php echo rr_loud_alarm_live() ? ', and a loud alarm for the charges you must not miss' : ''; ?>.</p></div>
-			<div class="card"><div class="dot">3</div><h3>Decide in time</h3><p>Keep it, pause it or mark it cancelled. Renewal dates roll forward on their own.</p></div>
+			<div class="card"><?php echo rr_step_shot( 'add', 'The New subscription screen with the Service name search box highlighted' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><div class="dot">1</div><h3>Add it</h3><p>Type a name and pick from suggestions for popular services. Set the price, currency, billing cycle and next charge date.</p></div>
+			<div class="card"><?php echo rr_step_shot( 'reminders', 'The Reminders card with Same day, 1 day and 3 days selected' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><div class="dot">2</div><h3>Choose your reminders</h3><p>14, 7, 3 or 1 day before, or on the day. Every subscription can have its own timing<?php echo rr_loud_alarm_live() ? ', and a loud alarm for the charges you must not miss' : ''; ?>.</p></div>
+			<div class="card"><?php echo rr_step_shot( 'decide', 'The Edit, Pause and Mark as cancelled buttons on a subscription' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><div class="dot">3</div><h3>Decide in time</h3><p>Keep it, pause it or mark it cancelled. Renewal dates roll forward on their own.</p></div>
 		</div>
 	</div>
 </section>

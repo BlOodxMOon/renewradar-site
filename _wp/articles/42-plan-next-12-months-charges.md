@@ -41,6 +41,8 @@ It answers questions like:
 
 ![Steps to use the 12-month view](fig:b)
 
+![The next 12 months report in RenewRadar](shot:reports "Detailed reports: expected charges for the next 12 months, month by month.")
+
 ### Spot the peaks early
 
 A yearly renewal you notice three months ahead is a decision. One you notice on the day is a surprise.

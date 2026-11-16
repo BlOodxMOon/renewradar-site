@@ -26,6 +26,19 @@ const PAGES = {
   '/guides/subscription-audit/': ['The 20-minute subscription audit', 'Find every subscription you pay for and decide what stays.'],
 };
 
+// Phone screenshots made by renewradar-promo/render-steps.mjs, used as ![alt](shot:name "caption").
+const imgDir = join(outDir, 'img');
+function jpegSize(file) {
+  const b = readFileSync(file);
+  for (let i = 2; i < b.length; ) {
+    const marker = b[i + 1];
+    const len = b.readUInt16BE(i + 2);
+    if (marker >= 0xc0 && marker <= 0xc3) return { width: b.readUInt16BE(i + 7), height: b.readUInt16BE(i + 5) };
+    i += 2 + len;
+  }
+  throw new Error(file + ': no JPEG size found');
+}
+
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const slugify = (s) => s.toLowerCase().replace(/<[^>]+>/g, '').replace(/&[a-z]+;/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -58,6 +71,12 @@ function markdown(md, slug, figures) {
       figures[key].used = true;
       const cap = m[3] ? `<figcaption>${inline(m[3])}</figcaption>` : '';
       out.push(`<figure class="fig"><img src="{{articles}}/img/${slug}-${key}.jpg" alt="${esc(m[1])}" width="1200" height="675" loading="lazy" decoding="async">${cap}</figure>`);
+      i++;
+    } else if ((m = line.match(/^!\[([^\]]*)\]\(shot:([a-z0-9-]+)(?: "([^"]+)")?\)$/))) {
+      const file = join(imgDir, `shot-${m[2]}.jpg`);
+      const { width, height } = jpegSize(file);
+      const cap = m[3] ? `<figcaption>${inline(m[3])}</figcaption>` : '';
+      out.push(`<figure class="fig fig-shot"><img src="{{articles}}/img/shot-${m[2]}.jpg" alt="${esc(m[1])}" width="${width}" height="${height}" loading="lazy" decoding="async">${cap}</figure>`);
       i++;
     } else if (line.startsWith('> ')) {
       const buf = [];
