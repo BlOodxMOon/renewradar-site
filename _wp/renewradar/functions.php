@@ -328,6 +328,7 @@ add_action( 'wp_head', function () {
 	<?php endif; ?>
 	<meta name="google-site-verification" content="j1CO1LTKK34j4kRKD7CKyY3hLCw61mzQaFAs1GppANA" />
 	<meta name="p:domain_verify" content="b068f9104d1014fda2aec741d7b00072" />
+	<meta name="msvalidate.01" content="C6AC75D9628403518367B9F86F55779E" />
 	<?php if ( 'festive' === $mode ) : ?>
 	<meta name="theme-color" content="#13284b">
 	<?php else : ?>
