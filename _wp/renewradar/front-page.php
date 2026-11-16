@@ -54,25 +54,64 @@ $rr_tick = function ( $b, $t ) {
 	</div>
 </section>
 
-<section class="section" id="reminders">
+<section class="section rmd" id="reminders">
 	<div class="wrap">
 		<div class="section-head reveal">
 			<p class="tag">Reminders</p>
 			<h2>Make sure reminders reach you.</h2>
-			<p>Reminders are scheduled on your phone, so they work offline. Check them once after you install.</p>
+			<p>Reminders are scheduled on your phone, so they work offline. A one-minute check after you install tells you they will arrive.</p>
 		</div>
-		<div class="grid-3 reveal">
-			<div class="card"><?php echo rr_step_shot( 'test-buttons', 'The Send a test reminder and Send a test loud alarm buttons in Settings' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><div class="dot">1</div><h3>Send a test reminder</h3><p>Open Settings (the gear on Home) and tap <b>Send a test reminder</b> under Notifications. Allow notifications if your phone asks.</p></div>
-			<div class="card"><div class="dot">2</div><h3>Lock your phone</h3><p>The test arrives in about 10 seconds. Leave the app or lock the screen to see it the way real reminders appear, at 9:00 on the days you chose.</p></div>
-			<div class="card"><?php echo rr_step_shot( 'battery', 'Allow background usage turned on in the app battery settings' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><div class="dot">3</div><h3>Nothing arrived?</h3><p>Turn on notifications for RenewRadar in your phone settings. On Android, open App info, Battery, and choose <b>No restrictions</b> or turn on <b>Allow background usage</b>, because some phones pause background reminders.</p></div>
-		</div>
+		<ol class="rmd-steps reveal">
+			<li class="rmd-step">
+				<div class="rmd-media"><?php echo rr_step_shot( 'test-buttons', 'The Send a test reminder and Send a test loud alarm buttons in Settings' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+				<div class="rmd-body">
+					<span class="rmd-num" aria-hidden="true">1</span>
+					<p class="rmd-kicker">In RenewRadar</p>
+					<h3>Send a test reminder</h3>
+					<p>Open <b>Settings</b> (the gear on Home) and tap <b>Send a test reminder</b> under Notifications. Allow notifications if your phone asks.</p>
+				</div>
+			</li>
+			<li class="rmd-step">
+				<div class="rmd-media rmd-lock" aria-hidden="true">
+					<span class="rmd-time">9:00</span>
+					<span class="rmd-date">On your lock screen</span>
+					<span class="rmd-notif">
+						<img src="<?php echo esc_url( rr_asset( 'img/icon.png' ) ); ?>" alt="" width="40" height="40" loading="lazy">
+						<span><small>RenewRadar &middot; now</small><b>RenewRadar test reminder</b>Reminders are working on this phone.</span>
+					</span>
+					<span class="rmd-timer"><?php echo rr_icon( 'clock' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>Arrives in about 10 seconds</span>
+				</div>
+				<div class="rmd-body">
+					<span class="rmd-num" aria-hidden="true">2</span>
+					<p class="rmd-kicker">Then wait 10 seconds</p>
+					<h3>Lock your phone</h3>
+					<p>Leave the app or lock the screen. The test shows up the way real reminders do, at 9:00 on the days you chose, even offline.</p>
+				</div>
+			</li>
+			<li class="rmd-step rmd-step-help">
+				<div class="rmd-media"><?php echo rr_step_shot( 'battery', 'Allow background usage turned on in the app battery settings' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+				<div class="rmd-body">
+					<span class="rmd-num" aria-hidden="true">3</span>
+					<p class="rmd-kicker">Only if nothing arrived</p>
+					<h3>Let it run in the background</h3>
+					<p>Turn on notifications for RenewRadar in your phone settings. Then open <b>App info</b>, <b>Battery</b>, and choose <b>No restrictions</b> or turn on <b>Allow background usage</b>. Some phones pause apps to save battery.</p>
+				</div>
+			</li>
+		</ol>
 		<?php if ( rr_loud_alarm_live() ) : ?>
-		<div class="card reveal loud-card" style="margin-top:18px">
-			<div>
-			<h3 style="margin-top:0">Loud alarm for the charges you must not miss</h3>
-			<p>Edit a subscription and turn on <b>Loud alarm</b> in the Reminders card. Its last reminder then rings at alarm volume, even in silent mode, until you tap or dismiss it, and opens a full-screen view where you choose <b>I cancelled it</b> (moves it to Cancelled), <b>Keep paying for it</b> (stays active) or <b>Remind me in 1 hour</b>. Try it with <b>Send a test loud alarm</b> in Settings. Do Not Disturb still silences it unless you allow RenewRadar in your phone&rsquo;s Do Not Disturb settings. Free for everyone.</p>
+		<div class="rmd-loud reveal">
+			<div class="rmd-loud-text">
+				<p class="rmd-badge">New &middot; Free for everyone</p>
+				<h3>A loud alarm for the charges you must not miss.</h3>
+				<p>Edit a subscription and turn on <b>Loud alarm</b>. Its last reminder rings at alarm volume, even in silent mode, until you tap or dismiss it. Then a full-screen view asks what you want to do:</p>
+				<ul class="rmd-choices">
+					<li class="is-cancel"><b>I cancelled it</b><span>Moves it to Cancelled and stops its reminders.</span></li>
+					<li class="is-keep"><b>Keep paying for it</b><span>It stays active. You are reminded before the next charge.</span></li>
+					<li class="is-later"><b>Remind me in 1 hour</b><span>Not sure yet? It rings again later.</span></li>
+				</ul>
+				<p class="rmd-note">Try it with <b>Send a test loud alarm</b> in Settings. Do Not Disturb still silences it unless you allow RenewRadar there.</p>
 			</div>
-			<div class="loud-shots">
+			<div class="rmd-loud-shots">
 				<?php echo rr_step_shot( 'loud-switch', 'The Loud alarm switch turned on in the Reminders card', 569 ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				<?php echo rr_step_shot( 'due-screen', 'The full-screen alarm with I cancelled it, Keep it after the trial and Remind me in 1 hour', 1369 ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			</div>
