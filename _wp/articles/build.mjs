@@ -126,7 +126,7 @@ for (const { file, meta, body } of parsed) {
     delete v.used;
     images.push({ id: `${meta.slug}-${k}`, kind: 'figure', props: { figure: v } });
   }
-  images.push({ id: `${meta.slug}-cover`, kind: 'cover', props: { cover: { title: meta.coverTitle ?? meta.title, ...meta.cover } } });
+  images.push({ id: `${meta.slug}-cover`, kind: 'cover', props: { cover: { title: meta.coverTitle ?? meta.title, ...meta.cover, tone: meta.tag } } });
   const related = (meta.related ?? []).filter((r) => {
     if (r.startsWith('/') || bySlug[r]) return true;
     console.warn(`${file}: related article ${r} does not exist yet, skipped`);

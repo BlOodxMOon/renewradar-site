@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RenewRadar Core
  * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, the first-run content import and the scheduled articles.
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4

@@ -52,7 +52,8 @@
    "cover": {
     "title": "Why you need a subscription tracker app",
     "kicker": "Subscription tracker app",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Why RenewRadar"
    }
   }
  },
@@ -104,7 +105,8 @@
    "cover": {
     "title": "7 reasons to install RenewRadar",
     "kicker": "Why RenewRadar",
-    "screen": "trial"
+    "screen": "trial",
+    "tone": "Why RenewRadar"
    }
   }
  },
@@ -160,7 +162,8 @@
    "cover": {
     "title": "How free trials turn into charges",
     "kicker": "Free trials",
-    "screen": "trial"
+    "screen": "trial",
+    "tone": "Free trials"
    }
   }
  },
@@ -229,7 +232,8 @@
    "cover": {
     "title": "Why RenewRadar never asks for your bank login",
     "kicker": "Private by design",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Privacy"
    }
   }
  },
@@ -302,7 +306,8 @@
    "cover": {
     "title": "Manual vs bank-linked subscription trackers",
     "kicker": "Compare",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Compare"
    }
   }
  },
@@ -359,7 +364,8 @@
    "cover": {
     "title": "How much do you really spend on subscriptions?",
     "kicker": "Money",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Money"
    }
   }
  },
@@ -404,7 +410,8 @@
    "cover": {
     "title": "Set up RenewRadar in 5 minutes",
     "kicker": "Getting started",
-    "screen": "home"
+    "screen": "home",
+    "tone": "How to"
    }
   }
  },
@@ -474,7 +481,8 @@
    "cover": {
     "title": "Black Friday free trials without the year of charges",
     "kicker": "Black Friday",
-    "screen": "trial"
+    "screen": "trial",
+    "tone": "Seasonal"
    }
   }
  },
@@ -543,7 +551,8 @@
    "cover": {
     "title": "Why one reminder is not enough",
     "kicker": "Subscription reminders",
-    "screen": "trial"
+    "screen": "trial",
+    "tone": "Reminders"
    }
   }
  },
@@ -583,7 +592,8 @@
    "cover": {
     "title": "Why free trials deserve their own countdown",
     "kicker": "Free trial tracker",
-    "screen": "trial"
+    "screen": "trial",
+    "tone": "Free trials"
    }
   }
  },
@@ -666,7 +676,8 @@
    "cover": {
     "title": "A subscription tracker should not be a subscription",
     "kicker": "Fair pricing",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Why RenewRadar"
    }
   }
  },
@@ -711,7 +722,8 @@
    "cover": {
     "title": "RenewRadar Free vs Pro",
     "kicker": "Free and Pro",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Why RenewRadar"
    }
   }
  },
@@ -763,7 +775,8 @@
    "cover": {
     "title": "Cyber Monday annual plans: worth it?",
     "kicker": "Cyber Monday",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Seasonal"
    }
   }
  },
@@ -845,7 +858,8 @@
    "cover": {
     "title": "Monthly vs yearly subscriptions",
     "kicker": "Money",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Money"
    }
   }
  },
@@ -904,7 +918,8 @@
    "cover": {
     "title": "Make sure reminders reach you on Android",
     "kicker": "Android tips",
-    "screen": "trial"
+    "screen": "trial",
+    "tone": "How to"
    }
   }
  },
@@ -977,7 +992,8 @@
    "cover": {
     "title": "Subscription tracker app vs spreadsheet",
     "kicker": "Compare",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Compare"
    }
   }
  },
@@ -1056,7 +1072,8 @@
    "cover": {
     "title": "Why calendar reminders are not enough",
     "kicker": "Compare",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Compare"
    }
   }
  },
@@ -1126,7 +1143,8 @@
    "cover": {
     "title": "Google Play lists my subscriptions. Why a tracker?",
     "kicker": "Compare",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Compare"
    }
   }
  },
@@ -1208,7 +1226,8 @@
    "cover": {
     "title": "9 things to look for in a subscription tracker app",
     "kicker": "Buyer's guide",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Compare"
    }
   }
  },
@@ -1253,7 +1272,8 @@
    "cover": {
     "title": "A subscription tracker with no account",
     "kicker": "Private by design",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Privacy"
    }
   }
  },
@@ -1306,7 +1326,8 @@
    "cover": {
     "title": "Why your subscription tracker should work offline",
     "kicker": "Offline-first",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Privacy"
    }
   }
  },
@@ -1365,7 +1386,8 @@
    "cover": {
     "title": "Subscriptions in more than one currency",
     "kicker": "Multi-currency",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Money"
    }
   }
  },
@@ -1421,7 +1443,8 @@
    "cover": {
     "title": "Charged after a free trial? What to do next",
     "kicker": "Free trials",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Free trials"
    }
   }
  },
@@ -1475,7 +1498,8 @@
    "cover": {
     "title": "What happens when the intro price ends",
     "kicker": "Intro offers",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Money"
    }
   }
  },
@@ -1537,7 +1561,8 @@
    "cover": {
     "title": "Free trial lengths explained",
     "kicker": "Free trials",
-    "screen": "trial"
+    "screen": "trial",
+    "tone": "Free trials"
    }
   }
  },
@@ -1581,7 +1606,8 @@
    "cover": {
     "title": "Why we forget to cancel subscriptions",
     "kicker": "Good habits",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Habits"
    }
   }
  },
@@ -1629,7 +1655,8 @@
    "cover": {
     "title": "8 signs of subscription fatigue",
     "kicker": "Good habits",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Habits"
    }
   }
  },
@@ -1688,7 +1715,8 @@
    "cover": {
     "title": "10 ways to cut subscription costs",
     "kicker": "Save money",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Money"
    }
   }
  },
@@ -1743,7 +1771,8 @@
    "cover": {
     "title": "Subscription rotation: one service at a time",
     "kicker": "Save money",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Money"
    }
   }
  },
@@ -1782,7 +1811,8 @@
    "cover": {
     "title": "How to notice subscription price increases",
     "kicker": "Money",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Money"
    }
   }
  },
@@ -1832,7 +1862,8 @@
    "cover": {
     "title": "Holiday streaming without paying for everything",
     "kicker": "Holiday season",
-    "screen": "trial"
+    "screen": "trial",
+    "tone": "Seasonal"
    }
   }
  },
@@ -1895,7 +1926,8 @@
    "cover": {
     "title": "What happens when a gift subscription ends",
     "kicker": "Holiday season",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Seasonal"
    }
   }
  },
@@ -1952,7 +1984,8 @@
    "cover": {
     "title": "Holiday free trials end in January",
     "kicker": "Holiday season",
-    "screen": "trial"
+    "screen": "trial",
+    "tone": "Seasonal"
    }
   }
  },
@@ -1996,7 +2029,8 @@
    "cover": {
     "title": "Shared and family subscriptions: who pays?",
     "kicker": "Family plans",
-    "screen": "home"
+    "screen": "home",
+    "tone": "How to"
    }
   }
  },
@@ -2050,7 +2084,8 @@
    "cover": {
     "title": "Separate work and personal subscriptions",
     "kicker": "Work and business",
-    "screen": "home"
+    "screen": "home",
+    "tone": "How to"
    }
   }
  },
@@ -2098,7 +2133,8 @@
    "cover": {
     "title": "Forgotten subscriptions: 9 places they hide",
     "kicker": "Find hidden charges",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "Money"
    }
   }
  },
@@ -2147,7 +2183,8 @@
    "cover": {
     "title": "Weekly subscriptions cost more than you think",
     "kicker": "Money",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Money"
    }
   }
  },
@@ -2235,7 +2272,8 @@
    "cover": {
     "title": "Pause or cancel a subscription?",
     "kicker": "How to",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "How to"
    }
   }
  },
@@ -2297,7 +2335,8 @@
    "cover": {
     "title": "Your subscription year in review",
     "kicker": "Year in review",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Habits"
    }
   }
  },
@@ -2382,7 +2421,8 @@
    "cover": {
     "title": "Is RenewRadar safe?",
     "kicker": "Privacy and safety",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Privacy"
    }
   }
  },
@@ -2429,7 +2469,8 @@
    "cover": {
     "title": "Export your subscriptions to a spreadsheet",
     "kicker": "RenewRadar Pro",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "How to"
    }
   }
  },
@@ -2494,7 +2535,8 @@
    "cover": {
     "title": "Your next 12 months of charges",
     "kicker": "RenewRadar Pro",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "RenewRadar Pro"
    }
   }
  },
@@ -2561,7 +2603,8 @@
    "cover": {
     "title": "Subscriptions by category",
     "kicker": "Money",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Money"
    }
   }
  },
@@ -2602,7 +2645,8 @@
    "cover": {
     "title": "Subscriptions on a student budget",
     "kicker": "Students",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Money"
    }
   }
  },
@@ -2648,7 +2692,8 @@
    "cover": {
     "title": "Freelancers: keep software subscriptions under control",
     "kicker": "Freelancers",
-    "screen": "stats"
+    "screen": "stats",
+    "tone": "Work"
    }
   }
  },
@@ -2698,7 +2743,8 @@
    "cover": {
     "title": "The new year subscription reset",
     "kicker": "New year",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Habits"
    }
   }
  },
@@ -2766,7 +2812,8 @@
    "cover": {
     "title": "Google Play, Apple or the website?",
     "kicker": "How to",
-    "theme": "sea"
+    "theme": "sea",
+    "tone": "How to"
    }
   }
  },
@@ -2810,7 +2857,8 @@
    "cover": {
     "title": "Switched from iPhone to Android?",
     "kicker": "New phone",
-    "screen": "home"
+    "screen": "home",
+    "tone": "How to"
    }
   }
  },
@@ -2872,7 +2920,8 @@
    "cover": {
     "title": "Keep a record of cancelled subscriptions",
     "kicker": "Good habits",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Habits"
    }
   }
  },
@@ -2944,7 +2993,8 @@
    "cover": {
     "title": "RenewRadar FAQ",
     "kicker": "Questions and answers",
-    "screen": "home"
+    "screen": "home",
+    "tone": "Why RenewRadar"
    }
   }
  }
