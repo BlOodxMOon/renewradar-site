@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RenewRadar Core
  * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, the first-run content import and the scheduled articles.
- * Version: 1.1.4
+ * Version: 1.1.5
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4
@@ -377,14 +377,27 @@ add_action( 'init', 'rr_migrate', 20 );
 
 function rr_migrate() {
 	$done = (int) get_option( 'rr_migration', 0 );
-	if ( $done >= 3 ) {
+	if ( $done >= 4 ) {
 		return;
 	}
 	if ( $done < 2 ) {
 		rr_migrate_2();
 	}
-	rr_migrate_3();
-	update_option( 'rr_migration', 3 );
+	if ( $done < 3 ) {
+		rr_migrate_3();
+	}
+	rr_migrate_4();
+	update_option( 'rr_migration', 4 );
+}
+
+// 4: covers for the original guides, which were imported before articles had covers.
+function rr_migrate_4() {
+	foreach ( array( 'subscription-audit', 'cancel-google-play-subscription', 'cancel-free-trial-before-charged' ) as $slug ) {
+		$post = get_page_by_path( $slug, OBJECT, 'post' );
+		if ( $post && ! get_post_meta( $post->ID, 'rr_cover', true ) ) {
+			update_post_meta( $post->ID, 'rr_cover', 'img/' . $slug . '-cover.jpg' );
+		}
+	}
 }
 
 // 3: keyword landing pages for subscription and renewal reminders, and retuned titles for two pages.

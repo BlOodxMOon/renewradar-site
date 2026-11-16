@@ -713,14 +713,18 @@ function rr_article( $post_id ) {
 	list( $html, $toc ) = rr_toc( $content );
 	$show_toc         = count( $toc ) >= 3;
 	echo '<div class="wrap article' . ( $show_toc ? '' : ' no-toc' ) . '">';
+	$toc_mobile = '';
 	if ( $show_toc ) {
-		echo '<nav class="toc" aria-label="On this page"><p>On this page</p><ol>';
-		foreach ( $toc as $t ) {
-			echo '<li><a href="#' . esc_attr( $t[0] ) . '">' . esc_html( $t[1] ) . '</a></li>';
+		$items = '';
+		foreach ( $toc as $i => $t ) {
+			$items .= '<li><a href="#' . esc_attr( $t[0] ) . '"><span class="toc-n">' . sprintf( '%02d', $i + 1 ) . '</span><span class="toc-t">' . esc_html( $t[1] ) . '</span></a></li>';
 		}
-		echo '</ol></nav>';
+		$icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3"/><circle cx="4.5" cy="12" r="1.3"/><circle cx="4.5" cy="18" r="1.3"/></svg>';
+		echo '<nav class="toc" aria-label="On this page"><p class="toc-head">' . $icon . 'On this page</p><div class="toc-bar" aria-hidden="true"><span></span></div><ol>' . $items . '</ol></nav>'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above.
+		// Phones and tablets hide the sidebar, so the same list opens from a box above the article.
+		$toc_mobile = '<details class="toc-m"><summary>' . $icon . 'On this page <small>' . count( $toc ) . ' sections</small></summary><ol>' . $items . '</ol></details>';
 	}
-	echo '<div class="prose">' . $html . rr_related_html( $post_id ) . '</div></div>'; // phpcs:ignore WordPress.Security.EscapeOutput -- post content.
+	echo '<div class="prose">' . $toc_mobile . $html . rr_related_html( $post_id ) . '</div></div>'; // phpcs:ignore WordPress.Security.EscapeOutput -- post content.
 }
 
 // Old Classic content uses class names the editor would otherwise strip on save; allow them.

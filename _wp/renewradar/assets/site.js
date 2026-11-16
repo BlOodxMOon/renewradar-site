@@ -199,6 +199,37 @@
   highlight('.toc a', function () {
     return 140;
   });
+
+  // Reading progress bar in On this page, and the phone version closes after a section is picked.
+  var tocBar = document.querySelector('.toc-bar span');
+  var proseBox = document.querySelector('.article .prose');
+  if (tocBar && proseBox) {
+    var progressTick = false;
+    var progress = function () {
+      progressTick = false;
+      var r = proseBox.getBoundingClientRect();
+      var total = r.height - window.innerHeight * 0.6;
+      var p = total > 0 ? Math.min(1, Math.max(0, (140 - r.top) / total)) : 1;
+      tocBar.style.transform = 'scaleX(' + p.toFixed(3) + ')';
+    };
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!progressTick) {
+          progressTick = true;
+          requestAnimationFrame(progress);
+        }
+      },
+      { passive: true }
+    );
+    progress();
+  }
+  [].slice.call(document.querySelectorAll('.toc-m a')).forEach(function (a) {
+    a.addEventListener('click', function () {
+      var box = a.closest('details');
+      if (box) box.open = false;
+    });
+  });
   highlight('.dots a', function () {
     return window.innerHeight * 0.45;
   });

@@ -2900,15 +2900,34 @@ a.card:focus-visible .go {
 
 .prose blockquote {
   margin: 1.6em 0;
-  padding: 4px 0 4px 20px;
-  border-left: 3px solid var(--sea-3);
+  padding: 16px 22px;
+  border-radius: 16px;
+  background: var(--bg-2);
+  box-shadow: 0 0 0 1px var(--line);
   color: var(--ink-2);
 }
 
+/* Tip box: a soft outline all round and a small info badge, no side stripe. */
 .note {
-  padding: 18px 22px 18px 24px;
+  position: relative;
+  padding: 18px 22px 18px 60px;
   background: linear-gradient(120deg, var(--blip-soft), color-mix(in srgb, var(--blip-soft) 55%, var(--sea-1)));
-  box-shadow: inset 4px 0 0 var(--blip);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--blip) 35%, transparent), 0 12px 28px -22px color-mix(in srgb, var(--blip) 70%, transparent);
+}
+
+.note::before {
+  content: "i";
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--blip);
+  color: #2a1a00;
+  font: 800 15px/1 Georgia, "Times New Roman", serif;
 }
 
 .table-wrap {
@@ -2932,49 +2951,163 @@ tbody tr:hover {
   box-shadow: 0 0 0 6px color-mix(in srgb, var(--brand) 12%, transparent), var(--shadow);
 }
 
-/* On this page */
+/* On this page: numbered sections, a reading progress bar, and a box above the article on small screens. */
 
 .toc {
-  padding: 20px 14px 16px;
-  border-radius: 20px;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  padding: 18px 12px 14px;
+  border-radius: 22px;
   background: var(--surface);
   box-shadow: 0 0 0 1px var(--line), var(--shadow);
+  scrollbar-width: thin;
 }
 
-.toc p {
-  margin: 0 0 10px 12px;
+.toc .toc-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px 10px;
+  color: var(--ink-3);
   font-size: 12.5px;
-  letter-spacing: 0.06em;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.toc a {
-  position: relative;
-  padding-left: 22px;
+.toc-head svg,
+.toc-m summary svg {
+  width: 16px;
+  height: 16px;
+  color: var(--brand);
+}
+
+.toc-bar {
+  height: 4px;
+  margin: 0 10px 12px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.toc-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brand), var(--blip));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s linear;
+}
+
+.toc ol,
+.toc-m ol {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc a,
+.toc-m a {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  border-radius: 12px;
+  color: var(--ink-2);
   font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
 }
 
-.toc a::before {
-  content: '';
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  width: 5px;
-  height: 5px;
-  margin-top: -2.5px;
-  border-radius: 50%;
-  background: var(--line-2);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+.toc-n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  min-width: 28px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--bg-2);
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.toc a:hover::before,
-.toc a.on::before {
-  background: var(--brand);
-  transform: scale(1.5);
+.toc a:hover,
+.toc-m a:hover {
+  color: var(--ink);
+  background: var(--bg-2);
 }
 
 .toc a.on {
+  color: var(--ink);
   font-weight: 700;
+  background: var(--brand-soft);
+}
+
+.toc a:hover .toc-n,
+.toc a.on .toc-n,
+.toc-m a:hover .toc-n {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+.toc-m {
+  display: none;
+  margin: 0 0 28px;
+  border-radius: 18px;
+  background: var(--bg-2);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.toc-m summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.toc-m summary::-webkit-details-marker {
+  display: none;
+}
+
+.toc-m summary small {
+  margin-left: auto;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+.toc-m summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-left: 6px;
+  border-right: 2px solid var(--ink-3);
+  border-bottom: 2px solid var(--ink-3);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+.toc-m[open] summary::after {
+  transform: rotate(-135deg) translateY(-2px);
+}
+
+.toc-m ol {
+  padding: 0 8px 10px;
+}
+
+@media (max-width: 900px) {
+  .toc-m {
+    display: block;
+  }
 }
 
 /* Keep reading, inside the paper card */
@@ -4260,8 +4393,8 @@ tbody tr:hover {
 .rmd-loud {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 34px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
   align-items: center;
   margin-top: 30px;
   padding: 38px;
@@ -4376,30 +4509,43 @@ tbody tr:hover {
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* The alarm screen is the main picture, in a phone frame; the switch card overlaps its lower left. */
 .rmd-loud-shots {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  align-items: start;
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin-left: auto;
+  padding-left: 150px;
 }
 
 .rmd-loud-shots .step-shot {
   margin: 0;
-  border-radius: 18px;
-  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .rmd-loud-shots .step-shot img {
   aspect-ratio: auto;
 }
 
-.rmd-loud-shots .step-shot:first-child {
-  margin-top: 44px;
-  transform: rotate(-3deg);
+.rmd-loud-shots .step-shot:last-child {
+  padding: 9px;
+  border-radius: 38px;
+  background: #0a0920;
+  box-shadow: 0 50px 90px -34px rgba(0, 0, 0, 0.8), inset 0 0 0 2px rgba(255, 255, 255, 0.06);
 }
 
-.rmd-loud-shots .step-shot:last-child {
-  transform: rotate(2deg);
+.rmd-loud-shots .step-shot:last-child img {
+  border-radius: 30px;
+}
+
+.rmd-loud-shots .step-shot:first-child {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  width: 186px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 34px 60px -22px rgba(0, 0, 0, 0.75);
 }
 
 @media (max-width: 900px) {
@@ -4428,7 +4574,13 @@ tbody tr:hover {
   }
 
   .rmd-loud-shots {
-    max-width: 440px;
+    max-width: 420px;
+    margin: 0 auto;
+    padding-left: 110px;
+  }
+
+  .rmd-loud-shots .step-shot:first-child {
+    width: 150px;
   }
 }
 
