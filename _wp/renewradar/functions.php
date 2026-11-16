@@ -225,7 +225,8 @@ add_action( 'wp_footer', function () {
 function rr_step_shot( $name, $alt, $height = 444 ) {
 	return sprintf(
 		'<figure class="step-shot"><img src="%s" alt="%s" width="640" height="%d" loading="lazy" decoding="async"></figure>',
-		esc_url( rr_asset( 'img/steps/' . $name . '.jpg' ) ),
+		// The file time is added so a replaced screenshot is not served from the browser cache.
+		esc_url( add_query_arg( 'ver', rr_asset_ver( 'img/steps/' . $name . '.jpg' ), rr_asset( 'img/steps/' . $name . '.jpg' ) ) ),
 		esc_attr( $alt ),
 		(int) $height
 	);
