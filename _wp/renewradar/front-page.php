@@ -36,6 +36,8 @@ $rr_tick = function ( $b, $t ) {
 	</div>
 </section>
 
+<?php echo rr_sale_section(); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside. ?>
+
 <?php echo rr_video_section(); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside. ?>
 
 <section class="section" id="how">
@@ -46,8 +48,27 @@ $rr_tick = function ( $b, $t ) {
 		</div>
 		<div class="grid-3 reveal">
 			<div class="card"><div class="dot">1</div><h3>Add it</h3><p>Type a name and pick from suggestions for popular services. Set the price, currency, billing cycle and next charge date.</p></div>
-			<div class="card"><div class="dot">2</div><h3>Choose your reminders</h3><p>14, 7, 3 or 1 day before, or on the day. Every subscription can have its own timing.</p></div>
+			<div class="card"><div class="dot">2</div><h3>Choose your reminders</h3><p>14, 7, 3 or 1 day before, or on the day. Every subscription can have its own timing, and a loud alarm for the charges you must not miss.</p></div>
 			<div class="card"><div class="dot">3</div><h3>Decide in time</h3><p>Keep it, pause it or mark it cancelled. Renewal dates roll forward on their own.</p></div>
+		</div>
+	</div>
+</section>
+
+<section class="section" id="reminders">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<p class="tag">Reminders</p>
+			<h2>Make sure reminders reach you.</h2>
+			<p>Reminders are scheduled on your phone, so they work offline. Check them once after you install.</p>
+		</div>
+		<div class="grid-3 reveal">
+			<div class="card"><div class="dot">1</div><h3>Send a test reminder</h3><p>Open Settings (the gear on Home) and tap <b>Send a test reminder</b> under Notifications. Allow notifications if your phone asks.</p></div>
+			<div class="card"><div class="dot">2</div><h3>Lock your phone</h3><p>The test arrives in about 10 seconds. Leave the app or lock the screen to see it the way real reminders appear, at 9:00 on the days you chose.</p></div>
+			<div class="card"><div class="dot">3</div><h3>Nothing arrived?</h3><p>Turn on notifications for RenewRadar in your phone settings. On Android, also set RenewRadar&rsquo;s battery use to <b>No restrictions</b>, because some phones pause background reminders.</p></div>
+		</div>
+		<div class="card reveal" style="margin-top:18px">
+			<h3 style="margin-top:0">Loud alarm for the charges you must not miss</h3>
+			<p>Edit a subscription and turn on <b>Loud alarm</b> in the Reminders card. Its last reminder then rings at alarm volume, even in silent mode, until you tap or dismiss it, and opens a full-screen view: <b>I cancelled it</b>, <b>Keep it</b> or <b>Remind me in 1 hour</b>. Try it with <b>Send a test loud alarm</b> in Settings. Do Not Disturb still silences it unless you allow RenewRadar in your phone&rsquo;s Do Not Disturb settings. Free for everyone.</p>
 		</div>
 	</div>
 </section>
@@ -132,7 +153,11 @@ $rr_tick = function ( $b, $t ) {
 				<span class="plan-badge">Best value. Pay once</span>
 				<h3>Pro</h3>
 				<p class="fine">Everything in Free, without the limit.</p>
+				<?php if ( rr_sale_active() ) : ?>
+				<p class="price"><?php echo esc_html( RR_SALE_PRICE ); ?> <small>one time, Christmas price until Dec 31 (was US$9.99)</small></p>
+				<?php else : ?>
 				<p class="price">US$9.99 <small>one time</small></p>
+				<?php endif; ?>
 				<ul class="ticks">
 					<li>Unlimited subscriptions and trials</li>
 					<li>Detailed reports for the next 12 months</li>
@@ -160,11 +185,15 @@ $rr_tick = function ( $b, $t ) {
 	$rr_dots = array(
 		'top'      => 'Top',
 		'how'      => 'How it works',
+		'reminders' => 'Reminders',
 		'features' => 'Features',
 		'private'  => 'Privacy',
 		'pricing'  => 'Pricing',
 		'faq'      => 'Questions',
 	);
+	if ( rr_sale_active() ) {
+		$rr_dots = array_slice( $rr_dots, 0, 1, true ) + array( 'sale' => 'Christmas sale' ) + array_slice( $rr_dots, 1, null, true );
+	}
 	if ( get_theme_mod( 'rr_video_id', '' ) ) {
 		$rr_dots = array_slice( $rr_dots, 0, 1, true ) + array( 'video' => 'Video' ) + array_slice( $rr_dots, 1, null, true );
 	}

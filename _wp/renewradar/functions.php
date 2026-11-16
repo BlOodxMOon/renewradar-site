@@ -111,6 +111,47 @@ function rr_video_section() {
 }
 
 /* ------------------------------------------------------------------ */
+/* Christmas sale (Pro at the sale price; matches the RevenueCat rule)  */
+/* ------------------------------------------------------------------ */
+
+const RR_SALE_START = '2026-12-01';
+const RR_SALE_END   = '2026-12-31';
+const RR_SALE_PRICE = 'US$5.99';
+
+/** True from the first to the last sale day, in the site's time zone. Turns itself on and off. */
+function rr_sale_active() {
+	$today = current_time( 'Y-m-d' );
+	return $today >= RR_SALE_START && $today <= RR_SALE_END;
+}
+
+/** Home page sale section with the 16:9 sale video (served from the theme, no YouTube), or ''. */
+function rr_sale_section() {
+	if ( ! rr_sale_active() ) {
+		return '';
+	}
+	ob_start();
+	?>
+<section class="section section-video section-sale" id="sale">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<p class="tag">Christmas sale</p>
+			<h2>RenewRadar Pro is 40% off until December 31.</h2>
+			<p>Pay once, keep it for life: unlimited subscriptions, detailed reports and CSV export, now <?php echo esc_html( RR_SALE_PRICE ); ?> instead of US$9.99.</p>
+		</div>
+		<div class="video reveal">
+			<video class="sale-video" controls playsinline preload="none" width="1280" height="720" poster="<?php echo esc_url( rr_asset( 'img/sale-poster.jpg' ) ); ?>">
+				<source src="<?php echo esc_url( rr_asset( 'video/christmas-sale.mp4' ) ); ?>" type="video/mp4">
+			</video>
+		</div>
+		<p class="center" style="margin-top:22px"><?php echo rr_play(); // phpcs:ignore WordPress.Security.EscapeOutput ?></p>
+		<p class="fine center video-note">US price shown. Google Play shows the sale price in your local currency.</p>
+	</div>
+</section>
+	<?php
+	return ob_get_clean();
+}
+
+/* ------------------------------------------------------------------ */
 /* Cookieless analytics (Cloudflare Web Analytics)                     */
 /* ------------------------------------------------------------------ */
 
