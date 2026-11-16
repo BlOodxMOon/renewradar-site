@@ -28,7 +28,7 @@ rr_page_hero(
 			<?php
 		endwhile;
 		?>
-		<a class="card card-cover" href="<?php echo esc_url( home_url( '/subscription-cost-calculator/' ) ); ?>"><img class="card-img" src="<?php echo esc_url( rr_asset( 'img/calculator-cover.jpg' ) ); ?>" alt="" width="1200" height="630" loading="lazy" decoding="async"><p class="card-meta">Free tool</p><h3>Subscription cost calculator</h3><p>A free tool that shows what your subscriptions cost per month, per year and over five years.</p><span class="go">Open &rarr;</span></a>
+		<a class="card card-cover" href="<?php echo esc_url( home_url( '/subscription-cost-calculator/' ) ); ?>"><img class="card-img" src="<?php echo esc_url( add_query_arg( 'ver', rr_asset_ver( 'img/calculator-cover.jpg' ), rr_asset( 'img/calculator-cover.jpg' ) ) ); ?>" alt="" width="1200" height="630" loading="lazy" decoding="async"><p class="card-meta">Free tool</p><h3>Subscription cost calculator</h3><p>A free tool that shows what your subscriptions cost per month, per year and over five years.</p><span class="go">Open &rarr;</span></a>
 	</div>
 	<?php
 	the_posts_pagination(

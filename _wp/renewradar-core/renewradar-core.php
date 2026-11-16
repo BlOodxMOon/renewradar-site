@@ -519,7 +519,13 @@ function rr_articles_sync() {
 /** Cover image URL of an article (1200x630), or an empty string. */
 function rr_article_cover( $post_id ) {
 	$path = get_post_meta( $post_id, 'rr_cover', true );
-	return $path ? plugins_url( 'articles/' . $path, __FILE__ ) : '';
+	if ( ! $path ) {
+		return '';
+	}
+	// The file time is added so a re-rendered cover is not served from the browser cache.
+	$file = plugin_dir_path( __FILE__ ) . 'articles/' . $path;
+	$url  = plugins_url( 'articles/' . $path, __FILE__ );
+	return file_exists( $file ) ? add_query_arg( 'ver', filemtime( $file ), $url ) : $url;
 }
 
 // WP-Cron only runs on visits and can miss a scheduled time; publish anything overdue.
