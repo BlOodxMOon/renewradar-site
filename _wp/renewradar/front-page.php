@@ -62,14 +62,17 @@ $rr_tick = function ( $b, $t ) {
 			<p>Reminders are scheduled on your phone, so they work offline. Check them once after you install.</p>
 		</div>
 		<div class="grid-3 reveal">
-			<div class="card"><div class="dot">1</div><h3>Send a test reminder</h3><p>Open Settings (the gear on Home) and tap <b>Send a test reminder</b> under Notifications. Allow notifications if your phone asks.</p></div>
+			<div class="card"><?php echo rr_step_shot( 'test-buttons', 'The Send a test reminder and Send a test loud alarm buttons in Settings' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><div class="dot">1</div><h3>Send a test reminder</h3><p>Open Settings (the gear on Home) and tap <b>Send a test reminder</b> under Notifications. Allow notifications if your phone asks.</p></div>
 			<div class="card"><div class="dot">2</div><h3>Lock your phone</h3><p>The test arrives in about 10 seconds. Leave the app or lock the screen to see it the way real reminders appear, at 9:00 on the days you chose.</p></div>
-			<div class="card"><div class="dot">3</div><h3>Nothing arrived?</h3><p>Turn on notifications for RenewRadar in your phone settings. On Android, also set RenewRadar&rsquo;s battery use to <b>No restrictions</b>, because some phones pause background reminders.</p></div>
+			<div class="card"><?php echo rr_step_shot( 'battery', 'Allow background usage turned on in the app battery settings' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><div class="dot">3</div><h3>Nothing arrived?</h3><p>Turn on notifications for RenewRadar in your phone settings. On Android, open App info, Battery, and choose <b>No restrictions</b> or turn on <b>Allow background usage</b>, because some phones pause background reminders.</p></div>
 		</div>
 		<?php if ( rr_loud_alarm_live() ) : ?>
-		<div class="card reveal" style="margin-top:18px">
+		<div class="card reveal loud-card" style="margin-top:18px">
+			<div>
 			<h3 style="margin-top:0">Loud alarm for the charges you must not miss</h3>
 			<p>Edit a subscription and turn on <b>Loud alarm</b> in the Reminders card. Its last reminder then rings at alarm volume, even in silent mode, until you tap or dismiss it, and opens a full-screen view where you choose <b>I cancelled it</b> (moves it to Cancelled), <b>Keep paying for it</b> (stays active) or <b>Remind me in 1 hour</b>. Try it with <b>Send a test loud alarm</b> in Settings. Do Not Disturb still silences it unless you allow RenewRadar in your phone&rsquo;s Do Not Disturb settings. Free for everyone.</p>
+			</div>
+			<?php echo rr_step_shot( 'loud-switch', 'The Loud alarm switch turned on in the Reminders card', 569 ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		</div>
 		<?php endif; ?>
 	</div>

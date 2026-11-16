@@ -4016,3 +4016,26 @@ tbody tr:hover {
   border-radius: 18px;
   background: #f5f6fb;
 }
+
+/* Loud alarm card: text beside the screenshot. */
+
+.loud-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  gap: 26px;
+  align-items: center;
+}
+
+.loud-card .step-shot {
+  margin: 0;
+}
+
+.loud-card .step-shot img {
+  aspect-ratio: auto;
+}
+
+@media (max-width: 760px) {
+  .loud-card {
+    grid-template-columns: 1fr;
+  }
+}

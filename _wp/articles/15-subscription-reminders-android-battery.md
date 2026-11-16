@@ -32,6 +32,8 @@ Phones from Xiaomi, Redmi, POCO, OPPO, realme, vivo, OnePlus and Huawei are the 
 
 ![General steps to remove battery restrictions](fig:a)
 
+![Allow background usage turned on for RenewRadar](shot:battery "On this Xiaomi phone the setting is called Allow background usage. Turn it on.")
+
 This setting does not make RenewRadar use more battery. The app does almost nothing in the background. It only allows the phone to deliver the notifications that are already scheduled.
 
 ## Where the setting is on popular phones
@@ -48,7 +50,11 @@ On Xiaomi phones running HyperOS or MIUI, also check **Autostart** in the app's 
 
 ## Test it
 
-The simplest test is to add a test subscription with a renewal date tomorrow and a reminder **on the day**. Lock your phone, leave the app closed, and see whether the reminder arrives. Delete the test item afterwards.
+Open **Settings** in RenewRadar and tap **Send a test reminder** under Notifications. Lock your phone: the test arrives in about 10 seconds, the same way real reminders do. If you use **Loud alarm**, tap **Send a test loud alarm** as well, to hear how it rings.
+
+![The test buttons in RenewRadar Settings](shot:test-buttons "Settings, Notifications: send a test reminder or a test loud alarm.")
+
+For a full check, add a test subscription with a renewal date tomorrow and a reminder **on the day**, leave the app closed, and see whether it arrives at 9:00. Delete the test item afterwards.
 
 ## Do not use "Clear all" on recent apps for RenewRadar
 

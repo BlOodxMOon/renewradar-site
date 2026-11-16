@@ -221,12 +221,13 @@ add_action( 'wp_footer', function () {
 /* Assets                                                              */
 /* ------------------------------------------------------------------ */
 
-/** A step screenshot (assets/img/steps/NAME.jpg, 640x444) for instruction cards. */
-function rr_step_shot( $name, $alt ) {
+/** A step screenshot (assets/img/steps/NAME.jpg, 640 wide, 444 high unless given) for instruction cards. */
+function rr_step_shot( $name, $alt, $height = 444 ) {
 	return sprintf(
-		'<figure class="step-shot"><img src="%s" alt="%s" width="640" height="444" loading="lazy" decoding="async"></figure>',
+		'<figure class="step-shot"><img src="%s" alt="%s" width="640" height="%d" loading="lazy" decoding="async"></figure>',
 		esc_url( rr_asset( 'img/steps/' . $name . '.jpg' ) ),
-		esc_attr( $alt )
+		esc_attr( $alt ),
+		(int) $height
 	);
 }
 

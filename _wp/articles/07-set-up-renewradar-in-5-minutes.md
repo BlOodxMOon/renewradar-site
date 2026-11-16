@@ -69,6 +69,10 @@ Once your subscriptions are in, the top of Home shows your monthly and yearly to
 
 ## Make sure reminders reach you
 
+Check it once right away: open **Settings**, tap **Send a test reminder** and lock your phone. The test arrives in about 10 seconds.
+
+![The test buttons in RenewRadar Settings](shot:test-buttons "Settings, Notifications: send a test reminder or a test loud alarm.")
+
 Some Android phones, especially those with aggressive battery saving, can delay notifications from apps that are not opened often. If a reminder ever arrives late, set RenewRadar's battery usage to **Unrestricted** or **No restrictions** in your phone's app settings. Our guide on [making reminders reliable on Android](/guides/subscription-reminders-android-battery/) has the steps for common phone brands.
 
 ## What happens next
