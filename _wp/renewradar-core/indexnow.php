@@ -63,3 +63,43 @@ function rr_indexnow_send() {
 		) ),
 	) );
 }
+
+/**
+ * Sends URLs now and waits for the answer, for the Search tools page. Only this site's own addresses are
+ * accepted. Returns the number sent, the HTTP status and an error text when it failed.
+ *
+ * @param string[] $urls
+ * @return array{count:int,code:int,error:string}
+ */
+function rr_indexnow_submit( array $urls ) {
+	$host = (string) wp_parse_url( home_url(), PHP_URL_HOST );
+	$urls = array_values( array_unique( array_filter( $urls, function ( $u ) use ( $host ) {
+		return is_string( $u ) && wp_parse_url( $u, PHP_URL_HOST ) === $host;
+	} ) ) );
+	if ( ! $urls ) {
+		return array( 'count' => 0, 'code' => 0, 'error' => 'No addresses to send.' );
+	}
+	if ( wp_get_environment_type() !== 'production' ) {
+		return array( 'count' => 0, 'code' => 0, 'error' => 'Not sent: this is not the production site.' );
+	}
+	$urls     = array_slice( $urls, 0, 1000 );
+	$response = wp_remote_post( 'https://api.indexnow.org/indexnow', array(
+		'timeout' => 15,
+		'headers' => array( 'Content-Type' => 'application/json; charset=utf-8' ),
+		'body'    => wp_json_encode( array(
+			'host'        => $host,
+			'key'         => RR_INDEXNOW_KEY,
+			'keyLocation' => home_url( '/' . RR_INDEXNOW_KEY . '.txt' ),
+			'urlList'     => $urls,
+		) ),
+	) );
+	if ( is_wp_error( $response ) ) {
+		return array( 'count' => 0, 'code' => 0, 'error' => $response->get_error_message() );
+	}
+	$code = (int) wp_remote_retrieve_response_code( $response );
+	return array(
+		'count' => in_array( $code, array( 200, 202 ), true ) ? count( $urls ) : 0,
+		'code'  => $code,
+		'error' => in_array( $code, array( 200, 202 ), true ) ? '' : 'IndexNow answered HTTP ' . $code . '.',
+	);
+}

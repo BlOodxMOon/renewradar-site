@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RenewRadar Core
  * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, the first-run content import, the scheduled articles, site hardening and the Site views counter.
- * Version: 1.2.3
+ * Version: 1.3.0
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4
@@ -20,6 +20,7 @@ require __DIR__ . '/security.php';
 require __DIR__ . '/login-challenge.php';
 require __DIR__ . '/views.php';
 require __DIR__ . '/indexnow.php';
+require __DIR__ . '/search-tools.php';
 
 /** Categories and billing cycles the app understands. Keep in sync with src/lib/cycles.ts in the app. */
 function rr_categories() {
