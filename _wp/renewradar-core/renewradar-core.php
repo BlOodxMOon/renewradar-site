@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RenewRadar Core
  * Description: Service suggestions for the RenewRadar app (served at /presets.json), the /privacy.html and /terms.html addresses, the first-run content import, the scheduled articles, site hardening and the Site views counter.
- * Version: 1.3.0
+ * Version: 1.3.1
  * Author: Pixel DevCode
  * Author URI: https://pixeldevcode.com
  * Requires PHP: 7.4
@@ -21,6 +21,7 @@ require __DIR__ . '/login-challenge.php';
 require __DIR__ . '/views.php';
 require __DIR__ . '/indexnow.php';
 require __DIR__ . '/search-tools.php';
+require __DIR__ . '/extra-pages.php';
 
 /** Categories and billing cycles the app understands. Keep in sync with src/lib/cycles.ts in the app. */
 function rr_categories() {
@@ -383,7 +384,7 @@ add_action( 'init', 'rr_migrate', 20 );
 
 function rr_migrate() {
 	$done = (int) get_option( 'rr_migration', 0 );
-	if ( $done >= 6 ) {
+	if ( $done >= 7 ) {
 		return;
 	}
 	if ( $done < 2 ) {
@@ -398,8 +399,11 @@ function rr_migrate() {
 	if ( $done < 5 ) {
 		rr_migrate_5();
 	}
-	rr_migrate_6();
-	update_option( 'rr_migration', 6 );
+	if ( $done < 6 ) {
+		rr_migrate_6();
+	}
+	rr_migrate_7();
+	update_option( 'rr_migration', 7 );
 }
 
 // 6: privacy policy explains that Android backup can include the app's data in the user's own Google backup.

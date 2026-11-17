@@ -27,10 +27,11 @@ $rr_cols = array(
 		array( '/bobby-alternative-android/', 'Bobby for Android' ),
 	),
 	'Company'          => array(
-		array( 'https://pixeldevcode.com', 'Pixel DevCode' ),
+		array( '/about/', 'About' ),
+		array( '/contact/', 'Contact' ),
 		array( '/privacy.html', 'Privacy policy' ),
 		array( '/terms.html', 'Terms of service' ),
-		array( 'mailto:' . RR_EMAIL, 'Contact' ),
+		array( 'https://pixeldevcode.com', 'Pixel DevCode' ),
 	),
 );
 ?>

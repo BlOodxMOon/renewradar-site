@@ -337,7 +337,7 @@ add_action( 'wp_head', function () {
 	<meta name="theme-color" content="#0d0c20" media="(prefers-color-scheme: dark)">
 	<?php endif; ?>
 	<meta property="og:type" content="<?php echo is_single() ? 'article' : 'website'; ?>">
-	<meta property="og:site_name" content="RenewRadar Subscription Tracker">
+	<meta property="og:site_name" content="RenewRadar">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:title" content="<?php echo esc_attr( $title ); ?>">
 	<meta property="og:description" content="<?php echo esc_attr( $desc ); ?>">
@@ -412,9 +412,11 @@ function rr_schema() {
 		$out[] = array(
 			'@context'  => 'https://schema.org',
 			'@type'     => 'WebSite',
-			'name'      => 'RenewRadar',
-			'url'       => home_url( '/' ),
-			'publisher' => array( '@type' => 'Organization', 'name' => 'Pixel DevCode' ),
+			'name'          => 'RenewRadar',
+			'alternateName' => array( 'RenewRadar Subscription Tracker' ),
+			'url'           => home_url( '/' ),
+			'inLanguage'    => 'en',
+			'publisher'     => array( '@type' => 'Organization', 'name' => 'Pixel DevCode' ),
 		);
 		$out[] = array(
 			'@context' => 'https://schema.org',
