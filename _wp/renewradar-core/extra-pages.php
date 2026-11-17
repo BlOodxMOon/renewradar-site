@@ -19,7 +19,7 @@ function rr_extra_pages() {
 		. '<h2 id="pricing">Free and Pro</h2>'
 		. '<p>You can track up to five active subscriptions and free trials for free, with reminders, trial countdowns and totals. Pro is a one-time purchase through Google Play, with no subscription, and it removes the limit and adds detailed reports and CSV export.</p>'
 		. '<h2 id="who">Who makes it</h2>'
-		. '<p>RenewRadar is made and published by <a href="https://pixeldevcode.com">Pixel DevCode</a>. It is available for Android on <a href="' . $play . '">Google Play</a>. Questions and ideas are welcome on the <a href="/contact/">contact page</a>.</p>';
+		. '<p>RenewRadar, sometimes written Renew Radar, is made and published by <a href="https://pixeldevcode.com">Pixel DevCode</a>. RenewRadar by Pixel DevCode is available for Android on <a href="' . $play . '">Google Play</a>. Questions and ideas are welcome on the <a href="/contact/">contact page</a>.</p>';
 
 	$contact = '<h2 id="email">Email</h2>'
 		. '<p>Write to <a href="mailto:renewradar@pixeldevcode.com">renewradar@pixeldevcode.com</a> for help with the app, bug reports, questions about Pro, or ideas for new features.</p>'
@@ -39,7 +39,7 @@ function rr_extra_pages() {
 			'template'    => '',
 			'legal'       => false,
 			'title'       => 'About RenewRadar',
-			'seoTitle'    => 'About RenewRadar: A Private Subscription Tracker',
+			'seoTitle'    => 'About RenewRadar by Pixel DevCode | Subscription Tracker',
 			'description' => 'RenewRadar is a private subscription and free trial tracker for Android by Pixel DevCode. No account, no bank login, and your data stays on your phone.',
 			'tag'         => 'About',
 			'lede'        => 'A private subscription and free trial tracker for Android, made by Pixel DevCode.',
@@ -55,7 +55,7 @@ function rr_extra_pages() {
 			'template'    => '',
 			'legal'       => false,
 			'title'       => 'Contact RenewRadar',
-			'seoTitle'    => 'Contact and Support | RenewRadar',
+			'seoTitle'    => 'Contact RenewRadar by Pixel DevCode | Support',
 			'description' => 'Contact RenewRadar support by email for help with the app, bug reports, Pro purchase questions and feature ideas.',
 			'tag'         => 'Contact',
 			'lede'        => 'Questions, bug reports and feature ideas are welcome.',

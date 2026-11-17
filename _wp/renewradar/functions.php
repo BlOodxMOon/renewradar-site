@@ -298,7 +298,7 @@ function rr_current_id() {
 
 function rr_description() {
 	if ( is_front_page() ) {
-		return 'RenewRadar is a subscription tracker and free trial reminder app for Android. Reminders before every charge, no bank login, free for 5.';
+		return 'RenewRadar by Pixel DevCode is a subscription tracker and free trial reminder app for Android. Reminders before every charge, no bank login.';
 	}
 	$id = rr_current_id();
 	if ( $id ) {
@@ -396,7 +396,7 @@ function rr_schema() {
 			'@context'            => 'https://schema.org',
 			'@type'               => 'MobileApplication',
 			'name'                => 'RenewRadar: Subscriptions',
-			'alternateName'       => array( 'RenewRadar Subscription Tracker', 'RenewRadar Subscription Reminder' ),
+			'alternateName'       => array( 'RenewRadar Subscription Tracker', 'RenewRadar Subscription Reminder', 'RenewRadar by Pixel DevCode', 'Renew Radar by Pixel DevCode' ),
 			'identifier'          => 'com.pixeldevcode.renewradar',
 			'operatingSystem'     => 'ANDROID',
 			'applicationCategory' => 'FinanceApplication',
@@ -413,7 +413,7 @@ function rr_schema() {
 			'@context'  => 'https://schema.org',
 			'@type'     => 'WebSite',
 			'name'          => 'RenewRadar',
-			'alternateName' => array( 'RenewRadar Subscription Tracker' ),
+			'alternateName' => array( 'RenewRadar Subscription Tracker', 'RenewRadar by Pixel DevCode' ),
 			'url'           => home_url( '/' ),
 			'inLanguage'    => 'en',
 			'publisher'     => array( '@type' => 'Organization', 'name' => 'Pixel DevCode' ),
@@ -424,6 +424,7 @@ function rr_schema() {
 			'name'     => 'Pixel DevCode',
 			'url'      => 'https://pixeldevcode.com',
 			'logo'     => rr_asset( 'img/icon.png' ),
+			'brand'    => array( '@type' => 'Brand', 'name' => 'RenewRadar' ),
 			'email'    => RR_EMAIL,
 		);
 		$out[] = rr_faq_schema( rr_home_faq() );
@@ -651,6 +652,7 @@ function rr_home_faq() {
 		array( 'Will reminders arrive if I do not open the app?', 'Yes. Reminders are scheduled as notifications on your phone, so they work without the app open and without internet. Some Android phones with strict battery saving can delay them; allowing notifications and setting RenewRadar to unrestricted battery use fixes that.' ),
 		array( 'Which currencies does it support?', 'Any currency with a three-letter code. USD, EUR, GBP, CAD, AUD, PHP, INR and JPY are one tap away. When you track more than one currency, totals are shown per currency, because RenewRadar does not guess exchange rates.' ),
 		array( 'Is RenewRadar related to Renew Radar or Renewal Radar?', 'No. RenewRadar, written as one word, is a subscription tracker and reminder app for Android made by Pixel DevCode. On Google Play it is listed as RenewRadar: Subscriptions (app ID com.pixeldevcode.renewradar), and this site is its only website. It is not affiliated with renewradar.com, which is an SSL certificate monitoring service, or with other apps that have similar names.' ),
+		array( 'Who makes RenewRadar?', 'RenewRadar, sometimes written Renew Radar, is made by Pixel DevCode. RenewRadar by Pixel DevCode is a private subscription tracker and free trial reminder app for Android, and its Google Play listing is RenewRadar: Subscriptions.' ),
 		array( 'Is there an iPhone version?', 'Not yet. RenewRadar is available for Android on Google Play first.' ),
 		array( 'What happens to my list if I change phones?', 'Your list stays on the old phone because nothing is synced to a server. Pro users can export a CSV copy at any time. Pro itself is linked to your Google account, so Restore purchase brings it back on a new phone.' ),
 	);
