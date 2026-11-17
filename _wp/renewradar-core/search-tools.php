@@ -182,7 +182,7 @@ add_action( 'admin_post_rr_keywords_refresh', function () {
 } );
 
 function rr_search_table( $title, $rows, $first ) {
-	echo '<table class="widefat striped" style="max-width:520px"><thead><tr><th>' . esc_html( $first ) . '</th><th style="width:70px">Uses</th><th style="width:70px">Pages</th></tr></thead><tbody>';
+	echo '<table class="widefat striped rr-sortable" style="max-width:520px"><thead><tr><th>' . esc_html( $first ) . '</th><th style="width:70px">Uses</th><th style="width:70px">Pages</th></tr></thead><tbody>';
 	if ( ! $rows ) {
 		echo '<tr><td colspan="3">Nothing to show yet.</td></tr>';
 	}
@@ -218,7 +218,7 @@ function rr_search_page() {
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<input type="hidden" name="action" value="rr_reindex">
 			<?php wp_nonce_field( 'rr_reindex' ); ?>
-			<table class="widefat striped" style="max-width:860px"><thead><tr><td class="check-column"></td><th>Page</th><th>Address</th></tr></thead><tbody>
+			<table class="widefat striped rr-sortable" style="max-width:860px"><thead><tr><td class="check-column"></td><th>Page</th><th>Address</th></tr></thead><tbody>
 			<?php foreach ( $rows as $r ) : ?>
 				<tr>
 					<th class="check-column"><input type="checkbox" name="urls[]" value="<?php echo esc_attr( $r['url'] ); ?>"></th>
@@ -261,3 +261,40 @@ function rr_search_page() {
 	</div>
 	<?php
 }
+
+/* Click a column heading to sort that table; click again to reverse. Numbers sort as numbers. */
+add_action( 'admin_footer', function () {
+	$screen = get_current_screen();
+	if ( ! $screen || false === strpos( (string) $screen->id, 'rr-search' ) ) {
+		return;
+	}
+	?>
+	<style>.rr-sortable th[aria-sort]{cursor:pointer;user-select:none}.rr-sortable th[aria-sort]:after{content:"\2195";opacity:.4;margin-left:6px}.rr-sortable th[aria-sort="ascending"]:after{content:"\25B2";opacity:1}.rr-sortable th[aria-sort="descending"]:after{content:"\25BC";opacity:1}</style>
+	<script>
+	document.querySelectorAll('table.rr-sortable').forEach(function (table) {
+		var heads = table.querySelectorAll('thead th');
+		heads.forEach(function (th, index) {
+			if (th.classList.contains('check-column')) { return; }
+			th.setAttribute('aria-sort', 'none');
+			th.setAttribute('tabindex', '0');
+			var sort = function () {
+				var dir = th.getAttribute('aria-sort') === 'ascending' ? -1 : 1;
+				heads.forEach(function (h) { if (h.hasAttribute('aria-sort')) { h.setAttribute('aria-sort', 'none'); } });
+				th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
+				var body = table.tBodies[0];
+				var rows = Array.prototype.slice.call(body.rows);
+				var cell = function (row) { return row.cells[index].textContent.trim(); };
+				var numeric = rows.every(function (r) { return cell(r) !== '' && !isNaN(Number(cell(r))); });
+				rows.sort(function (a, b) {
+					var x = cell(a), y = cell(b);
+					return dir * (numeric ? Number(x) - Number(y) : x.localeCompare(y, undefined, { sensitivity: 'base' }));
+				});
+				rows.forEach(function (r) { body.appendChild(r); });
+			};
+			th.addEventListener('click', sort);
+			th.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sort(); } });
+		});
+	});
+	</script>
+	<?php
+} );
